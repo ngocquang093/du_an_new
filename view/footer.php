@@ -515,6 +515,7 @@
 <script src="libs/slider/js/jquery.slider.js"></script>
 <script src="libs/elevatezoom/js/jquery.elevatezoom.js"></script>
 <script src="libs/select2/js/select2.min.js"></script>
+
 <!-- Site Scripts -->
 <script src="assets/js/app.js"></script>
 <script src="assets/js/login.js"></script>

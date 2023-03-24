@@ -31259,4 +31259,113 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
   opacity: 0.8;
 }
 
+:root {
+  --border-color: rgba(145, 158, 171, 0.24);
+  --placeholder-color: rgba(145, 158, 171, 1);
+  --text-color: rgba(33, 43, 54, 1);
+  --submit-color: rgba(0, 171, 85, 1);
+  --table-header-color: rgba(244, 246, 248, 1);
+  --table-header-text-color: rgba(99, 115, 129, 1);
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+  align-items: center
+}
+
+.table-product-btn-status {
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  width: fit-content;
+  background-color: rgba(54, 179, 126, 0.16);
+  color: rgba(27, 128, 106, 1);
+}
+
+.content-bill {
+  width: 1080px;
+  padding: 40px;
+  background: #FFFFFF;
+  /* Transparent/Grey/12% */
+
+  border: 1px solid rgba(145, 158, 171, 0.12);
+  /* Shadows/Light/Shadows/Light/Card */
+
+  box-shadow: 0px 0px 2px rgba(145, 158, 171, 0.2), 0px 12px 24px -4px rgba(145, 158, 171, 0.12);
+  border-radius: 16px;
+
+  margin: 70px auto 70px;
+  color: rgba(33, 43, 54, 1);
+  font-size: 1.25rem;
+}
+
+.table-bill {
+  width: 100%;
+}
+
+.table-bill th,
+.table-bill td {
+  padding: 16px 0;
+}
+
+.table-bill thead tr,
+.table-bill tbody tr {
+  border-bottom: 2px solid var(--border-color);
+}
+
+.table-bill tr th:first-child {
+  text-align: center;
+}
+
+.table-bill thead th {
+  color: var(--table-header-text-color);
+}
+
+.table-bill .text-product {
+  font-style: normal;
+  line-height: 22px;
+}
+
+.text-product_main {
+  color: #212B36;
+  font-weight: 600;
+
+}
+
+.text-product_sub {
+  color: #637381;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.text-red {
+  color: #FF5630;
+}
+
+.table-bill tfoot tr:first-child td {
+  padding-top: 24px;
+}
+
+.table-bill tfoot td {
+  padding: 8px 0;
+}
+
+.table-bill tfoot tr:last-child {
+  border-bottom: 2px solid var(--border-color);
+}
+
+.table-bill tfoot tr:last-child td {
+  padding-bottom: 50px;
+}
+
+
+
+
 
