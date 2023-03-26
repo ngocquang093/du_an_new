@@ -962,3 +962,17 @@
 		</div><!-- #primary -->
 	</div><!-- #main-content -->
 </div>
+
+<script>
+	$(document).ready(function() {
+		showProductShop()
+	});
+
+	function quickView(id) {
+		// var quickViewEle = document.querySelector(".quickview-popup")
+		// var form_data = new FormData();
+		// form_data.append('id', id);
+
+		// $(".quickview-load").load("test.php")
+	}
+</script>

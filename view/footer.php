@@ -519,6 +519,7 @@
 <!-- Site Scripts -->
 <script src="assets/js/app.js"></script>
 <script src="assets/js/login.js"></script>
+<script src="assets/js/product.js"></script>
 
 </body>
 
