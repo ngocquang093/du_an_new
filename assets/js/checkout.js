@@ -44,6 +44,8 @@ function validateCheckout() {
         return
     }
 
+    console.log('a')
+
     var order_comments = $('textarea[name = "order_comments"]').val()
     var pttt = $('input[name = "payment_method"]:checked').val();
     var total = Number($('.order-total span').text().slice(1))
@@ -59,7 +61,7 @@ function validateCheckout() {
     let month = m[d.getMonth()];
     let year = d.getFullYear()
 
-    var ngay_dat_hang = date + ", " + month + ', ' + year
+    var ngay_dat_hang = date + "/" + month + '/' + year
 
     var form_data = new FormData();
 
@@ -80,10 +82,8 @@ function validateCheckout() {
         processData: false,
         data: form_data,
         success: function (suc) {
-            // var ms = JSON.parse(suc)
-            // console.log(ms)
-
-
+            var ma_don_hang = JSON.parse(suc)
+            window.location = '?act=bill&madonhang=' + ma_don_hang 
         }
     });
 }
@@ -95,7 +95,6 @@ $('.shipping-methods').click(function (e) {
 
 $(document).ready(function () {
     orderTotal()
-    validateCheckout()
 });
 
 

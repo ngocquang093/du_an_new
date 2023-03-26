@@ -188,9 +188,12 @@ if (isset($_GET['act'])) {
             foreach ($cart as $item) {
                 $ma_san_pham = $item['id'];
                 $so_luong = $item['qty'];
-                $gia = get_product($ma_san_pham)['don_gia'];
+                $pro = get_product($ma_san_pham);
+                $gia = ($pro['gia_khuyen_mai'] == -1) ? $pro['don_gia'] : $pro['gia_khuyen_mai'];
                 add_bill_detail($ma_don_hang, $ma_san_pham, $so_luong, $gia);
+                unset($_SESSION['cart']);
             }
+            echo_json($ma_don_hang);
         default:
     }
 } else {
