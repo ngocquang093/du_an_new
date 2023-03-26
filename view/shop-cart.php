@@ -66,10 +66,10 @@
 												<div>
 													<ul class="shipping-methods custom-radio">
 														<li>
-															<input type="radio" name="shipping_method" data-index="0" value="normal" class="shipping_method" checked="checked"><label>Giao bình thường</label>
+															<input type="radio" name="shipping_method" data-index="0" value="1" class="shipping_method" checked="checked"><label>Giao bình thường</label>
 														</li>
 														<li>
-															<input type="radio" name="shipping_method" data-index="0" value="fast" class="shipping_method"><label>Giao nhanh</label>
+															<input type="radio" name="shipping_method" data-index="0" value="2" class="shipping_method"><label>Giao nhanh</label>
 														</li>
 													</ul>
 													<p class="shipping-desc">
