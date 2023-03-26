@@ -25,6 +25,18 @@ if (isset($_GET['act'])) {
             echo_json($listPro);
             break;
 
+        case "listProShop":
+            $page = $_POST['page'];
+            $cate = $_POST['cate'];
+            $listPro = get_list_pro_shop($cate, $page);
+            echo_json($listPro);
+            break;
+
+        case "listCate":
+            $listCate = get_list_cate();
+            echo_json($listCate);
+            break;
+
         case "getPro":
             if (isset($_POST['id'])) {
                 $id = $_POST['id'];
@@ -88,6 +100,12 @@ if (isset($_GET['act'])) {
                 }
                 break;
             }
+            break;
+
+        case "getCountCate":
+            $ma_loai = $_POST['ma_loai'];
+            $so_luong = get_count_cate($ma_loai);
+            echo_json($so_luong);
             break;
 
         case "updateCart":

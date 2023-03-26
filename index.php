@@ -34,6 +34,12 @@ if (isset($_GET['act'])) {
             break;
 
         case "shop-grid-left":
+            if(isset($_GET['cate'])) $id_cate = $_GET['cate'];  
+            else $id_cate = 1;
+            if(isset($_GET['page'])) $page = $_GET['page'];
+            else $page = 1;
+            $listCate = get_list_cate();
+            $count = get_count_cate($id_cate);
             require "view/shop-grid-left.php";
             break;
 

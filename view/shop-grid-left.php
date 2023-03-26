@@ -5,11 +5,20 @@
 				<div class="section-container">
 					<div class="content-title-heading">
 						<h1 class="text-title-heading">
-							Bed &amp; Bath
+							<?php
+								$name_cate = "";
+								foreach ($listCate as $cate) {
+									extract($cate);
+									if ($id_cate == $ma_loai) {
+										$name_cate = $ten_loai;
+										echo $name_cate;
+									}
+								}
+							?>
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span>Bed &amp; Bath
+						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span><?= $name_cate ?>
 					</div>
 				</div>
 			</div>
@@ -27,24 +36,13 @@
 									<div class="block-content">
 										<div class="product-cats-list">
 											<ul>
-												<li class="current">
-													<a href="shop-grid-left.html">Bed & Bath <span class="count">9</span></a>
-												</li>
-												<li>
-													<a href="shop-grid-left.html">Furniture <span class="count">4</span></a>
-												</li>
-												<li>
-													<a href="shop-grid-left.html">Home Décor <span class="count">3</span></a>
-												</li>
-												<li>
-													<a href="shop-grid-left.html">Lighting <span class="count">6</span></a>
-												</li>
-												<li>
-													<a href="shop-grid-left.html">Office <span class="count">2</span></a>
-												</li>
-												<li>
-													<a href="shop-grid-left.html">Outdoor <span class="count">4</span></a>
-												</li>
+												<?php foreach ($listCate as $cate) : ?>
+													<?php extract($cate) ?>
+													<li <?php if ($id_cate == $ma_loai) echo 'class="current"' ?>>
+														<a href="?act=shop-grid-left&cate=<?= $ma_loai ?>&page=1"><?= $ten_loai ?> <span class="count"><?= $so_luong ?></span></a>
+													</li>
+												<?php endforeach; ?>
+
 											</ul>
 										</div>
 									</div>
@@ -167,7 +165,7 @@
 								<div class="products-topbar clearfix">
 									<div class="products-topbar-left">
 										<div class="products-count">
-											Showing all 21 results
+											Showing all <?= $count ?> results
 										</div>
 									</div>
 									<div class="products-topbar-right">

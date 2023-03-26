@@ -3,19 +3,29 @@ function showProductShop() {
     var productsList = tabContent.querySelector(".products-list")
     var row = productsList.querySelector(".row")
 
-    var form_data = new FormData();
-    form_data.append('st', 0);
-    form_data.append('step', 8);
+    var cate = getParameterByName('cate')
+    var page = getParameterByName('page')
+    if (cate == null || cate == "") {
+        cate = 1
+    }
 
+    if (page == null || page == "") {
+        page = 1
+    }
+
+    var form_data = new FormData();
+    form_data.append('cate', cate);
+    form_data.append('page', page);
+    pageNumber(page, cate)
     $.ajax({
-        url: "api/main.php?act=listPro", //Server api to receive the file
+        url: "api/main.php?act=listProShop", //Server api to receive the file
         type: "POST",
         dataType: 'script',
         cache: false,
         contentType: false,
         processData: false,
         data: form_data,
-        success: function(suc) {
+        success: function (suc) {
             var listPro = JSON.parse(suc)
             var listProHTML = ``
             listPro.forEach(e => {
@@ -31,7 +41,7 @@ function showProductShop() {
                                             <del aria-hidden="true"><span>$${price}</span></del>
                                             <ins><span>$${priceSale}</span></ins>
                                         </span>`
-                
+
                 listProHTML += `
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
                             <div class="products-entry clearfix product-wapper">
@@ -98,7 +108,7 @@ function showProduct() {
         contentType: false,
         processData: false,
         data: form_data,
-        success: function(suc) {
+        success: function (suc) {
             var listPro = JSON.parse(suc)
             var listProHTML = ``
             listPro.forEach(e => {
@@ -166,3 +176,87 @@ function showProduct() {
 
 }
 
+// function loadCateShop() {
+//     var listCateE = document.querySelector('.product-cats-list').querySelector('ul')
+
+//     $.ajax({
+//         url: "api/main.php?act=listCate", //Server api to receive the file
+//         type: "GET",
+//         cache: false,
+//         contentType: false,
+//         processData: false,
+//         success: function(suc) {
+//             var listCate = JSON.parse(suc)
+
+//             listCateHTML = ``
+
+//             listCate.forEach((i) => {
+//                 listCateHTML += `
+//                     <li class="current">
+//                         <a href="?act=shop-grid-left&cate=${i['ma_loai']}">${i['ten_loai']} <span class="count">${i['so_luong']}</span></a>
+//                     </li>
+//                 `
+//             })
+
+//             listCateE.innerHTML = listCateHTML
+//         }
+//     });
+// }
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function pageNumber(page, cate) {
+    var form_data = new FormData();
+    form_data.append('ma_loai', cate);
+
+    $.ajax({
+        url: "api/main.php?act=getCountCate", //Server api to receive the file
+        type: "POST",
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function (suc) {
+            var so_luong = JSON.parse(suc)
+            page = Number(page)
+            var maxPage = Math.ceil(so_luong / 9);
+            console.log(maxPage)
+            var pageNumberE = document.querySelector('.pagination').querySelector('ul')
+            var prev = `<li><a class="prev page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${(page -1) == 0 ? 1 : page -1}">Previous</a></li>`
+            var next = `<li><a class="next page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${(page +1) > maxPage ? page : page +1 }">Next</a></li>`
+            var current = `<li><span aria-current="page" class="page-numbers current">${page}</span></li>`
+            var before = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page -1}">${page -1}</a></li>`
+            var after = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page +1}">${page +1}</a></li>`
+            var after_after = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page +2}">${page +2}</a></li>`
+            var before_before = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page -2}">${page -2}</a></li>`
+            if(maxPage == 1) {
+                var pageNumberHTML = prev + current + next
+            } else if(page == 1 && maxPage == 2){
+                var pageNumberHTML = prev + current + after + next
+            } else if(page == 2 && maxPage == 2) {
+                var pageNumberHTML = prev + before +  current + next
+            } else if(page + 2 == maxPage) {
+                var pageNumberHTML = prev + current + after +after_after + next
+            } else if(page == maxPage) {
+                var pageNumberHTML = prev +  before_before +before + current + next
+            } else {
+                var pageNumberHTML = prev + before + current + after + next
+            }
+            
+
+            pageNumberE.innerHTML = pageNumberHTML
+
+        }
+    });
+
+
+
+}
