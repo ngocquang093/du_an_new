@@ -159,7 +159,14 @@ if (isset($_GET['act'])) {
             $list_user = user_all("",0);
             include 'user/list.php';
             break;
+        case 'hoadon':
+            
+            include 'hoadon.php';
+            break;
+
         default:
+
+
     }
     include "view/footer.php";
 } else {

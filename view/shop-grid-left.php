@@ -170,14 +170,14 @@
 									</div>
 									<div class="products-topbar-right">
 										<div class="products-sort dropdown">
-											<span class="sort-toggle dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Default sorting</span>
+											<span class="sort-toggle dropdown-toggle" data-toggle="dropdown" aria-expanded="true" value=0>Default sorting</span>
 											<ul class="sort-list dropdown-menu" x-placement="bottom-start">
-												<li class="active"><a href="#">Default sorting</a></li>
-												<li><a href="#">Sort by popularity</a></li>
-												<li><a href="#">Sort by average rating</a></li>
-												<li><a href="#">Sort by latest</a></li>
-												<li><a href="#">Sort by price: low to high</a></li>
-												<li><a href="#">Sort by price: high to low</a></li>
+												<li value="0"><a>Default sorting</a></li>
+												<li value="1"><a>Sort by price: low to high</a></li>
+												<li value="2"><a>Sort by price: high to low</a></li>
+												<!-- <li value="1"><a>Sort by popularity</a></li> -->
+												<!-- <li value="2"><a>Sort by average rating</a></li>
+												<li value="3"><a>Sort by latest</a></li> -->
 											</ul>
 										</div>
 										<ul class="layout-toggle nav nav-tabs">
@@ -966,11 +966,27 @@
 		showProductShop()
 	});
 
-	function quickView(id) {
-		// var quickViewEle = document.querySelector(".quickview-popup")
-		// var form_data = new FormData();
-		// form_data.append('id', id);
+	function test() {
+		var productsSort = document.querySelector('.products-sort');
+		var sortToggle = productsSort.querySelector('.sort-toggle')
+		var sortList = productsSort.querySelector('.sort-list')
+		var pageNumberE = document.querySelector('.pagination').querySelector('ul')
+		
 
-		// $(".quickview-load").load("test.php")
+		sortList.onclick = function(event) {
+			var eleClick = event.target
+			if(eleClick.querySelector('a') == null) {
+				eleClick = eleClick.parentElement
+			}
+			var id = eleClick.getAttribute('value')
+			var text = eleClick.querySelector('a').innerHTML
+			if(text != sortToggle.innerHTML) {
+				sortToggle.innerHTML = text
+				sortToggle.setAttribute('value', id)
+				showProductShop(id)
+			}
+		}
 	}
+	test()
+
 </script>

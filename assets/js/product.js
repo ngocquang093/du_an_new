@@ -1,4 +1,6 @@
-function showProductShop() {
+function showProductShop(sort, callback) {
+    if(!sort) var sort = 0
+    sort = Number(sort);
     var tabContent = document.querySelector('.tab-content')
     var productsList = tabContent.querySelector(".products-list")
     var row = productsList.querySelector(".row")
@@ -16,6 +18,7 @@ function showProductShop() {
     var form_data = new FormData();
     form_data.append('cate', cate);
     form_data.append('page', page);
+    form_data.append('sort', sort);
     pageNumber(page, cate)
     $.ajax({
         url: "api/main.php?act=listProShop", //Server api to receive the file
@@ -86,6 +89,7 @@ function showProductShop() {
             });
 
             row.innerHTML = listProHTML
+            if(callback) callback()
         }
     });
 
@@ -228,15 +232,16 @@ function pageNumber(page, cate) {
             var so_luong = JSON.parse(suc)
             page = Number(page)
             var maxPage = Math.ceil(so_luong / 9);
-            console.log(maxPage)
+            // console.log(maxPage)
+            // var sort = getParameterByName('sort');
             var pageNumberE = document.querySelector('.pagination').querySelector('ul')
-            var prev = `<li><a class="prev page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${(page -1) == 0 ? 1 : page -1}">Previous</a></li>`
-            var next = `<li><a class="next page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${(page +1) > maxPage ? page : page +1 }">Next</a></li>`
+            var prev = `<li><a class="prev page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${(page -1) == 0 ? 1 : page -1}">Previous</a></li>`
+            var next = `<li><a class="next page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${(page +1) > maxPage ? page : page +1 }">Next</a></li>`
             var current = `<li><span aria-current="page" class="page-numbers current">${page}</span></li>`
-            var before = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page -1}">${page -1}</a></li>`
-            var after = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page +1}">${page +1}</a></li>`
-            var after_after = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page +2}">${page +2}</a></li>`
-            var before_before = `<li><a class="page-numbers" href="?act=shop-grid-left&cate=${cate}&page=${page -2}">${page -2}</a></li>`
+            var before = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page -1}">${page -1}</a></li>`
+            var after = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page +1}">${page +1}</a></li>`
+            var after_after = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page +2}">${page +2}</a></li>`
+            var before_before = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page -2}">${page -2}</a></li>`
             if(maxPage == 1) {
                 var pageNumberHTML = prev + current + next
             } else if(page == 1 && maxPage == 2){
@@ -251,12 +256,11 @@ function pageNumber(page, cate) {
                 var pageNumberHTML = prev + before + current + after + next
             }
             
-
             pageNumberE.innerHTML = pageNumberHTML
 
+            
         }
     });
-
-
-
 }
+
+// function goPage

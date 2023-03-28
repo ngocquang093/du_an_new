@@ -28,7 +28,8 @@ if (isset($_GET['act'])) {
         case "listProShop":
             $page = $_POST['page'];
             $cate = $_POST['cate'];
-            $listPro = get_list_pro_shop($cate, $page);
+            $sort = $_POST['sort'];
+            $listPro = get_list_pro_shop($cate, $page, $sort);
             echo_json($listPro);
             break;
 

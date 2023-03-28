@@ -31363,6 +31363,10 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
   padding-bottom: 50px;
 }
 
+.btn-add-to-cart_ct .added {
+  display: none !important;
+}
+
 
 
 
