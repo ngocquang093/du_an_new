@@ -213,6 +213,36 @@ if (isset($_GET['act'])) {
                 unset($_SESSION['cart']);
             }
             echo_json($ma_don_hang);
+            break;
+        case "getListHoaDon":
+            $list_bill = get_list_bill();
+            echo_json($list_bill);
+            break;
+
+        case "updateTrangThai":
+            $ma_don_hang = $_POST['ma_don_hang'];
+            $trang_thai = $_POST['trang_thai'];
+            update_trang_thai($ma_don_hang, $trang_thai);
+            break;
+
+        case "updateBill":
+            $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'];
+            $dia_chi = $_POST['dia_chi'];
+            $so_dien_thoai = $_POST['so_dien_thoai'];
+            $ngay_dat_hang = $_POST['ngay_dat_hang'];
+            $ma_trang_thai = $_POST['ma_trang_thai'];
+            $pt_ship = $_POST['pt_ship'];
+            $ma_don_hang = $_POST['ma_don_hang'];
+            update_bill($ma_don_hang ,$ten_nguoi_nhan, $dia_chi, $so_dien_thoai, $ngay_dat_hang, $ma_trang_thai, $pt_ship);
+            break;
+
+        case "getTrangThai":
+            $ma_don_hang = $_POST['ma_don_hang'];
+            $trang_thai = get_trang_thai_bill($ma_don_hang);
+            echo_json($trang_thai);
+            break;
+
+        
         default:
     }
 } else {

@@ -28,12 +28,21 @@
   <meta property="og:description" content="Ultimate Multipurpose HTML Dashboard Kit">
   <meta property="og:site_name" content="Unity">
   <meta property="fb:admins" content="132951670226590">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,500;1,500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" media="all" href="css/app.css">
-    <link rel="stylesheet" href="styles/left.css">
-    <link rel="stylesheet" href="styles/content.css">
-    <link rel="stylesheet" href="styles/list.css">
-    <script src="https://kit.fontawesome.com/db2d8b65e2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles/left.css">
+  <link rel="stylesheet" href="styles/content.css">
+  <link rel="stylesheet" href="styles/list.css">
+  <link rel="stylesheet" href="css/toast.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script> -->
+  <!-- <script src="https://kit.fontawesome.com/db2d8b65e2.js" crossorigin="anonymous"></script> -->
   <script>
     var viewportmeta = document.querySelector('meta[name="viewport"]');
     if (viewportmeta) {
@@ -45,9 +54,12 @@
       }
     }
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 </head>
 
 <body>
+  <div id="toast"></div>
   <script>
     console.log(localStorage.getItem('darkMode'));
     if (localStorage.getItem('darkMode') === "on") {
@@ -57,7 +69,7 @@
       });
     }
   </script>
-  <div  class="page">
+  <div class="page">
     <div class="sidebar">
       <div class="sidebar__top"><button class="sidebar__close"><svg class="icon icon-close">
             <use xlink:href="img/sprite.svg#icon-close"></use>

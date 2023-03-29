@@ -1,3 +1,6 @@
+
+
+
 <div class="page__wrapper">
   <div class="page__center">
     <div class="page__row page__row_head">
@@ -127,398 +130,175 @@
               </div>
             </div> -->
       </div>
-      <div class="page__stat page__stat_pt32">
-        <div class="sorting">
-          <div class="sorting__row">
-            <div class="sorting__col">
-              <div class="sorting__dropdowns">
-                <div class="dropdown js-dropdown">
-                  <div class="dropdown__head js-dropdown-head">Last 30 days</div>
-                  <div class="dropdown__body js-dropdown-body"><a class="dropdown__item" href="#">
-                      <div class="dropdown__title title">Bento 3D Kit </div>
-                      <div class="dropdown__info caption">Illustration</div>
-                    </a><a class="dropdown__item" href="#">
-                      <div class="dropdown__title title">Bento 3D Kit </div>
-                      <div class="dropdown__info caption">Illustration</div>
-                    </a><a class="dropdown__item" href="#">
-                      <div class="dropdown__title title">Collab UI Kit </div>
-                      <div class="dropdown__info caption">Coded Template</div>
-                    </a></div>
+      <section class="list_products">
+
+        <div class="wrapper-table" style="margin-top: 0px;">
+            <div class="cot4">
+                <div class="dropdown">
+                    <a>
+                        <button class="dropbtn adc ">Trạng thái</button>
+                    </a>
+                    <div class="dropdown-content add">
+                        <?php
+                        // echo '<a href="index.php?act=list_user&id=1">Nhân viên</a>';
+                        // echo '<a href="index.php?act=list_user&id=2">Khách hàng</a>';
+                        ?>
+                    </div>
                 </div>
-                <div class="dropdown js-dropdown">
-                  <div class="dropdown__head js-dropdown-head">Aug 2020</div>
-                  <div class="dropdown__body js-dropdown-body"><a class="dropdown__item" href="#">
-                      <div class="dropdown__title title">Bento 3D Kit </div>
-                      <div class="dropdown__info caption">Illustration</div>
-                    </a><a class="dropdown__item" href="#">
-                      <div class="dropdown__title title">Bento 3D Kit </div>
-                      <div class="dropdown__info caption">Illustration</div>
-                    </a><a class="dropdown__item" href="#">
-                      <div class="dropdown__title title">Collab UI Kit </div>
-                      <div class="dropdown__info caption">Coded Template</div>
-                    </a></div>
-                </div>
-              </div>
+                <!-- <form method="POST" action="index.php?act=list_user">
+                    <div class="right3">
+                        <div class="cot22">
+                        <input id="id2" name="kyw" type="text" placeholder="Nhập tên người dùng">
+                            <button >
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form> -->
             </div>
-            <div class="sorting__col">
-              <div class="sorting__line">
-                <div class="sorting__search"><button class="sorting__open"><svg class="icon icon-search">
-                      <use xlink:href="img/sprite.svg#icon-search"></use>
-                    </svg></button><input class="sorting__input" type="text" placeholder="Search"></div>
-                <div class="sorting__actions"><button class="sorting__action"><svg class="icon icon-edit">
-                      <use xlink:href="img/sprite.svg#icon-edit"></use>
-                    </svg></button><button class="sorting__action"><svg class="icon icon-box">
-                      <use xlink:href="img/sprite.svg#icon-box"></use>
-                    </svg></button></div>
-              </div>
-            </div>
-          </div>
+
+            <table class="table-inform">
+                <thead style="text-align: center;">
+                    <th width="50px">Mã</th>
+                    <th width="150px">Tên người nhận</th>
+                    <th width="150px">Số điện thoại</th>
+                    <th width="150px">Địa chỉ</th>
+                    <th width="150px">Ngày đặt</th>
+                    <th width="100px">Số lượng</th>
+                    <th width="200px">Đơn giá</th>
+                    <th width="200px">Trạng thái</th>
+                    <th width="70px">Công cụ</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
-        <div class="products products_main">
-          <div class="products__table">
-            <div class="products__row products__row_head">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell">Product</div>
-              <div class="products__cell">Amount</div>
-              <div class="products__cell">Color</div>
-              <div class="products__cell">Price</div>
-              <div class="products__cell">Rating</div>
-            </div>
-            <div class="products__row">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell"><a class="products__item" href="#">
-                  <div class="products__preview"><img class="products__pic" src="img/product-pic.png" alt=""></div>
-                  <div class="products__details">
-                    <div class="products__title title">Abstract 3D Kit</div>
-                    <div class="products__info caption color-gray">3D Illustration</div>
-                  </div>
-                </a></div>
-              <div class="products__cell">
-                <div class="products__payment">37 in stock</div>
-              </div>
-              <div class="products__cell">
-                <div class="products__color">
-                  <div class="products__bg" style="background-color: #6C5DD3;"></div>
-                  <div class="products__text">Purple</div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__cost">
-                  <div class="products__money">$68.00</div>
-                  <div class="products__tooltip">
-                    <div class="products__sale">
-                      <div class="products__icon bg-red"><img class="products__pic" src="img/chat-black.svg" alt="">
-                      </div>
-                      <div class="products__caption caption-sm">Latest Sale</div>
-                    </div>
-                    <div class="products__price h3">$68</div>
-                    <div class="products__progress"><span style="width: 68%;"></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__rating"><span class="color-green">5.0</span> (45 votes)</div>
-              </div>
-            </div>
-            <div class="products__body">
-              <div class="products__bg" style="background-color: #6C5DD3;"></div>
-              <div class="products__line">
-                <div class="products__col">
-                  <div class="products__money">$68.45</div>
-                </div>
-                <div class="products__col">37 in stock</div>
-                <div class="products__col color-green">5.0</div>
-              </div>
-            </div>
-            <div class="products__row">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell"><a class="products__item" href="#">
-                  <div class="products__preview"><img class="products__pic" src="img/product-pic.png" alt=""></div>
-                  <div class="products__details">
-                    <div class="products__title title">Sapiens Illustration</div>
-                    <div class="products__info caption color-gray">3D Illustration</div>
-                  </div>
-                </a></div>
-              <div class="products__cell">
-                <div class="products__payment">37 in stock</div>
-              </div>
-              <div class="products__cell">
-                <div class="products__color">
-                  <div class="products__bg" style="background-color: #7FBA7A;"></div>
-                  <div class="products__text">Green</div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__cost">
-                  <div class="products__money">$68.00</div>
-                  <div class="products__tooltip">
-                    <div class="products__sale">
-                      <div class="products__icon bg-red"><img class="products__pic" src="img/chat-black.svg" alt="">
-                      </div>
-                      <div class="products__caption caption-sm">Latest Sale</div>
-                    </div>
-                    <div class="products__price h3">$68</div>
-                    <div class="products__progress"><span style="width: 68%;"></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__rating"><span class="color-green">5.0</span> (45 votes)</div>
-              </div>
-            </div>
-            <div class="products__body">
-              <div class="products__bg" style="background-color: #7FBA7A;"></div>
-              <div class="products__line">
-                <div class="products__col">
-                  <div class="products__money">$68.45</div>
-                </div>
-                <div class="products__col">37 in stock</div>
-                <div class="products__col color-green">5.0</div>
-              </div>
-            </div>
-            <div class="products__row">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell"><a class="products__item" href="#">
-                  <div class="products__preview"><img class="products__pic" src="img/product-pic.png" alt=""></div>
-                  <div class="products__details">
-                    <div class="products__title title">Collab Landing Page</div>
-                    <div class="products__info caption color-gray">3D Illustration</div>
-                  </div>
-                </a></div>
-              <div class="products__cell">
-                <div class="products__payment">37 in stock</div>
-              </div>
-              <div class="products__cell">
-                <div class="products__color">
-                  <div class="products__bg" style="background-color: #FFCE73;"></div>
-                  <div class="products__text">Yellow</div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__cost">
-                  <div class="products__money">$68.00</div>
-                  <div class="products__tooltip">
-                    <div class="products__sale">
-                      <div class="products__icon bg-red"><img class="products__pic" src="img/chat-black.svg" alt="">
-                      </div>
-                      <div class="products__caption caption-sm">Latest Sale</div>
-                    </div>
-                    <div class="products__price h3">$68</div>
-                    <div class="products__progress"><span style="width: 68%;"></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__rating"><span class="color-green">5.0</span> (45 votes)</div>
-              </div>
-            </div>
-            <div class="products__body">
-              <div class="products__bg" style="background-color: #FFCE73;"></div>
-              <div class="products__line">
-                <div class="products__col">
-                  <div class="products__money">$68.45</div>
-                </div>
-                <div class="products__col">37 in stock</div>
-                <div class="products__col color-green">5.0</div>
-              </div>
-            </div>
-            <div class="products__row">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell"><a class="products__item" href="#">
-                  <div class="products__preview"><img class="products__pic" src="img/product-pic.png" alt=""></div>
-                  <div class="products__details">
-                    <div class="products__title title">Abstract 3D Kit</div>
-                    <div class="products__info caption color-gray">3D Illustration</div>
-                  </div>
-                </a></div>
-              <div class="products__cell">
-                <div class="products__payment">37 in stock</div>
-              </div>
-              <div class="products__cell">
-                <div class="products__color">
-                  <div class="products__bg" style="background-color: #FFA2C0;"></div>
-                  <div class="products__text">Pink</div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__cost">
-                  <div class="products__money">$68.00</div>
-                  <div class="products__tooltip">
-                    <div class="products__sale">
-                      <div class="products__icon bg-red"><img class="products__pic" src="img/chat-black.svg" alt="">
-                      </div>
-                      <div class="products__caption caption-sm">Latest Sale</div>
-                    </div>
-                    <div class="products__price h3">$68</div>
-                    <div class="products__progress"><span style="width: 68%;"></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__rating"><span class="color-green">5.0</span> (45 votes)</div>
-              </div>
-            </div>
-            <div class="products__body">
-              <div class="products__bg" style="background-color: #FFA2C0;"></div>
-              <div class="products__line">
-                <div class="products__col">
-                  <div class="products__money">$68.45</div>
-                </div>
-                <div class="products__col">37 in stock</div>
-                <div class="products__col color-green">5.0</div>
-              </div>
-            </div>
-            <div class="products__row">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell"><a class="products__item" href="#">
-                  <div class="products__preview"><img class="products__pic" src="img/product-pic.png" alt=""></div>
-                  <div class="products__details">
-                    <div class="products__title title">Abstract 3D Kit</div>
-                    <div class="products__info caption color-gray">3D Illustration</div>
-                  </div>
-                </a></div>
-              <div class="products__cell">
-                <div class="products__payment">37 in stock</div>
-              </div>
-              <div class="products__cell">
-                <div class="products__color">
-                  <div class="products__bg" style="background-color: #6C5DD3;"></div>
-                  <div class="products__text">Purple</div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__cost">
-                  <div class="products__money">$68.00</div>
-                  <div class="products__tooltip">
-                    <div class="products__sale">
-                      <div class="products__icon bg-red"><img class="products__pic" src="img/chat-black.svg" alt="">
-                      </div>
-                      <div class="products__caption caption-sm">Latest Sale</div>
-                    </div>
-                    <div class="products__price h3">$68</div>
-                    <div class="products__progress"><span style="width: 68%;"></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__rating"><span class="color-green">5.0</span> (45 votes)</div>
-              </div>
-            </div>
-            <div class="products__body">
-              <div class="products__bg" style="background-color: #6C5DD3;"></div>
-              <div class="products__line">
-                <div class="products__col">
-                  <div class="products__money">$68.45</div>
-                </div>
-                <div class="products__col">37 in stock</div>
-                <div class="products__col color-green">5.0</div>
-              </div>
-            </div>
-            <div class="products__row">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell"><a class="products__item" href="#">
-                  <div class="products__preview"><img class="products__pic" src="img/product-pic.png" alt=""></div>
-                  <div class="products__details">
-                    <div class="products__title title">Sapiens Illustration</div>
-                    <div class="products__info caption color-gray">3D Illustration</div>
-                  </div>
-                </a></div>
-              <div class="products__cell">
-                <div class="products__payment">37 in stock</div>
-              </div>
-              <div class="products__cell">
-                <div class="products__color">
-                  <div class="products__bg" style="background-color: #7FBA7A;"></div>
-                  <div class="products__text">Green</div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__cost">
-                  <div class="products__money">$68.00</div>
-                  <div class="products__tooltip">
-                    <div class="products__sale">
-                      <div class="products__icon bg-red"><img class="products__pic" src="img/chat-black.svg" alt="">
-                      </div>
-                      <div class="products__caption caption-sm">Latest Sale</div>
-                    </div>
-                    <div class="products__price h3">$68</div>
-                    <div class="products__progress"><span style="width: 68%;"></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__rating"><span class="color-green">5.0</span> (45 votes)</div>
-              </div>
-            </div>
-            <div class="products__body">
-              <div class="products__bg" style="background-color: #7FBA7A;"></div>
-              <div class="products__line">
-                <div class="products__col">
-                  <div class="products__money">$68.45</div>
-                </div>
-                <div class="products__col">37 in stock</div>
-                <div class="products__col color-green">5.0</div>
-              </div>
-            </div>
-            <div class="products__row">
-              <div class="products__cell"><label class="checkbox"><input class="checkbox__input" type="checkbox"><span class="checkbox__in"><span class="checkbox__tick"></span></span></label>
-              </div>
-              <div class="products__cell"><a class="products__item" href="#">
-                  <div class="products__preview"><img class="products__pic" src="img/product-pic.png" alt=""></div>
-                  <div class="products__details">
-                    <div class="products__title title">Collab Landing Page</div>
-                    <div class="products__info caption color-gray">3D Illustration</div>
-                  </div>
-                </a></div>
-              <div class="products__cell">
-                <div class="products__payment">37 in stock</div>
-              </div>
-              <div class="products__cell">
-                <div class="products__color">
-                  <div class="products__bg" style="background-color: #FFCE73;"></div>
-                  <div class="products__text">Yellow</div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__cost">
-                  <div class="products__money">$68.00</div>
-                  <div class="products__tooltip">
-                    <div class="products__sale">
-                      <div class="products__icon bg-red"><img class="products__pic" src="img/chat-black.svg" alt="">
-                      </div>
-                      <div class="products__caption caption-sm">Latest Sale</div>
-                    </div>
-                    <div class="products__price h3">$68</div>
-                    <div class="products__progress"><span style="width: 68%;"></span></div>
-                  </div>
-                </div>
-              </div>
-              <div class="products__cell">
-                <div class="products__rating"><span class="color-green">5.0</span> (45 votes)</div>
-              </div>
-            </div>
-            <div class="products__body">
-              <div class="products__bg" style="background-color: #FFCE73;"></div>
-              <div class="products__line">
-                <div class="products__col">
-                  <div class="products__money">$68.45</div>
-                </div>
-                <div class="products__col">37 in stock</div>
-                <div class="products__col color-green">5.0</div>
-              </div>
-            </div>
-          </div>
-          <div class="products__more"><button class="products__btn btn btn_black">Load More</button></div>
-        </div>
-      </div>
+
+    </section>
     </div>
   </div>
 </div>
 </div>
+
+<script>
+    function showListHoaDon() {
+
+        // console.log(trangThaiColor[1])
+        $.ajax({
+            url: "../api/main.php?act=getListHoaDon", //Server api to receive the file
+            type: "GET",
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(suc) {
+                var listBill = JSON.parse(suc)
+                var table = document.querySelector('.table-inform').querySelector('tbody')
+
+                var listBillHTML = ``
+                listBill.forEach((i) => {
+                    var index = i['dia_chi'].lastIndexOf(",") + 2
+                    var vin = i['dia_chi'].slice(index)
+                    vin = vin.replace('Tỉnh', "").trim()
+                    vin = vin.replace('Thành phố', "").trim()
+                    listBillHTML += `
+                        <tr class="trang_thai_${i['trang_thai']}" madon=${i['ma_don_hang']} style="margin-bottom: 8px">
+                            <td width="50px">${i['ma_don_hang']}</td>
+                            <td width="150px">${i['ten_nguoi_nhan']}</td>
+                            <td width="150px">${i['so_dien_thoai']}</td>
+                            <td width="150px" class="form_address">
+                                ${vin}
+                                <span>${i['dia_chi']}</span>
+                            </td>
+                            <td width="150px">${i['ngay_dat_hang']}</td>
+                            <td width="100px">${i['so_luong']}</td>
+                            <td width="200px">${i['don_gia']}$</td>
+                            <td width="200px" class="trang_thai" >
+                                <div class="btn_ct" value=${i['trang_thai']} onclick="showList(this)">
+                                    ${i['ten_trang_thai']}
+                                </div>
+                                <ul></ul>
+                                
+                            </td>
+                            <td class="flex">
+                                <a class="a" href="?act=bill_detail&id=${i['ma_don_hang']}" style="margin-right:10px">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.867 19.125h.008v.008h-.008v-.008z" />
+                                    </svg>
+                                </a>
+                                <a class="a" href="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    </svg>
+
+                                </a>
+                            </td>
+                        </tr>
+                    `
+                })
+
+                table.innerHTML = listBillHTML
+            }
+        });
+    }
+    showListHoaDon()
+
+    // document.querySelector('a')
+    function showList(i) {
+        var list = i.parentElement.querySelector('ul')
+        if (list.innerHTML != "") {
+            list.innerHTML = ``
+            return
+        }
+        var trangThai = Number(i.getAttribute('value'))
+        if (trangThai >= 3) return
+        var ele = {
+            1: `<li class="color_ct_1" value=1>Chưa xác nhận</li>`,
+            2: `<li class="color_ct_2" value=2>Đã xác nhận</li>`,
+            3: `<li class="color_ct_3" value=3>Đang giao hàng</li>`,
+        }
+
+        var listHTML = ele[1] + ele[2] + ele[3];
+        list.innerHTML = listHTML
+        list.onclick = (e) => {
+            var ele = e.target;
+            var value = Number(ele.getAttribute('value'))
+            if (trangThai == value) {
+                list.innerHTML = ``
+                return
+            } 
+            var tr = ele.parentElement.parentElement.parentElement
+            var ma_don = Number(tr.getAttribute('madon'))
+
+            var form_data = new FormData();
+            form_data.append('ma_don_hang', ma_don);
+            form_data.append('trang_thai', value);
+            $.ajax({
+                url: "../api/main.php?act=updateTrangThai", //Server api to receive the file
+                type: "POST",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                success: function(suc) {
+                    toast({
+                        title: "Thành công!",
+                        message: "Thay đổi trạng thái thành công",
+                        type: "success",
+                        duration: 5000
+                    });
+
+                    var btn = ele.parentElement.parentElement.querySelector('.btn_ct')
+                    var text = ele.innerHTML
+                    btn.innerHTML = text
+                    btn.setAttribute('value', value)
+                    tr.classList.replace(tr.classList[0], 'trang_thai_' + value)
+                    list.innerHTML = ``
+                }
+            });
+
+
+        }
+    }
+</script>

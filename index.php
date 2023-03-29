@@ -45,7 +45,11 @@ if (isset($_GET['act'])) {
 
         case "page-my-account":
 
-            if (isset($_SESSION['user'])) require "view/page-my-account.php";
+            if (isset($_SESSION['user'])) {
+                $ma_khach_hang = $_SESSION['user']['id'];
+                $listBill = get_list_bill_user($ma_khach_hang);
+                require "view/page-my-account.php";
+            }
             else require "view/page-404.php";
             break;
 
@@ -76,6 +80,24 @@ if (isset($_GET['act'])) {
                     extract($bill);
                     $totalAll = $don_gia;
                     require "view/bill.php";
+                } else {
+                    require "view/page-404.php";
+                }
+            } else {
+                require "view/page-404.php";
+            }
+            break;
+
+        case "bill-user":
+            if ($_GET['madonhang']) {
+                $ma_don_hang = $_GET['madonhang'];
+                $id = $_SESSION['user']['id'];
+                $bill = get_bill($id, $ma_don_hang);
+                if ($bill != []) {
+                    $bill_detail = get_bill_detail($ma_don_hang);
+                    extract($bill);
+                    $totalAll = $don_gia;
+                    require "view/bill-user.php";
                 } else {
                     require "view/page-404.php";
                 }

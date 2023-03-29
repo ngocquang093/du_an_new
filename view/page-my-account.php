@@ -56,21 +56,24 @@
 													<thead>
 														<tr>
 															<th>Order</th>
-															<th>Date</th>
-															<th>Status</th>
-															<th>Total</th>
+															<th>Ngày đặt hàng</th>
+															<th>Trạng thái</th>
+															<th>Giá trị</th>
 															<th>Actions</th>
 														</tr>
 													</thead>
 													<tbody>
+														<?php foreach($listBill as $i): ?>
+															<?php extract($i) ?>
 														<tr>
-															<td>#1357</td>
-															<td>March 45, 2020</td>
-															<td>Processing</td>
-															<td>$125.00 for 2 item</td>
-															<td><a href="#" class="btn-small d-block">View</a></td>
+															<td>#<?= $ma_don_hang ?></td>
+															<td><?= $ngay_dat_hang ?></td>
+															<td class="trang_thai_<?= $trang_thai ?>"><?= $ten_trang_thai ?></td>
+															<td>$<?= $don_gia ?> for <?= $so_luong ?> item</td>
+															<td><a href="?act=bill-user&madonhang=<?= $ma_don_hang ?>" class="btn-small d-block">View</a></td>
 														</tr>
-														<tr>
+														<?php endforeach; ?>
+														<!-- <tr>
 															<td>#2468</td>
 															<td>June 29, 2020</td>
 															<td>Completed</td>
@@ -83,7 +86,8 @@
 															<td>Completed</td>
 															<td>$280.00 for 3 item</td>
 															<td><a href="#" class="btn-small d-block">View</a></td>
-														</tr>
+														</tr> -->
+
 													</tbody>
 												</table>
 											</div>

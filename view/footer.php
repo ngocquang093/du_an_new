@@ -520,6 +520,7 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/login.js"></script>
 <script src="assets/js/product.js"></script>
+<script src="assets/js/gb.js"></script>
 
 </body>
 

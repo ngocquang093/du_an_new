@@ -31258,7 +31258,7 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
 }
 
 :root {
-  --border-color: rgba(145, 158, 171, 0.24);
+--border-color: rgba(145, 158, 171, 0.24);
   --placeholder-color: rgba(145, 158, 171, 1);
   --text-color: rgba(33, 43, 54, 1);
   --submit-color: rgba(0, 171, 85, 1);
@@ -31365,6 +31365,44 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
 
 .btn-add-to-cart_ct .added {
   display: none !important;
+}
+
+.trang_thai_1{
+  color: #FC2947 !important
+}
+
+.trang_thai_2{
+  color: #16FF00 !important
+}
+
+.trang_thai_3{
+  color: #FFD966 !important
+}
+
+.trang_thai_4{
+  color: #362FD9 !important
+
+}
+
+.trang_thai_5{
+  color: #913175 !important
+}
+
+.trang_thai_6{
+  color: #913175 !important
+}
+
+.btn_ct {
+  background-color: black;
+  color: white;
+  line-height: 48px;
+  height: 48px;
+  min-width: 150px;
+  text-align: center;
+}
+
+.btn_ct:hover {
+  opacity: 0.8;
 }
 
 
