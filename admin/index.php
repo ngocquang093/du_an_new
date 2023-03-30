@@ -105,7 +105,10 @@ if (isset($_GET['act'])) {
             break;
 
         default:
+            include "view/home.php";
     }
     include "view/footer.php";
 } else {
+    include "view/home.php";
+    include "view/footer.php";
 }
