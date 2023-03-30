@@ -104,11 +104,11 @@
                       <use xlink:href="img/sprite.svg#icon-wallet"></use>
                     </svg></div>
                   <div class="sidebar__text">Payouts</div>
-                </a><a class="sidebar__item" href="statement.html">
+                </a><a class="sidebar__item" href="?act=bill">
                   <div class="sidebar__icon"><svg class="icon icon-document">
                       <use xlink:href="img/sprite.svg#icon-document"></use>
                     </svg></div>
-                  <div class="sidebar__text">Statements</div>
+                  <div class="sidebar__text">Hoá đơn</div>
                 </a><a class="sidebar__item js-popup-open" href="#popup-settings" data-effect="mfp-zoom-in">
                   <div class="sidebar__icon"><svg class="icon icon-settings">
                       <use xlink:href="img/sprite.svg#icon-settings"></use>

@@ -10298,7 +10298,11 @@ screen and (max-height: 300px) {
 }
 
 .trang_thai_6 .btn_ct{
-  background-color: #913175 !important
+  background-color: #E11299 !important
+}
+
+.color_ct_ {
+  background-color: #4CAF50;
 }
 .color_ct_1{
   background-color: #FC2947 !important
@@ -10322,7 +10326,7 @@ screen and (max-height: 300px) {
 }
 
 .color_ct_6{
-  background-color: #913175 !important
+  background-color: #E11299 !important
 }
 
 .trang_thai .show {
@@ -10421,6 +10425,27 @@ a {
 ul {
   margin: 0;
   padding: 0;
+}
+
+.list-drop {
+  width: 240px !important;
+  display: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.list-drop .hien {
+  display: block;
+}
+
+.item-drop {
+  padding: 8px 0;
+  text-align: center;
+}
+
+.item-drop:hover {
+  font-weight: 700;
+  cursor: pointer;
 }
 
 

@@ -37,15 +37,23 @@ function get_bill_detail($ma_don_hang)
     return $list_san_pham;
 }
 
-function get_list_bill()
+function get_list_bill($sort)
 {
+    if($sort == 0) {
+        $sql_sort = "";
+    } else {
+        
+
+        $sql_sort = "WHERE don_hang.trang_thai = $sort";
+    }
     $sql = "SELECT don_hang.ma_don_hang, don_hang.ten_nguoi_nhan, " .
         "don_hang.so_dien_thoai, don_hang.dia_chi, don_hang.ngay_dat_hang," .
         " a.so_luong, don_hang.don_gia, trang_thai_don_hang.ten_trang_thai, don_hang.trang_thai " .
         "FROM don_hang INNER JOIN " .
         "(SELECT ma_don_hang , SUM(so_luong) as so_luong FROM don_hang_chi_tiet " .
         "GROUP BY ma_don_hang) as a ON a.ma_don_hang = don_hang.ma_don_hang " .
-        "INNER JOIN trang_thai_don_hang ON don_hang.trang_thai = trang_thai_don_hang.ma_trang_thai";
+        "INNER JOIN trang_thai_don_hang ON don_hang.trang_thai = trang_thai_don_hang.ma_trang_thai ".
+        $sql_sort;
 
     $list_bill = pdo_query($sql);
     return $list_bill;

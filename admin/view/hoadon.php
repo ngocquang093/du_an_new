@@ -1,6 +1,3 @@
-
-
-
 <div class="page__wrapper">
   <div class="page__center">
     <div class="page__row page__row_head">
@@ -133,75 +130,69 @@
       <section class="list_products">
 
         <div class="wrapper-table" style="margin-top: 0px;">
-            <div class="cot4">
-                <div class="dropdown">
-                    <a>
-                        <button class="dropbtn adc ">Trạng thái</button>
-                    </a>
-                    <div class="dropdown-content add">
-                        <?php
-                        // echo '<a href="index.php?act=list_user&id=1">Nhân viên</a>';
-                        // echo '<a href="index.php?act=list_user&id=2">Khách hàng</a>';
-                        ?>
-                    </div>
-                </div>
-                <!-- <form method="POST" action="index.php?act=list_user">
-                    <div class="right3">
-                        <div class="cot22">
-                        <input id="id2" name="kyw" type="text" placeholder="Nhập tên người dùng">
-                            <button >
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form> -->
+          <div class="cot4">
+            <div class="dropdown">
+              <button class="dropbtn adc color_ct_0" value="0">Trạng thái</button>
+              <div class="list-drop">
+                <!-- <div class="item-drop color_ct_0" value=0>Trạng thái<div> -->
+                <div class="item-drop color_ct_1" value=1>Chưa xác nhận</div>
+                <div class="item-drop color_ct_2" value=2>Đã xác nhận</div>
+                <div class="item-drop color_ct_3" value=3>Đang giao hàng</div>
+                <div class="item-drop color_ct_4" value=4>Đã nhận</div>
+                <div class="item-drop color_ct_5" value=5>Bị trả hàng</div>
+                <div class="item-drop color_ct_6" value=6>Huỷ đơn</div>
+              </div>
             </div>
 
-            <table class="table-inform">
-                <thead style="text-align: center;">
-                    <th width="50px">Mã</th>
-                    <th width="150px">Tên người nhận</th>
-                    <th width="150px">Số điện thoại</th>
-                    <th width="150px">Địa chỉ</th>
-                    <th width="150px">Ngày đặt</th>
-                    <th width="100px">Số lượng</th>
-                    <th width="200px">Đơn giá</th>
-                    <th width="200px">Trạng thái</th>
-                    <th width="70px">Công cụ</th>
-                </thead>
-                <tbody>
+          </div>
 
-                </tbody>
-            </table>
+          <table class="table-inform">
+            <thead style="text-align: center;">
+              <th width="50px">Mã</th>
+              <th width="150px">Tên người nhận</th>
+              <th width="150px">Số điện thoại</th>
+              <th width="150px">Địa chỉ</th>
+              <th width="150px">Ngày đặt</th>
+              <th width="100px">Số lượng</th>
+              <th width="200px">Đơn giá</th>
+              <th width="200px">Trạng thái</th>
+              <th width="70px">Công cụ</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
         </div>
 
-    </section>
+      </section>
     </div>
   </div>
 </div>
 </div>
 
 <script>
-    function showListHoaDon() {
+  function showListHoaDon(sortTT) {
+    if (!sortTT) var sortTT = 0
+    var form_data = new FormData();
+    form_data.append('sort', sortTT)
+    $.ajax({
+      url: "../api/main.php?act=getListHoaDon", //Server api to receive the file
+      type: "POST",
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: form_data,
+      success: function(suc) {
+        var listBill = JSON.parse(suc)
+        var table = document.querySelector('.table-inform').querySelector('tbody')
 
-        // console.log(trangThaiColor[1])
-        $.ajax({
-            url: "../api/main.php?act=getListHoaDon", //Server api to receive the file
-            type: "GET",
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(suc) {
-                var listBill = JSON.parse(suc)
-                var table = document.querySelector('.table-inform').querySelector('tbody')
-
-                var listBillHTML = ``
-                listBill.forEach((i) => {
-                    var index = i['dia_chi'].lastIndexOf(",") + 2
-                    var vin = i['dia_chi'].slice(index)
-                    vin = vin.replace('Tỉnh', "").trim()
-                    vin = vin.replace('Thành phố', "").trim()
-                    listBillHTML += `
+        var listBillHTML = ``
+        listBill.forEach((i) => {
+          var index = i['dia_chi'].lastIndexOf(",") + 2
+          var vin = i['dia_chi'].slice(index)
+          vin = vin.replace('Tỉnh', "").trim()
+          vin = vin.replace('Thành phố', "").trim()
+          listBillHTML += `
                         <tr class="trang_thai_${i['trang_thai']}" madon=${i['ma_don_hang']} style="margin-bottom: 8px">
                             <td width="50px">${i['ma_don_hang']}</td>
                             <td width="150px">${i['ten_nguoi_nhan']}</td>
@@ -236,69 +227,89 @@
                             </td>
                         </tr>
                     `
-                })
+        })
 
-                table.innerHTML = listBillHTML
-            }
-        });
+        table.innerHTML = listBillHTML
+      }
+    });
+  }
+  showListHoaDon()
+
+  // document.querySelector('a')
+  function showList(i) {
+    var list = i.parentElement.querySelector('ul')
+    if (list.innerHTML != "") {
+      list.innerHTML = ``
+      return
     }
-    showListHoaDon()
-
-    // document.querySelector('a')
-    function showList(i) {
-        var list = i.parentElement.querySelector('ul')
-        if (list.innerHTML != "") {
-            list.innerHTML = ``
-            return
-        }
-        var trangThai = Number(i.getAttribute('value'))
-        if (trangThai >= 3) return
-        var ele = {
-            1: `<li class="color_ct_1" value=1>Chưa xác nhận</li>`,
-            2: `<li class="color_ct_2" value=2>Đã xác nhận</li>`,
-            3: `<li class="color_ct_3" value=3>Đang giao hàng</li>`,
-        }
-
-        var listHTML = ele[1] + ele[2] + ele[3];
-        list.innerHTML = listHTML
-        list.onclick = (e) => {
-            var ele = e.target;
-            var value = Number(ele.getAttribute('value'))
-            if (trangThai == value) {
-                list.innerHTML = ``
-                return
-            } 
-            var tr = ele.parentElement.parentElement.parentElement
-            var ma_don = Number(tr.getAttribute('madon'))
-
-            var form_data = new FormData();
-            form_data.append('ma_don_hang', ma_don);
-            form_data.append('trang_thai', value);
-            $.ajax({
-                url: "../api/main.php?act=updateTrangThai", //Server api to receive the file
-                type: "POST",
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: form_data,
-                success: function(suc) {
-                    toast({
-                        title: "Thành công!",
-                        message: "Thay đổi trạng thái thành công",
-                        type: "success",
-                        duration: 5000
-                    });
-
-                    var btn = ele.parentElement.parentElement.querySelector('.btn_ct')
-                    var text = ele.innerHTML
-                    btn.innerHTML = text
-                    btn.setAttribute('value', value)
-                    tr.classList.replace(tr.classList[0], 'trang_thai_' + value)
-                    list.innerHTML = ``
-                }
-            });
-
-
-        }
+    var trangThai = Number(i.getAttribute('value'))
+    if (trangThai >= 3) return
+    var ele = {
+      1: `<li class="color_ct_1" value=1>Chưa xác nhận</li>`,
+      2: `<li class="color_ct_2" value=2>Đã xác nhận</li>`,
+      3: `<li class="color_ct_3" value=3>Đang giao hàng</li>`,
     }
+
+    var listHTML = ele[1] + ele[2] + ele[3];
+    list.innerHTML = listHTML
+    list.onclick = (e) => {
+      var ele = e.target;
+      var value = Number(ele.getAttribute('value'))
+      if (trangThai == value) {
+        list.innerHTML = ``
+        return
+      }
+      var tr = ele.parentElement.parentElement.parentElement
+      var ma_don = Number(tr.getAttribute('madon'))
+
+      var form_data = new FormData();
+      form_data.append('ma_don_hang', ma_don);
+      form_data.append('trang_thai', value);
+      $.ajax({
+        url: "../api/main.php?act=updateTrangThai", //Server api to receive the file
+        type: "POST",
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        success: function(suc) {
+          toast({
+            title: "Thành công!",
+            message: "Thay đổi trạng thái thành công",
+            type: "success",
+            duration: 5000
+          });
+
+          var btn = ele.parentElement.parentElement.querySelector('.btn_ct')
+          var text = ele.innerHTML
+          btn.innerHTML = text
+          btn.setAttribute('value', value)
+          tr.classList.replace(tr.classList[0], 'trang_thai_' + value)
+          list.innerHTML = ``
+        }
+      });
+
+
+    }
+  }
+  // $('.list-drop').hide()
+  $('.dropbtn').click(() => {
+    $('.list-drop').toggle('hien')
+  })
+
+  $('.list-drop').click((e) => {
+    var ele = e.target
+    var value = Number(ele.getAttribute('value'))
+    var text = ele.innerHTML
+    
+    var classList = $('.dropbtn').attr('class').split(/\s+/);
+    var classBtn = classList[classList.length-1];
+    
+    $('.dropbtn').attr('value', value)
+    $('.dropbtn').html(text)
+    $('.dropbtn').removeClass(classBtn)
+    $('.dropbtn').addClass('color_ct_' + value)
+    $('.list-drop').toggle('hien')
+    showListHoaDon(value)
+  })
 </script>

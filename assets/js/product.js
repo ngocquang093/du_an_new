@@ -255,4 +255,13 @@ function pageNumber(page, cate) {
     });
 }
 
+
+
 // function goPage
+$('.page-numbers').click((e) => {
+    var ele = e.target
+    var link = ele.getAttribute('link')
+    var sort = $('.sort-toggle').attr('value');
+    window.location = link + '&sort=' + sort
+    
+})

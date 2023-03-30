@@ -215,7 +215,8 @@ if (isset($_GET['act'])) {
             echo_json($ma_don_hang);
             break;
         case "getListHoaDon":
-            $list_bill = get_list_bill();
+            $sort = $_POST['sort'];
+            $list_bill = get_list_bill($sort);
             echo_json($list_bill);
             break;
 

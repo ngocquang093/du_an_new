@@ -963,7 +963,10 @@
 
 <script>
 	$(document).ready(function() {
-		showProductShop()
+		var sort = getParameterByName('sort')
+		showProductShop(sort)
+		test()
+
 	});
 
 	function test() {
@@ -971,22 +974,24 @@
 		var sortToggle = productsSort.querySelector('.sort-toggle')
 		var sortList = productsSort.querySelector('.sort-list')
 		var pageNumberE = document.querySelector('.pagination').querySelector('ul')
-		
-
+		var sort = getParameterByName('sort')
+		if(sort == null) sort = 0
+		var html = sortList.querySelector(`li[value="${sort}"]`).querySelector('a').innerHTML
+		sortToggle.innerHTML = html
+		sortToggle.setAttribute('value', sort)
 		sortList.onclick = function(event) {
 			var eleClick = event.target
 			if(eleClick.querySelector('a') == null) {
 				eleClick = eleClick.parentElement
 			}
-			var id = eleClick.getAttribute('value')
+			var value = eleClick.getAttribute('value')
 			var text = eleClick.querySelector('a').innerHTML
 			if(text != sortToggle.innerHTML) {
 				sortToggle.innerHTML = text
-				sortToggle.setAttribute('value', id)
-				showProductShop(id)
+				sortToggle.setAttribute('value', value)
+				showProductShop(value)
 			}
 		}
 	}
-	test()
 
 </script>
