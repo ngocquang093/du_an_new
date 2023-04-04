@@ -8,7 +8,7 @@
                     <a href="index.php?act=add_user" ><input class="dropbtn adc" type="button" value="Thêm mới"></a>
                 </div>
                 <div class="dropdown">
-                    <a href="index.php?act=list_user&id=0">
+                    <a >
                         <button class="dropbtn adc ">Vai trò</button>
                     </a>
                     <div class="dropdown-content add">

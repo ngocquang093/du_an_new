@@ -6,6 +6,7 @@ require "../model/product.php";
 require "../model/user.php";
 require "../model/bill.php";
 require "../global.php";
+require "../model/comment.php";
 
 include "view/header.php";
 
@@ -104,6 +105,31 @@ if (isset($_GET['act'])) {
             include 'view/products.php';
             break;
 
+
+//            Comment ///////////////////////////
+        case 'list_com':
+            if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
+                $kyw = $_POST['kyw'];
+            }else{
+                $kyw = "";
+            }
+            $list_cmt = cmt_all($kyw);
+            include 'comment/list.php';
+            break;
+        case 'delete_cmt':
+            if(isset($_GET['id'])&&($_GET['id']>0)){
+                $cmt = cmt_one($_GET['id']);
+            }
+            include 'comment/delete.php';
+            break;
+        case 'deletecmt':
+            if(isset($_POST['delete']) && ($_POST['delete'])){
+                $id = $_POST['id'];
+                cmt_delete($id);
+            }
+            $list_cmt = cmt_all("");
+            include 'comment/list.php';
+            break;
         default:
             include "view/home.php";
     }
