@@ -87,11 +87,11 @@
                       <use xlink:href="img/sprite.svg#icon-discovery"></use>
                     </svg></div>
                   <div class="sidebar__text"> Khach hang</div>
-                </a><a class="sidebar__item" href="index.php?act=list_user">
+                </a><a class="sidebar__item" href="index.php?act=list_com">
                   <div class="sidebar__icon"><svg class="icon icon-wallet">
                       <use xlink:href="img/sprite.svg#icon-wallet"></use>
                     </svg></div>
-                  <div class="sidebar__text">Payouts</div>
+                  <div class="sidebar__text">Binh Luan</div>
                 </a><a class="sidebar__item" href="statement.html">
                   <div class="sidebar__icon"><svg class="icon icon-document">
                       <use xlink:href="img/sprite.svg#icon-document"></use>
