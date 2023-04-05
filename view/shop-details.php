@@ -48,8 +48,8 @@ $listImg = explode(", ", $anh_san_pham)
 														<?php foreach ($listImg as $img) : ?>
 
 															<div class="img-item slick-slide">
-															<img width="900" height="900" src="media/product/<?= $img ?>" alt="" title="">
-														</div>
+																<img width="900" height="900" src="media/product/<?= $img ?>" alt="" title="">
+															</div>
 
 														<?php endforeach; ?>
 
@@ -108,7 +108,7 @@ $listImg = explode(", ", $anh_san_pham)
 													<button type="button" class="minus">-</button>
 												</div>
 												<div class="btn-add-to-cart_ct">
-													<a  class="button" tabindex="0" onclick="addCartqty(<?= $ma_san_pham ?>, this)">Add to cart</a>
+													<a class="button" tabindex="0" onclick="addCartqty(<?= $ma_san_pham ?>, this)">Add to cart</a>
 												</div>
 											</div>
 											<div class="btn-quick-buy" data-title="Wishlist">
@@ -193,15 +193,17 @@ $listImg = explode(", ", $anh_san_pham)
 												<div id="review-form">
 													<div id="respond" class="comment-respond">
 														<span id="reply-title" class="comment-reply-title">Add a review</span>
-														<form action="#" method="post" id="comment-form" class="comment-form">
+														<form action="?act=binhluan" method="post" id="comment-form" class="comment-form" onsubmit="return validateStar()">
+															<input type="hidden" value="<?= $id ?>" name="id">
+															<input type="hidden" value="" name="star">
 															<p class="comment-notes">
 																<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
 															</p>
 															<div class="comment-form-rating">
 																<label for="rating">Your rating</label>
-																<p class="stars">
+																<p class="stars" value=0>
 																	<span>
-																		<a class="star-1" href="#">1</a><a class="star-2" href="#">2</a><a class="star-3" href="#">3</a><a class="star-4" href="#">4</a><a class="star-5" href="#">5</a>
+																		<a class="star-1" value=1>1</a><a class="star-2" value=2>2</a><a class="star-3" value=3>3</a><a class="star-4" value=4>4</a><a class="star-5" value=5>5</a>
 																	</span>
 																</p>
 															</div>
@@ -210,13 +212,13 @@ $listImg = explode(", ", $anh_san_pham)
 															</p>
 															<div class="content-info-reviews">
 																<p class="comment-form-author">
-																	<input id="author" name="author" placeholder="Name *" type="text" value="" size="30" aria-required="true" required="">
+																	<input id="author_cmt" name="author" placeholder="Name *" type="text" value="<?php if (isset($user)) echo $user['name'] ?>" size="30" aria-required="true" required="">
 																</p>
 																<p class="comment-form-email">
-																	<input id="email" name="email" placeholder="Email *" type="email" value="" size="30" aria-required="true" required="">
+																	<input id="email_cmt" name="email" placeholder="Email *" type="email" value="<?php if (isset($user)) echo $user['email'] ?>" size="30" aria-required="true" required="" <?php if (isset($user)) echo 'disabled' ?>>
 																</p>
 																<p class="form-submit">
-																	<input name="submit" type="submit" id="submit" class="submit" value="Submit">
+																	<input name="submit" type="submit" id="submit_cmt" class="submit" value="Submit">
 																</p>
 															</div>
 														</form><!-- #respond -->
@@ -462,3 +464,39 @@ $listImg = explode(", ", $anh_san_pham)
 	</div><!-- #main-content -->
 </div>
 
+<script>
+	$('.stars').click((e) => {
+		var eTarget = e.target
+
+		if (!eTarget.className == "") {
+			$('.stars a').each(function() {
+				this.style.color = ''
+			});
+			var stars = eTarget.parentElement.parentElement
+			var value = eTarget.getAttribute('value')
+			var star = document.querySelector('input[name="star"]')
+			star.value = value
+
+			stars.setAttribute('value', value)
+			do {
+				eTarget.style.color = '#f5bf1c'
+				eTarget = eTarget.previousElementSibling
+			} while (eTarget != null);
+		}
+	})
+
+	function validateStar() {
+		var value = document.querySelector('input[name="star"]').value
+		if (value == '') {
+			toast({
+				title: "Thất bại!",
+				message: "Bạn phải đánh giá sản phẩm ở phần rating",
+				type: "error",
+				duration: 5000
+			});
+			return false
+		}
+
+		return true
+	}
+</script>
