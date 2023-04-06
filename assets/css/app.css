@@ -26761,6 +26761,7 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
 .shop-details .product-tabs .product-reviews .comment-list li .content-comment-container {
   border: 1px solid #d9d9d9;
   padding: 30px;
+  margin-bottom: 12px;
 }
 
 .shop-details .product-tabs .product-reviews .comment-list li .comment-container {
@@ -26881,7 +26882,7 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
   font-size: 18px;
   font-weight: unset;
   text-indent: 0;
-  color: #cecece;
+  /* color: #cecece; */
 }
 
 .shop-details .product-tabs #review-form .comment-form-comment {
