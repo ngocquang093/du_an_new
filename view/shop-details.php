@@ -148,7 +148,7 @@ $listImg = explode(", ", $anh_san_pham)
 											<a class="nav-link" data-toggle="tab" href="#additional-information" role="tab">Additional information</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (1)</a>
+											<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (<?= $so_luong_binh_luan ?>)</a>
 										</li>
 									</ul>
 									<div class="tab-content">
@@ -169,24 +169,28 @@ $listImg = explode(", ", $anh_san_pham)
 										<div class="tab-pane fade" id="reviews" role="tabpanel">
 											<div id="reviews" class="product-reviews">
 												<div id="comments">
-													<h2 class="reviews-title">1 review for <span>Bora Armchair</span></h2>
+													<h2 class="reviews-title"><?= $so_luong_binh_luan ?> review for <span><?= $ten_san_pham ?></span></h2>
 													<ol class="comment-list">
 														<li class="review">
-															<div class="content-comment-container">
-																<div class="comment-container">
-																	<img src="media/user.jpg" class="avatar" height="60" width="60" alt="">
-																	<div class="comment-text">
-																		<div class="rating small">
-																			<div class="star star-5"></div>
+															<?php foreach ($listBinhLuan as $item) : ?>
+																<?php extract($item) ?>
+																<div class="content-comment-container">
+																	<div class="comment-container">
+																		<img src="media/user.jpg" class="avatar" height="60" width="60" alt="">
+																		<div class="comment-text">
+																			<div class="rating small">
+																				<div class="star star-<?= $rate ?>"></div>
+																			</div>
+																			<div class="review-author"><?php if ($ten_khach_hang == "") echo $email;
+																										else echo $ten_khach_hang ?></div>
+																			<div class="review-time"><?= $ngay_binh_luan ?></div>
 																		</div>
-																		<div class="review-author">Peter Capidal</div>
-																		<div class="review-time">January 12, 2022</div>
+																	</div>
+																	<div class="description">
+																		<p><?= $noi_dung ?></p>
 																	</div>
 																</div>
-																<div class="description">
-																	<p>good</p>
-																</div>
-															</div>
+															<?php endforeach; ?>
 														</li>
 													</ol>
 												</div>

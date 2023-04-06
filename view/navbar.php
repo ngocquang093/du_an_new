@@ -3,7 +3,6 @@ if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
 }
 ?>
-
 <header id="site-header" class="site-header header-v2">
     <div id="header-topbar" class="topbar-v1 hidden-sm hidden-xs">
         <div class="topbar-inner">
