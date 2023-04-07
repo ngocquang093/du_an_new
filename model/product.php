@@ -9,10 +9,7 @@ function get_list_product($st, $step)
 
 function get_product($id)
 {
-    $sql = "SELECT * FROM san_pham INNER JOIN ".
-    "(SELECT binh_luan.ma_san_pham, COUNT(binh_luan.ma_san_pham) ".
-    "as so_luong_binh_luan FROM binh_luan GROUP BY binh_luan.ma_san_pham) ".
-    "as a ON san_pham.ma_san_pham = a.ma_san_pham WHERE san_pham.ma_san_pham = $id ";
+    $sql = "SELECT * FROM san_pham WHERE san_pham.ma_san_pham = $id";
     $pro = pdo_query_one($sql);
     return $pro;
 }
