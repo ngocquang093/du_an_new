@@ -57,3 +57,8 @@ function get_count_cate($ma_loai)
     $so_luong = pdo_query_one($sql);
     return $so_luong['so_luong'];
 }
+
+function flus_luot_xem($id) {
+    $sql = "UPDATE `duan`.`san_pham` SET `luot_xem` = `luot_xem` + 1 WHERE san_pham.ma_san_pham = $id;";
+    pdo_execute($sql);
+}
