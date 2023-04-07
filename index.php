@@ -6,6 +6,7 @@ require "model/user.php";
 require "model/bill.php";
 require "model/comment.php";
 require "global.php";
+ob_start();
 
 require "view/header.php";
 if (!isset($_SESSION['cart'])) {
