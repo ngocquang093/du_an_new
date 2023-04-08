@@ -26,6 +26,7 @@ if (isset($_GET['act'])) {
                 flus_luot_xem($id);
                 $pro = get_product($id);
                 $listBinhLuan = get_list_cmt_product($id);
+                $rate_avg = (int) get_avg_rate($id);
                 $so_luong_binh_luan = count_cmt($id)['so_luong'];
                 require "view/shop-details.php";
             } else {

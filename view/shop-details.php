@@ -66,9 +66,9 @@ $listImg = explode(", ", $anh_san_pham)
 											<ins><span>$<?= number_format($gia_khuyen_mai, 2) ?></span></ins>
 										</span>
 										<div class="rating">
-											<div class="star star-5"></div>
+											<div class="star star-<?= $rate_avg ?>"></div>
 											<div class="review-count">
-												(3<span> reviews</span>)
+												(<?= $so_luong_binh_luan ?><span> reviews</span>)
 											</div>
 										</div>
 										<div class="description">

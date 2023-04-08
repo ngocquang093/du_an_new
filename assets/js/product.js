@@ -242,6 +242,8 @@ function pageNumber(page, cate) {
                 var pageNumberHTML = prev + before +  current + next
             } else if(page + 2 == maxPage) {
                 var pageNumberHTML = prev + current + after +after_after + next
+            } else if(page == 1 && page + 2 <= maxPage) {
+                var pageNumberHTML = prev +  current+ after + after_after + next
             } else if(page == maxPage) {
                 var pageNumberHTML = prev +  before_before +before + current + next
             } else {

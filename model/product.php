@@ -62,3 +62,10 @@ function flus_luot_xem($id) {
     $sql = "UPDATE `duan`.`san_pham` SET `luot_xem` = `luot_xem` + 1 WHERE san_pham.ma_san_pham = $id;";
     pdo_execute($sql);
 }
+
+function get_avg_rate($id) {
+    $sql = "SELECT AVG(binh_luan.rate) as rate_avg FROM binh_luan WHERE binh_luan.ma_san_pham = $id";
+    $rate = pdo_query_one($sql)["rate_avg"];
+    if($rate == null) $rate = 0;
+    return $rate;
+}
