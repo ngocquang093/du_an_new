@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="styles/content.css">
     <link rel="stylesheet" href="styles/list.css">
     <script src="https://kit.fontawesome.com/db2d8b65e2.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
   <script>
     var viewportmeta = document.querySelector('meta[name="viewport"]');
     if (viewportmeta) {
@@ -61,23 +63,23 @@
     <div class="sidebar">
       <div class="sidebar__top"><button class="sidebar__close"><svg class="icon icon-close">
             <use xlink:href="img/sprite.svg#icon-close"></use>
-          </svg></button><a class="sidebar__logo" href="index.html"><img class="sidebar__pic sidebar__pic_black" src="img/logo.png" alt="" /><img class="sidebar__pic sidebar__pic_white" src="img/logo-white.png" alt="" /></a><button class="sidebar__burger"></button></div>
+          </svg></button><a class="sidebar__logo" href="index.php?act=list_category"><img class="sidebar__pic sidebar__pic_black" src="img/logo.png" alt="" /><img class="sidebar__pic sidebar__pic_white" src="img/logo-white.png" alt="" /></a><button class="sidebar__burger"></button></div>
       <div class="sidebar__wrapper">
-        <div class="sidebar__inner"><a class="sidebar__logo" href="index.html"><img class="sidebar__pic" src="img/logo-sm.png" alt="" /></a>
+        <div class="sidebar__inner"><a class="sidebar__logo" href="index.php?act=list_category"><img class="sidebar__pic" src="img/logo-sm.png" alt="" /></a>
           <div class="sidebar__list">
             <div class="sidebar__group">
               <div class="sidebar__caption caption-sm">Admin<span> tools</span></div>
-              <div class="sidebar__menu"><a class="sidebar__item active" href="index.html" style="">
+              <div class="sidebar__menu"><a class="sidebar__item active" href="index.php?act=list_category" style="">
                   <div class="sidebar__icon"><svg class="icon icon-overview">
                       <use xlink:href="img/sprite.svg#icon-overview"></use>
                     </svg></div>
                   <div class="sidebar__text">Overview</div>
-                </a><a class="sidebar__item" href="products.html">
+                </a><a class="sidebar__item" href="index.php?act=list_products">
                   <div class="sidebar__icon"><svg class="icon icon-bag">
                       <use xlink:href="img/sprite.svg#icon-bag"></use>
                     </svg></div>
                   <div class="sidebar__text">Products</div>
-                </a><a class="sidebar__item" href="campaigns.html">
+                </a><a class="sidebar__item" href="index.php?act=list_products">
                   <div class="sidebar__icon"><svg class="icon icon-chart">
                       <use xlink:href="img/sprite.svg#icon-chart"></use>
                     </svg></div>

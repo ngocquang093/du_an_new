@@ -1,10 +1,10 @@
 
 
-function addCart(id, qty, ele) {
+function addCart(id, qtt, ele) {
 
     var form_data = new FormData();
     form_data.append('id', id);
-    form_data.append('qty', qty);
+    form_data.append('qtt', qtt);
     $.ajax({
         url: "api/main.php?act=addCart", //Server api to receive the file
         type: "POST",
@@ -83,15 +83,15 @@ function loadCart() {
                     var id = pro['id'];
                     var name = pro['name'];
                     var img = pro['img'];
-                    var qty = Number(pro['qty']);
-                    var price = Number(pro['price']) * qty;
+                    var qtt = Number(pro['qtt']);
+                    var price = Number(pro['price']) * qtt;
                     total += price
                     cartHTML += `
                         <li class="mini-cart-item">
                             <a href="#" class="remove" title="Remove this item" onclick="removeCart(${id})"><i class="icon_close"></i></a>
-                            <a href="?act=shop-details&id=${id}" class="product-image"><img width="600" height="600" src="media/product/${img}" alt=""></a>
-                            <a href="?act=shop-details&id=${id}" class="product-name">${name}</a>
-                            <div class="quantity">Qty: ${qty}</div>
+                            <a href="shop-details.html" class="product-image"><img width="600" height="600" src="media/product/${img}" alt=""></a>
+                            <a href="shop-details.html" class="product-name">${name}</a>
+                            <div class="quantity">Qty: ${qtt}</div>
                             <div class="price">$${price}</div>
                         </li>
                     `
@@ -127,10 +127,10 @@ function removeCart(id) {
 
 loadCart()
 
-function addCartqty(id, ele) {
+function addCartQtt(id, ele) {
     // Event.preventDefault()
-    var qty = document.querySelector("input[name='quantity']").value
-    addCart(id, Number(qty), ele)
+    var qtt = document.querySelector("input[name='quantity']").value
+    addCart(id, Number(qtt), ele)
 }
 var a = document.querySelector('a')
 // a.parentElement
@@ -168,12 +168,12 @@ function loadTableCart() {
                     var id = pro['id'];
                     var name = pro['name'];
                     var img = pro['img'];
-                    var qty = Number(pro['qty']);
+                    var qtt = Number(pro['qtt']);
                     var price = Number(pro['price']);
-                    var subTotal = price * qty;
+                    var subTotal = price * qtt;
                     total += subTotal
                     listCart.innerHTML += `
-                        <tr class="cart-item" id="${id}">
+                        <tr class="cart-item">
                             <td class="product-thumbnail">
                                 <a href="shop-details.html">
                                     <img width="600" height="600" src="media/product/${img}" class="product-image" alt="">
@@ -188,7 +188,7 @@ function loadTableCart() {
                             <td class="product-quantity">
                                 <div class="quantity">
                                     <button type="button" class="minus" onclick="changeQuantityCartTable(this, event)">-</button>
-                                    <input type="number" class="qty" step="1" min="0" max="" name="quantity" value="${qty}" title="Qty" size="4" placeholder="" inputmode="numeric" autocomplete="off" onkeyup="changeQuantityCartTable(this, event)">
+                                    <input type="number" class="qty" step="1" min="0" max="" name="quantity" value="${qtt}" title="Qty" size="4" placeholder="" inputmode="numeric" autocomplete="off" onkeyup="changeQuantityCartTable(this, event)">
                                     <button type="button" class="plus" onclick="changeQuantityCartTable(this, event)">+</button>
                                 </div>
                             </td>
@@ -200,8 +200,6 @@ function loadTableCart() {
                             </td>
                         </tr>
                     `
-                    totalAll()
-
                 })
                 cartSubtotal.innerHTML = `$${total.toFixed(2)}`
             } else {
@@ -219,7 +217,6 @@ function loadTableCart() {
                 `
 
             }
-
         }
     });
 }
@@ -233,166 +230,41 @@ function changeQuantityCartTable(ele, event) {
     var productPrice = cartItem.querySelector('.product-price').querySelector('span')
     var key = event.which || event.keyCode || event.charCode;
     if (classEle.contains('qty')) {
+        if (!isNaN(event.key)) {
+            var quantity = Number(quantityLast + event.key)
+            var price = Number(productPrice.innerHTML.slice(1))
+            var total = quantity * price
+            totalEle.innerHTML = `$${total.toFixed(2)}`
+        }
 
-        if (key == 8) {
-            if (quantityLast.length == 0) {
-                quantityEle.value = 0
-                quantity = 0
+        if(key == 8) {
+            
+            if(quantityLast.length == 0) {
+                quantityEle.value = 1
+                quantity = 1
             } else {
                 quantity = quantityLast
             }
+            
             var price = Number(productPrice.innerHTML.slice(1))
             var total = quantity * price
             totalEle.innerHTML = `$${total.toFixed(2)}`
-        } else if (!isNaN(event.key)) {
-            if (quantityLast[0] == '0') {
-                quantityLast = quantityLast.slice(1)
-                quantityEle.value = quantityLast
-            }
-            var quantity = Number(quantityLast)
-            var price = Number(productPrice.innerHTML.slice(1))
-            var total = quantity * price
-            totalEle.innerHTML = `$${total.toFixed(2)}`
-            // console.log(quantity)
         }
     } else if (classEle.contains('plus')) {
         var quantity = Number(quantityLast) + 1
-
+        
         var price = Number(productPrice.innerHTML.slice(1))
         var total = quantity * price
         totalEle.innerHTML = `$${total.toFixed(2)}`
     } else {
         var quantity = Number(quantityLast) - 1
-        if (quantity == 0) quantity = 1
+        if(quantity == 0) quantity = 1
         var price = Number(productPrice.innerHTML.slice(1))
         var total = quantity * price
         totalEle.innerHTML = `$${total.toFixed(2)}`
     }
 
-    totalAll()
-}
-
-function totalAll() {
-    var shopCart = document.querySelector(".shop-cart")
-    var tableCart = shopCart.querySelector(".cart-items")
-    var listCart = tableCart.querySelector('tbody')
-    var cartSubtotal = document.querySelector('.cart-subtotal').querySelector('span')
-    var _itemSubtotal = listCart.querySelectorAll('.product-subtotal')
-    var orderTotal = shopCart.querySelector('.order-total').querySelector('span')
-    var total = 0
-    _itemSubtotal.forEach(ele => {
-        total += Number(ele.querySelector('.price').innerHTML.slice(1))
-
-    })
-    cartSubtotal.innerHTML = `$${total.toFixed(2)}`
-    orderTotal.innerHTML = `$${total.toFixed(2)}`
 }
 
 
 if (location.href.includes('shop-cart')) { loadTableCart() }
-
-function checkCheckedShip() {
-    var _radioShip = document.querySelectorAll('input[name="shipping_method"]')
-    _radioShip.forEach(radio => {
-        console.log(radio.value)
-    })
-}
-
-function updateCart(ele) {
-    var shopCart = document.querySelector(".shop-cart")
-    var tableCart = shopCart.querySelector(".cart-items")
-    var listCart = tableCart.querySelector('tbody')
-    var _cartItem = listCart.querySelectorAll('.cart-item')
-
-    var form_data = new FormData();
-    var _id = []
-    var _qty = []
-
-    for (let index = 0; index < _cartItem.length; index++) {
-        var id = _cartItem[index].getAttribute('id')
-        var qty = _cartItem[index].querySelector('.qty').value
-        _id.push(id)
-        _qty.push(qty)
-    }
-
-    form_data.append('id', _id)
-    form_data.append('qty', _qty)
-
-    $.ajax({
-        url: "api/main.php?act=updateCart", //Server api to receive the file
-        type: "POST",
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data,
-        success: function (suc) {
-            if (ele.getAttribute('value') == "checkout") {
-                $.ajax({
-                    type: "GET",
-                    url: "api/main.php?act=checkLogin",
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success: function (suc) {
-                        var ship = $('input[name = "shipping_method"]:checked').val()
-                        if (JSON.parse(suc)) window.location = "index.php?act=shop-checkout&ship=" + ship
-                        else {
-                            toast({
-                                title: "Thất bại!",
-                                message: "Bạn phải đăng nhập trước khi thanh toán",
-                                type: "error",
-                                duration: 5000
-                            });
-                            $('.form-login-register').addClass('active')
-                        }
-                    }
-                });
-            } else {
-                var ms = JSON.parse(suc)
-                if (ms[0] == 'error') {
-                    toast({
-                        title: "Thất bại!",
-                        message: ms[1],
-                        type: "error",
-                        duration: 5000
-                    });
-                } else {
-                    toast({
-                        title: "Thành công!",
-                        message: "Cập nhật gỏi hàng thành công",
-                        type: "success",
-                        duration: 5000
-                    });
-                }
-            }
-
-        }
-    });
-
-}
-
-function orderTotal() {
-    var total = Number($('.subtotal-price span').text().slice(1))
-    if (total == 0) {
-        total = Number($('.cart-subtotal span').text().slice(1))
-    }
-    // console.log(total)
-    if (total > 400) {
-        $('.order-total span').text(`$${total}`)
-        return
-    }
-
-    var shipValue = $('input[name = "shipping_method"]:checked').val()
-    if (shipValue == "2") {
-        total += 20
-    } else {
-        total += 10
-    }
-
-    $('.order-total span').text(`$${total}`)
-}
-
-
-
-
-

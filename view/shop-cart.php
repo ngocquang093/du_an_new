@@ -44,7 +44,7 @@
 																	<button type="submit" name="apply_coupon" class="button" value="Apply coupon">Apply coupon</button>
 																</div>
 																<h2><a href="shop-grid-left.html">Continue Shopping</a></h2>
-																<div class="button" value="Update cart" onclick="updateCart(this)">Update cart</div>
+																<button type="submit" name="update_cart" class="button" value="Update cart">Update cart</button>
 															</div>
 														</td>
 													</tr>
@@ -66,10 +66,10 @@
 												<div>
 													<ul class="shipping-methods custom-radio">
 														<li>
-															<input type="radio" name="shipping_method" data-index="0" value="1" class="shipping_method" checked="checked"><label>Giao bình thường</label>
+															<input type="radio" name="shipping_method" data-index="0" value="free_shipping" class="shipping_method" checked="checked"><label>Free shipping</label>
 														</li>
 														<li>
-															<input type="radio" name="shipping_method" data-index="0" value="2" class="shipping_method"><label>Giao nhanh</label>
+															<input type="radio" name="shipping_method" data-index="0" value="flat_rate" class="shipping_method"><label>Flat rate</label>
 														</li>
 													</ul>
 													<p class="shipping-desc">
@@ -83,7 +83,7 @@
 											</div>
 										</div>
 										<div class="proceed-to-checkout">
-											<a class="checkout-button button" value="checkout" onclick="updateCart(this)">
+											<a href="shop-checkout.html" class="checkout-button button">
 												Proceed to checkout
 											</a>
 										</div>
@@ -91,7 +91,7 @@
 								</div>
 							</div>
 						</div>
-
+						
 					</div>
 				</div>
 			</div><!-- #content -->
@@ -100,11 +100,5 @@
 </div>
 
 <script>
-	$(document).ready(function() {
-		orderTotal()
-	});
-
-	$('.shipping-methods').click(function(e) {
-		orderTotal()
-	});
+	
 </script>

@@ -56,6 +56,7 @@ function showSuccessToast() {
 }
 
 function showErrorToast() {
+    console.log("a")
     toast({
         title: "Thất bại!",
         message: "Có lỗi xảy ra, vui lòng liên hệ quản trị viên.",

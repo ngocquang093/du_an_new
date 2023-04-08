@@ -1,8 +1,3 @@
-<?php
-extract($pro);
-$listImg = explode(", ", $anh_san_pham)
-?>
-
 <div id="site-main" class="site-main">
 	<div id="main-content" class="main-content">
 		<div id="primary" class="content-area">
@@ -10,11 +5,11 @@ $listImg = explode(", ", $anh_san_pham)
 				<div class="section-container">
 					<div class="content-title-heading">
 						<h1 class="text-title-heading">
-							<?= $ten_san_pham ?>
+							Bora Armchair
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span><?= $ten_san_pham ?>
+						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span>Bora Armchair
 					</div>
 				</div>
 			</div>
@@ -30,29 +25,52 @@ $listImg = explode(", ", $anh_san_pham)
 											<div class="col-md-2">
 												<div class="content-thumbnail-scroll">
 													<div class="image-thumbnail slick-carousel slick-vertical" data-asnavfor=".image-additional" data-centermode="true" data-focusonselect="true" data-columns4="5" data-columns3="4" data-columns2="4" data-columns1="4" data-columns="4" data-nav="true" data-vertical="&quot;true&quot;" data-verticalswiping="&quot;true&quot;">
-														<?php foreach ($listImg as $img) : ?>
-
-															<div class="img-item slick-slide">
-																<span class="img-thumbnail-scroll">
-																	<img width="600" height="600" src="media/product/<?= $img ?>" alt="">
-																</span>
-															</div>
-
-														<?php endforeach; ?>
+														<div class="img-item slick-slide">
+															<span class="img-thumbnail-scroll">
+																<img width="600" height="600" src="media/product/9.jpg" alt="">
+															</span>
+														</div>
+														<div class="img-item slick-slide">
+															<span class="img-thumbnail-scroll">
+																<img width="600" height="600" src="media/product/9-2.jpg" alt="">
+															</span>
+														</div>
+														<div class="img-item slick-slide">
+															<span class="img-thumbnail-scroll">
+																<img width="600" height="600" src="media/product/9-3.jpg" alt="">
+															</span>
+														</div>
+														<div class="img-item slick-slide">
+															<span class="img-thumbnail-scroll">
+																<img width="600" height="600" src="media/product/9.jpg" alt="">
+															</span>
+														</div>
+														<div class="img-item slick-slide">
+															<span class="img-thumbnail-scroll">
+																<img width="600" height="600" src="media/product/9-2.jpg" alt="">
+															</span>
+														</div>
 													</div>
 												</div>
 											</div>
 											<div class="col-md-10">
 												<div class="scroll-image main-image">
 													<div class="image-additional slick-carousel" data-asnavfor=".image-thumbnail" data-fade="true" data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1" data-columns="1" data-nav="true">
-														<?php foreach ($listImg as $img) : ?>
-
-															<div class="img-item slick-slide">
-															<img width="900" height="900" src="media/product/<?= $img ?>" alt="" title="">
+														<div class="img-item slick-slide">
+															<img width="900" height="900" src="media/product/9.jpg" alt="" title="">
 														</div>
-
-														<?php endforeach; ?>
-
+														<div class="img-item slick-slide">
+															<img width="900" height="900" src="media/product/9-2.jpg" alt="" title="">
+														</div>
+														<div class="img-item slick-slide">
+															<img width="900" height="900" src="media/product/9-3.jpg" alt="" title="">
+														</div>
+														<div class="img-item slick-slide">
+															<img width="900" height="900" src="media/product/9.jpg" alt="" title="">
+														</div>
+														<div class="img-item slick-slide">
+															<img width="900" height="900" src="media/product/9-2.jpg" alt="" title="">
+														</div>
 													</div>
 												</div>
 											</div>
@@ -60,10 +78,10 @@ $listImg = explode(", ", $anh_san_pham)
 									</div>
 
 									<div class="product-info col-lg-5 col-md-12 col-12 ">
-										<h1 class="title"><?= $ten_san_pham ?></h1>
+										<h1 class="title">Bora Armchair</h1>
 										<span class="price">
-											<del aria-hidden="true"><span>$<?= number_format($don_gia, 2) ?></span></del>
-											<ins><span>$<?= number_format($gia_khuyen_mai, 2) ?></span></ins>
+											<del aria-hidden="true"><span>$100.00</span></del>
+											<ins><span>$90.00</span></ins>
 										</span>
 										<div class="rating">
 											<div class="star star-5"></div>
@@ -107,8 +125,8 @@ $listImg = explode(", ", $anh_san_pham)
 													<input type="number" class="qty" step="1" min="0" max="" name="quantity" value="1" title="Qty" size="4" placeholder="" inputmode="numeric" autocomplete="off">
 													<button type="button" class="minus">-</button>
 												</div>
-												<div class="btn-add-to-cart_ct">
-													<a  class="button" tabindex="0" onclick="addCartQtt(<?= $ma_san_pham ?>, this)">Add to cart</a>
+												<div class="btn-add-to-cart">
+													<a href="#" class="button" tabindex="0">Add to cart</a>
 												</div>
 											</div>
 											<div class="btn-quick-buy" data-title="Wishlist">
@@ -461,4 +479,3 @@ $listImg = explode(", ", $anh_san_pham)
 		</div><!-- #primary -->
 	</div><!-- #main-content -->
 </div>
-
