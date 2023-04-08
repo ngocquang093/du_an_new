@@ -5,6 +5,7 @@ require "../model/pdo.php";
 require "../model/product.php";
 require "../model/user.php";
 require "../model/bill.php";
+require "../model/thongke.php";
 require "../global.php";
 
 
@@ -142,7 +143,7 @@ if (isset($_GET['act'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = get_user($email, $password);
-            if($user != []) {
+            if ($user != []) {
                 $_SESSION['user'] = [
                     "id" => $user['ma_khach_hang'],
                     "name" => $user['ten_khach_hang'],
@@ -158,7 +159,7 @@ if (isset($_GET['act'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = get_user_admin($email, $password);
-            if($user != []) {
+            if ($user != []) {
                 $_SESSION['user_admin'] = [
                     "id" => $user['ma_khach_hang'],
                     "name" => $user['ten_khach_hang'],
@@ -170,7 +171,7 @@ if (isset($_GET['act'])) {
                 echo_json(false);
             }
             break;
-            
+
         case "logout":
             unset($_SESSION['user']);
             break;
@@ -189,7 +190,7 @@ if (isset($_GET['act'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $user = get_user($email, $password);
-            if($user != []) {
+            if ($user != []) {
                 echo_json(true);
             } else {
                 echo_json(false);
@@ -204,15 +205,15 @@ if (isset($_GET['act'])) {
             break;
 
         case "checkLogin":
-            if(isset($_SESSION['user'])) echo_json(true);
+            if (isset($_SESSION['user'])) echo_json(true);
             else echo_json(false);
             break;
 
         case "checkLogin":
-            if(isset($_SESSION['user'])) echo_json(true);
+            if (isset($_SESSION['user'])) echo_json(true);
             else echo_json(false);
             break;
-            
+
         case "addbill":
             $ten_nguoi_nhan = $_POST['ten_nguoi_nhan'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
@@ -255,7 +256,7 @@ if (isset($_GET['act'])) {
             $ma_trang_thai = $_POST['ma_trang_thai'];
             $pt_ship = $_POST['pt_ship'];
             $ma_don_hang = $_POST['ma_don_hang'];
-            update_bill($ma_don_hang ,$ten_nguoi_nhan, $dia_chi, $so_dien_thoai, $ngay_dat_hang, $ma_trang_thai, $pt_ship);
+            update_bill($ma_don_hang, $ten_nguoi_nhan, $dia_chi, $so_dien_thoai, $ngay_dat_hang, $ma_trang_thai, $pt_ship);
             break;
 
         case "getTrangThai":
@@ -264,7 +265,43 @@ if (isset($_GET['act'])) {
             echo_json($trang_thai);
             break;
 
-        
+        case 'thongke':
+            switch ($_POST['name']) {
+                case 'soluotxem':
+                    $listsp = get_top10_luotxem();
+                    $_name = [];
+                    $_luotxem = [];
+                    foreach ($listsp as $sp) {
+                        $_name[] = $sp['ten_san_pham'];
+                        $_luotxem[] = $sp['luot_xem'];
+                    };
+                    $data = [
+                        'label' => $_name,
+                        'data' => $_luotxem,
+                        'name' => 'Top 10 lượt xem'
+                    ];
+
+                    echo_json($data);
+                    break;
+
+                case 'hangbanchay':
+                    $listsp = get_top10_banchay();
+                    $_name = [];
+                    $_soluong = [];
+                    foreach ($listsp as $sp) {
+                        $_name[] = $sp['ten_san_pham'];
+                        $_soluong[] = $sp['so_luong'];
+                    };
+                    $data = [
+                        'label' => $_name,
+                        'data' => $_soluong,
+                        'name' => 'Top 10 bán chạy'
+                    ];
+
+                    echo_json($data);
+                    break;
+            }
+            break;
         default:
     }
 } else {

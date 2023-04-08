@@ -127,6 +127,7 @@ if(!isset($_SESSION['user_admin'])){
                 }
                 include 'comment/delete.php';
                 break;
+
             case 'deletecmt':
                 if(isset($_POST['delete']) && ($_POST['delete'])){
                     $id = $_POST['id'];
@@ -134,6 +135,10 @@ if(!isset($_SESSION['user_admin'])){
                 }
                 $list_cmt = cmt_all("");
                 include 'comment/list.php';
+                break;
+
+            case 'thongke':
+                include 'thongke/thongke.php';
                 break;
 
             case 'logout_admin':
