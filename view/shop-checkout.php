@@ -224,10 +224,10 @@
 													<div data-title="Shipping">
 														<ul class="shipping-methods custom-radio">
 															<li>
-																<input type="radio" name="shipping_method" data-index="0" value="1" class="shipping_method" <?php if($ship == "" || $ship == "normal") echo 'checked="checked"';?>><label>Giao bình thường</label>
+																<input type="radio" name="shipping_method" data-index="0" value="1" class="shipping_method" <?php if($ship == "" || $ship == "1") echo 'checked="checked"';?>><label>Giao bình thường</label>
 															</li>
 															<li>
-																<input type="radio" name="shipping_method" data-index="0" value="2" class="shipping_method" <?php if($ship == "fast") echo 'checked="checked"' ?>><label>Giao nhanh</label>
+																<input type="radio" name="shipping_method" data-index="0" value="2" class="shipping_method" <?php if($ship == "2") echo 'checked="checked"' ?>><label>Giao nhanh</label>
 															</li>
 														</ul>
 													</div>

@@ -95,13 +95,13 @@ if (isset($_GET['act'])) {
         case "removeCart":
             $cart = $_SESSION['cart'];
             $id = $_POST['id'];
-
             foreach ($cart as $index => $item) {
                 if ($item['id'] == $id) {
                     unset($_SESSION['cart'][$index]);
+                    break;
                 }
-                break;
             }
+
             break;
 
         case "getCountCate":
@@ -230,6 +230,7 @@ if (isset($_GET['act'])) {
                 $ma_san_pham = $item['id'];
                 $so_luong = $item['qty'];
                 $pro = get_product($ma_san_pham);
+                minus_qty($ma_san_pham, $so_luong);
                 $gia = ($pro['gia_khuyen_mai'] == -1) ? $pro['don_gia'] : $pro['gia_khuyen_mai'];
                 add_bill_detail($ma_don_hang, $ma_san_pham, $so_luong, $gia);
                 unset($_SESSION['cart']);
@@ -263,6 +264,23 @@ if (isset($_GET['act'])) {
             $ma_don_hang = $_POST['ma_don_hang'];
             $trang_thai = get_trang_thai_bill($ma_don_hang);
             echo_json($trang_thai);
+            break;
+
+        case "checkQtyProduct":
+            $_id = $_POST['id'];
+            $_qty = $_POST['qty'];
+            $_id = explode(",", $_id);
+            $_qty = explode(",", $_qty);
+            $error = [];
+            foreach ($_id as $index => $id) {
+                $pro = get_product($id);
+                if ($pro['so_luong_san_pham'] < $_qty[$index]) {
+                    $name = $pro['ten_san_pham'];
+                    $error[] = "$name không có đủ hàng trong kho";
+                }
+            }
+            echo_json($error);
+
             break;
 
         case 'thongke':

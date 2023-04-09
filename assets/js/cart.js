@@ -175,11 +175,11 @@ function loadTableCart() {
                     listCart.innerHTML += `
                         <tr class="cart-item" id="${id}">
                             <td class="product-thumbnail">
-                                <a href="shop-details.html">
+                                <a href="?act=shop-details&id=${id}">
                                     <img width="600" height="600" src="media/product/${img}" class="product-image" alt="">
                                 </a>
                                 <div class="product-name">
-                                    <a href="shop-details.html">${name}</a>
+                                    <a href="?act=shop-details&id=${id}">${name}</a>
                                 </div>
                             </td>
                             <td class="product-price">
@@ -335,7 +335,31 @@ function updateCart(ele) {
                     processData: false,
                     success: function (suc) {
                         var ship = $('input[name = "shipping_method"]:checked').val()
-                        if (JSON.parse(suc)) window.location = "index.php?act=shop-checkout&ship=" + ship
+                        if (JSON.parse(suc)) {
+                            $.ajax({
+                                url: "api/main.php?act=checkQtyProduct", //Server api to receive the file
+                                type: "POST",
+                                cache: false,
+                                contentType: false,
+                                processData: false,
+                                data: form_data,
+                                success: function (suc) {
+                                    var _error = JSON.parse(suc);
+                                    if(_error.length == 0) {
+                                        window.location = "index.php?act=shop-checkout&ship=" + ship
+                                    } else {
+                                        _error.forEach((error) => {
+                                            toast({
+                                                title: "Thất bại!",
+                                                message: error,
+                                                type: "error",
+                                                duration: 5000
+                                            });
+                                        })
+                                    }
+                                }
+                            });
+                        }
                         else {
                             toast({
                                 title: "Thất bại!",
@@ -391,6 +415,8 @@ function orderTotal() {
 
     $('.order-total span').text(`$${total}`)
 }
+
+
 
 
 

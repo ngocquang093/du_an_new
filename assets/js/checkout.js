@@ -44,7 +44,6 @@ function validateCheckout() {
         return
     }
 
-    console.log('a')
 
     var order_comments = $('textarea[name = "order_comments"]').val()
     var pttt = $('input[name = "payment_method"]:checked').val();

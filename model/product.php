@@ -9,7 +9,7 @@ function get_list_product($st, $step)
 
 function get_product($id)
 {
-    $sql = "SELECT * FROM san_pham WHERE san_pham.ma_san_pham = $id";
+    $sql = "SELECT * FROM san_pham INNER JOIN loai_sp ON loai_sp.ma_loai = san_pham.ma_loai WHERE san_pham.ma_san_pham = $id";
     $pro = pdo_query_one($sql);
     return $pro;
 }
@@ -68,4 +68,16 @@ function get_avg_rate($id) {
     $rate = pdo_query_one($sql)["rate_avg"];
     if($rate == null) $rate = 0;
     return $rate;
+}
+
+function get_qty($id) {
+    $sql = "SELECT ten_san_pham ,so_luong_san_pham FROM san_pham WHERE ma_san_pham = $id";
+    $item = pdo_query_one($sql);
+
+    return $item;
+}
+
+function minus_qty($id, $qty) {
+    $sql = "UPDATE `duan`.`san_pham` SET `so_luong_san_pham` = `so_luong_san_pham` - $qty WHERE `ma_san_pham` = $id;";
+    pdo_execute($sql);
 }
