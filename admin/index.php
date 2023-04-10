@@ -256,6 +256,7 @@ if (!isset($_SESSION['user_admin'])) {
                             move_uploaded_file($_FILES["anh_san_phama"]["tmp_name"], $target_file);
                         }
                         edit_san_pham($ma_san_pham, $ten_san_pham, $don_gia, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong);
+                        
                         $message = "update thành công";
                     }
                 }

@@ -41,7 +41,7 @@ function get_one_san_pham($id)
 function edit_san_pham($ma_san_pham, $ten_san_pham, $don_gia, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
 {
     $sql = "UPDATE san_pham SET ma_san_pham='$ma_san_pham', ten_san_pham='$ten_san_pham', don_gia='$don_gia', anh_san_pham='$anh_san_pham', 
-            mo_ta_tom_tat='$mo_ta_tom_tat', ngay_tao='$ngay_tao', gia_khuyen_mai='$gia_khuyen_mai', so_luong='$so_luong',  WHERE id='$id'";
+            mo_ta_tom_tat='$mo_ta_tom_tat', ngay_tao='$ngay_tao', gia_khuyen_mai='$gia_khuyen_mai', so_luong='$so_luong',  WHERE id='$ma_san_pham'";
     pdo_execute($sql);
 }
 
