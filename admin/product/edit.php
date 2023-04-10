@@ -117,7 +117,7 @@ if(isset($_POST["edit_san_pham"])){
     </div>
     <div class="col-md-6">
         <label for="validationCustom06" class="form-label fw-bold">Số Lượng</label>
-        <textarea name="so_luong" class="form-control" id="validationCutom06" cols="30" rows="5" required><?php echo $product['so_luong'];?></textarea>
+        <textarea name="so_luong" class="form-control" id="validationCutom06" cols="30" rows="5" required><?php echo $product['so_luong_san_pham'];?></textarea>
         <div class="invalid-feedback">
             Vui lòng nhập số lượng
         </div>

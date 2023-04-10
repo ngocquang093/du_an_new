@@ -16,14 +16,17 @@ function get_product($id)
 // loai san pham
 function add_san_pham($ten_san_pham, $don_gia, $ma_loai, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
 {
-    $sql = "INSERT INTO san_pham VALUES (null, '$ten_san_pham', '$don_gia', '$ma_loai', '$anh_san_pham', '$mo_ta_tom_tat', 
-            '$ngay_tao', '$gia_khuyen_mai', '$so_luong');";
+    // $sql = "INSERT INTO san_pham VALUES ('$ten_san_pham', '$don_gia', '$ma_loai', '$anh_san_pham', '$mo_ta_tom_tat', 
+    //         '$ngay_tao', '$gia_khuyen_mai', '$so_luong');";
+
+    $sql = "INSERT INTO `duan`.`san_pham` (`ma_san_pham`, `ten_san_pham`, `don_gia`, `ma_loai`, `anh_san_pham`, `gia_khuyen_mai`, `mo_ta_tom_tat`, `ngay_tao`, `chi_tiet_san_pham`, `so_luong_san_pham`) ".
+    "VALUES (DEFAULT, '$ten_san_pham', '$don_gia', $ma_loai, '$anh_san_pham', '$gia_khuyen_mai', '$mo_ta_tom_tat', '$ngay_tao', 'a', $so_luong);";
     pdo_execute($sql);
 }
 
 function get_all_san_pham()
 {
-    $sql = "SELECT * FROM san_pham";
+    $sql = "SELECT * FROM san_pham INNER JOIN loai_sp ON san_pham.ma_loai = loai_sp.ma_loai";
     $results = pdo_query($sql);
     return $results;
 }

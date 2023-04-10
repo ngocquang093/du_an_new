@@ -14,7 +14,7 @@ $results = get_all_san_pham();
             <th scope="col">STT</th>
             <th scope="col">Tên Sản Phẩm</th>
             <th scope="col">Đơn Giá</th>
-            <th scope="col">Mã Loại</th>
+            <th scope="col">Tên loại</th>
             <th scope="col">  Hình ảnh</th>
             <th scope="col">Mô tả</th>
             <th scope="col">Ngày tạo</th>
@@ -27,13 +27,14 @@ $results = get_all_san_pham();
         </thead>
         <tbody class="table-group-divider">
         <?php foreach ($results as $key => $value){ ?>
+            <?php $img = explode(", ", $value['anh_san_pham'])[0] ?>
             <tr>
                 <th scope="row"><input type="checkbox"></th>
                 <td><?php echo $value['ma_san_pham'] ?></td>
                 <td style="width: 200px;"><?php echo $value['ten_san_pham'] ?></td>
                 <td><?php echo $value['don_gia'] ?></td>
-                <td><?php echo $value['ma_loai'] ?></td>
-                <td><img src="../media/product/<?php echo $value['anh_san_pham'];?>" style=" width: 150px;height: 100px;border-radius: 50%;" alt="ảnh sp"></td>              
+                <td><?php echo $value['ten_loai'] ?></td>
+                <td><img src="../media/product/<?php echo $img;?>" style=" width: 150px;height: 100px;border-radius: 50%;" alt="ảnh sp"></td>              
                 <td><?php echo $value['mo_ta_tom_tat']; ?></td>
                 <td><?php echo $value['ngay_tao'] ?></td>
                 <td><?php echo $value['gia_khuyen_mai'] ?></td>
