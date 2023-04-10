@@ -85,7 +85,7 @@ function user_all($kyw = "", $id = 0)
     $sql .= " order by ma_khach_hang desc";
     $list_user = pdo_query($sql);
     return $list_user;
-}
+}   
 
 function loadone_user($id)
 {
@@ -93,3 +93,4 @@ function loadone_user($id)
     $user = pdo_query_one($sql);
     return $user;
 }
+

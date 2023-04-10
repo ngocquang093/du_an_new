@@ -13,6 +13,39 @@ function get_product($id)
     $pro = pdo_query_one($sql);
     return $pro;
 }
+// loai san pham
+function add_san_pham($ten_san_pham, $don_gia, $ma_loai, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
+{
+    $sql = "INSERT INTO san_pham VALUES (null, '$ten_san_pham', '$don_gia', '$ma_loai', '$anh_san_pham', '$mo_ta_tom_tat', 
+            '$ngay_tao', '$gia_khuyen_mai', '$so_luong');";
+    pdo_execute($sql);
+}
+
+function get_all_san_pham()
+{
+    $sql = "SELECT * FROM san_pham";
+    $results = pdo_query($sql);
+    return $results;
+}
+function delete_san_pham($id)
+{
+    $sql = "DELETE FROM san_pham WHERE ma_san_pham='$id';ALTER TABLE san_pham AUTO_INCREMENT= '$id';";
+    pdo_execute($sql);
+}
+function get_one_san_pham($id)
+{
+    $sql = "SELECT * FROM san_pham WHERE ma_san_pham=" . $id;
+    $product =  pdo_query_one($sql);
+    return $product;
+}
+function edit_san_pham($ma_san_pham, $ten_san_pham, $don_gia, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
+{
+    $sql = "UPDATE san_pham SET ma_san_pham='$ma_san_pham', ten_san_pham='$ten_san_pham', don_gia='$don_gia', anh_san_pham='$anh_san_pham', 
+            mo_ta_tom_tat='$mo_ta_tom_tat', ngay_tao='$ngay_tao', gia_khuyen_mai='$gia_khuyen_mai', so_luong='$so_luong',  WHERE id='$id'";
+    pdo_execute($sql);
+}
+
+
 
 function get_list_cate()
 {
@@ -58,26 +91,30 @@ function get_count_cate($ma_loai)
     return $so_luong['so_luong'];
 }
 
-function flus_luot_xem($id) {
+function flus_luot_xem($id)
+{
     $sql = "UPDATE `duan`.`san_pham` SET `luot_xem` = `luot_xem` + 1 WHERE san_pham.ma_san_pham = $id;";
     pdo_execute($sql);
 }
 
-function get_avg_rate($id) {
+function get_avg_rate($id)
+{
     $sql = "SELECT AVG(binh_luan.rate) as rate_avg FROM binh_luan WHERE binh_luan.ma_san_pham = $id";
     $rate = pdo_query_one($sql)["rate_avg"];
-    if($rate == null) $rate = 0;
+    if ($rate == null) $rate = 0;
     return $rate;
 }
 
-function get_qty($id) {
+function get_qty($id)
+{
     $sql = "SELECT ten_san_pham ,so_luong_san_pham FROM san_pham WHERE ma_san_pham = $id";
     $item = pdo_query_one($sql);
 
     return $item;
 }
 
-function minus_qty($id, $qty) {
+function minus_qty($id, $qty)
+{
     $sql = "UPDATE `duan`.`san_pham` SET `so_luong_san_pham` = `so_luong_san_pham` - $qty WHERE `ma_san_pham` = $id;";
     pdo_execute($sql);
 }
