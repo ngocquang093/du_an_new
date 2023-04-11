@@ -14,12 +14,12 @@ if (!isset($_SESSION['user_admin'])) {
     include "login/login.php";
 } else {
 
-    
     include "view/header.php";
+    
     if (isset($_GET['act'])) {
         
         $act = $_GET['act'];
-
+        include "view/navbar.php";
         switch ($act) {
                 //            Use----------------------------------     //
             case "list_user":
@@ -277,6 +277,8 @@ if (!isset($_SESSION['user_admin'])) {
         }
         include "view/footer.php";
     } else {
+        include "view/navbar.php";
+
         include "view/home.php";
         include "view/footer.php";
     }
