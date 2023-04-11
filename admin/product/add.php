@@ -11,30 +11,47 @@ if (isset($_POST["them_product"])) {
     $so_luong = $_POST["so_luong"];
 
     if (isset($_FILES["anh_san_pham"])) {
-        $target_dir = "../media/product/";
-        $nameImg = $_FILES["anh_san_pham"]["name"];
-        $target_file = $target_dir . $nameImg;
-        $maxFileSize = 800000;
-        $allowUpload = true;
-        $allowTypes = ["jpg", "png", "jpeg", "gif"];
-        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+        foreach ($_FILES['anh_san_pham']['name'] as $index => $value) {
+            $target_dir = "../media/product/";
+            $nameImg = $_FILES["anh_san_pham"]["name"][$index];
+            $maxFileSize = 1000000;
+            $allowUpload = true;
+            $allowTypes = ["jpg", "png", "jpeg", "gif"];
+            $imageFileType = pathinfo($nameImg, PATHINFO_EXTENSION);
+            if ($_FILES["anh_san_pham"]["size"][$index] > $maxFileSize) {
+                $error["img_size"] = "Khong duoc upload anh > " . $maxFileSize . "(Byte)";
+                $allowUpload = false;
+                break;
+            }
+
+            if (!in_array($imageFileType, $allowTypes)) {
+                $error["img_type"] = "Chi duoc upload cac dinh dang jpg,png,jbeg,gif";
+                $allowUpload = false;
+                break;
+            }
+        };
 
 
-        if ($_FILES["anh_san_pham"]["size"] > $maxFileSize) {
-            $error["img_size"] = "Khong duoc upload anh > " . $maxFileSize . "(Byte)";
-            $allowUpload = false;
+
+        if ($allowUpload) {
+            $id = add_san_pham($ten_san_pham, $don_gia, $ma_loai, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong);
+            $_img = [];
+            foreach ($_FILES['anh_san_pham']['name'] as $index => $value) {
+                $target_dir = "../media/product/";
+                $nameImg = $_FILES["anh_san_pham"]["name"][$index];
+                $imageFileType = pathinfo($nameImg, PATHINFO_EXTENSION);
+                if($index == 0) {
+                    $img = $id . '.' . $imageFileType;
+                } else {
+                    $img = $id . '-' . $index . '.' . $imageFileType;
+                }
+                $_img[] = $img;
+                $target_file = $target_dir . $img;
+                move_uploaded_file($_FILES["anh_san_pham"]["tmp_name"][$index], $target_file);
+            };
+            $_img = implode(", ",$_img);
+            add_img_san_pham($id, $_img);
         }
-
-        if (!in_array($imageFileType, $allowTypes)) {
-            $error["img_type"] = "Chi duoc upload cac dinh dang jpg,png,jbeg,gif";
-            $allowUpload = false;
-        }
-
-        if ($allowUpload == true) {
-            move_uploaded_file($_FILES["anh_san_pham"]["tmp_name"], $target_file);
-        }
-        add_san_pham($ten_san_pham, $don_gia, $ma_loai, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong);
-        header('Location: index.php?act=list_products');
     }
 }
 
@@ -68,7 +85,7 @@ if (isset($_POST["them_product"])) {
             <select class="form-select" name="ma_loai" id="validationCustom04" required>
                 <option selected disabled value="">Choose</option>
                 <?php foreach ($loai_sp as $key => $value) { ?>
-                    <option value="<?php echo $value['ma_loai']; ?>"><?php echo $value['ma_loai']; ?></option>
+                    <option value="<?php echo $value['ma_loai']; ?>"><?php echo $value['ten_loai']; ?></option>
                 <?php } ?>
             </select>
             <div class="invalid-feedback">
@@ -77,7 +94,7 @@ if (isset($_POST["them_product"])) {
         </div>
         <div class="col-md-6">
             <label style="" for="validationCustom05" class="form-label fw-bold">Hình ảnh</label>
-            <input type="file" name="anh_san_pham" class="form-control" id="validationCustom05" required>
+            <input type="file" name="anh_san_pham[]" class="form-control" id="validationCustom05" required multiple>
             <div class="invalid-feedback">
                 <?php echo (isset($error["img_size"]) ? $error["img_size"] : isset($error["img_type"])) ? $error["img_type"] : "Vui lòng chọn 1 hình ảnh"; ?>
             </div>

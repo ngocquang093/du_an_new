@@ -177,40 +177,40 @@ if (!isset($_SESSION['user_admin'])) {
             case 'product-add':
                 $loai_sp = get_all_loai_sp();
                 if (isset($_POST["them_product"])) {
-                    $ten_san_pham = $_POST["ten_san_pham"];
-                    $don_gia = $_POST["don_gia"];
-                    $ma_loai = $_POST["ma_loai"];
-                    $anh_san_pham = $_FILES['anh_san_pham']['name'];
-                    $mo_ta_tom_tat = $_POST["mo_ta_tom_tat"];
-                    $ngay_tao = $_POST["ngay_tao"];
-                    $gia_khuyen_mai = $_POST["gia_khuyen_mai"];
-                    $so_luong = $_POST["so_luong"];
+                    // $ten_san_pham = $_POST["ten_san_pham"];
+                    // $don_gia = $_POST["don_gia"];
+                    // $ma_loai = $_POST["ma_loai"];
+                    // $anh_san_pham = $_FILES['anh_san_pham']['name'];
+                    // $mo_ta_tom_tat = $_POST["mo_ta_tom_tat"];
+                    // $ngay_tao = $_POST["ngay_tao"];
+                    // $gia_khuyen_mai = $_POST["gia_khuyen_mai"];
+                    // $so_luong = $_POST["so_luong"];
 
-                    if (isset($_FILES["anh_san_pham"])) {
-                        $target_dir = "../media/product/";
-                        $nameImg = $_FILES["anh_san_pham"]["name"];
-                        $target_file = $target_dir . $nameImg;
-                        $maxFileSize = 800000;
-                        $allowUpload = true;
-                        $allowTypes = ["jpg", "png", "jpeg", "gif"];
-                        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+                    // if (isset($_FILES["anh_san_pham"])) {
+                    //     $target_dir = "../media/product/";
+                    //     $nameImg = $_FILES["anh_san_pham"]["name"];
+                    //     $target_file = $target_dir . $nameImg;
+                    //     $maxFileSize = 800000;
+                    //     $allowUpload = true;
+                    //     $allowTypes = ["jpg", "png", "jpeg", "gif"];
+                    //     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-                        if ($_FILES["anh_san_pham"]["size"] > $maxFileSize) {
-                            $error["img_size"] = "Khong duoc upload anh > " . $maxFileSize . "(Byte)";
-                            $allowUpload = false;
-                        }
+                    //     if ($_FILES["anh_san_pham"]["size"] > $maxFileSize) {
+                    //         $error["img_size"] = "Khong duoc upload anh > " . $maxFileSize . "(Byte)";
+                    //         $allowUpload = false;
+                    //     }
 
-                        if (!in_array($imageFileType, $allowTypes)) {
-                            $error["img_type"] = "Chi duoc upload cac dinh dang jpg,png,jbeg,gif";
-                            $allowUpload = false;
-                        }
+                    //     if (!in_array($imageFileType, $allowTypes)) {
+                    //         $error["img_type"] = "Chi duoc upload cac dinh dang jpg,png,jbeg,gif";
+                    //         $allowUpload = false;
+                    //     }
 
-                        if ($allowUpload == true) {
-                            move_uploaded_file($_FILES["anh_san_pham"]["tmp_name"], $target_file);
-                        }
-                        add_san_pham($ten_san_pham, $don_gia, $ma_loai, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong);
-                        $message = "Thêm thành công";
-                    }
+                    //     if ($allowUpload) {
+                    //         // move_uploaded_file($_FILES["anh_san_pham"]["tmp_name"], $target_file);
+                    //         // add_san_pham($ten_san_pham, $don_gia, $ma_loai, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong);
+                    //         $message = "Thêm thành công";
+                    //     }
+                    // }
                 }
                 include 'product/add.php';
                 break;

@@ -1,4 +1,4 @@
-<div style="margin-left:300px;" class="container">
+<div style="margin-left:300px;background-color: rgb(237,246,246);margin-top: 20px;padding: 20px;border-radius: 20px;" class="">
 
     <section class="list_products">
 

@@ -14,13 +14,19 @@ function get_product($id)
     return $pro;
 }
 // loai san pham
-function add_san_pham($ten_san_pham, $don_gia, $ma_loai, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
+function add_san_pham($ten_san_pham, $don_gia, $ma_loai, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
 {
     // $sql = "INSERT INTO san_pham VALUES ('$ten_san_pham', '$don_gia', '$ma_loai', '$anh_san_pham', '$mo_ta_tom_tat', 
     //         '$ngay_tao', '$gia_khuyen_mai', '$so_luong');";
 
-    $sql = "INSERT INTO `duan`.`san_pham` (`ma_san_pham`, `ten_san_pham`, `don_gia`, `ma_loai`, `anh_san_pham`, `gia_khuyen_mai`, `mo_ta_tom_tat`, `ngay_tao`, `chi_tiet_san_pham`, `so_luong_san_pham`) ".
-    "VALUES (DEFAULT, '$ten_san_pham', '$don_gia', $ma_loai, '$anh_san_pham', '$gia_khuyen_mai', '$mo_ta_tom_tat', '$ngay_tao', 'a', $so_luong);";
+    $sql = "INSERT INTO `duan`.`san_pham` (`ma_san_pham`, `ten_san_pham`, `don_gia`, `ma_loai`, `gia_khuyen_mai`, `mo_ta_tom_tat`, `ngay_tao`, `chi_tiet_san_pham`, `so_luong_san_pham`) ".
+    "VALUES (DEFAULT, '$ten_san_pham', '$don_gia', $ma_loai, '$gia_khuyen_mai', '$mo_ta_tom_tat', '$ngay_tao', 'a', $so_luong);";
+    $id = pdo_execute_lastInsertId($sql);
+    return $id;
+}
+
+function add_img_san_pham($id, $_img) {
+    $sql = "UPDATE `duan`.`san_pham` SET `anh_san_pham` = '$_img' WHERE `ma_san_pham` = $id;";
     pdo_execute($sql);
 }
 

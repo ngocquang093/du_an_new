@@ -1,4 +1,4 @@
-<div style="margin-left: 350px" class="container">
+<div style="margin-left: 350px;background-color: rgb(237,246,246);margin-top: 20px;padding: 20px;border-radius: 20px;" class="">
 <div class="alert alert-success" role="alert">
     <h2>QUẢN LÝ LOẠI HÀNG</h2>
 </div>
