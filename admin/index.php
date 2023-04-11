@@ -14,10 +14,10 @@ if (!isset($_SESSION['user_admin'])) {
     include "login/login.php";
 } else {
 
+    
     include "view/header.php";
-
     if (isset($_GET['act'])) {
-
+        
         $act = $_GET['act'];
 
         switch ($act) {

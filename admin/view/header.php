@@ -81,36 +81,41 @@
           <div class="sidebar__list">
             <div class="sidebar__group">
               <div class="sidebar__caption caption-sm">Admin<span> tools</span></div>
-              <div class="sidebar__menu"><a class="sidebar__item active" href="index.php?act=list_category" style="">
+              <div class="sidebar__menu"><a class="sidebar__item <?php if (!isset($act)) echo 'active' ?>" href="index.php" style="">
                   <div class="sidebar__icon"><svg class="icon icon-overview">
                       <use xlink:href="img/sprite.svg#icon-overview"></use>
                     </svg></div>
                   <div class="sidebar__text">Overview</div>
-                </a><a class="sidebar__item" href="index.php?act=list_products">
+                </a><a class="sidebar__item <?php if ($act == 'list_product') echo 'active' ?>" href="index.php?act=list_product">
                   <div class="sidebar__icon"><svg class="icon icon-bag">
                       <use xlink:href="img/sprite.svg#icon-bag"></use>
                     </svg></div>
-                  <div class="sidebar__text">Products</div>
-                </a><a class="sidebar__item" href="index.php?act=list_products">
+                  <div class="sidebar__text">Sản phẩm</div>
+                </a><a class="sidebar__item" href="index.php?act=list_category">
                   <div class="sidebar__icon"><svg class="icon icon-chart">
                       <use xlink:href="img/sprite.svg#icon-chart"></use>
                     </svg></div>
-                  <div class="sidebar__text">Campaigns</div>
+                  <div class="sidebar__text">Danh mục</div>
                 </a><a class="sidebar__item" href="index.php?act=list_user">
                   <div class="sidebar__icon"><svg class="icon icon-discovery">
                       <use xlink:href="img/sprite.svg#icon-discovery"></use>
                     </svg></div>
-                  <div class="sidebar__text"> Khach hang</div>
+                  <div class="sidebar__text"> Khách hàng</div>
                 </a><a class="sidebar__item" href="index.php?act=list_com">
                   <div class="sidebar__icon"><svg class="icon icon-wallet">
                       <use xlink:href="img/sprite.svg#icon-wallet"></use>
                     </svg></div>
-                  <div class="sidebar__text">Binh Luan</div>
+                  <div class="sidebar__text">Bình luận</div>
                 </a><a class="sidebar__item" href="?act=bill">
                   <div class="sidebar__icon"><svg class="icon icon-document">
                       <use xlink:href="img/sprite.svg#icon-document"></use>
                     </svg></div>
                   <div class="sidebar__text">Hoá đơn</div>
+                </a><a class="sidebar__item" href="?act=thongke">
+                  <div class="sidebar__icon"><svg class="icon icon-document">
+                      <use xlink:href="img/sprite.svg#icon-document"></use>
+                    </svg></div>
+                  <div class="sidebar__text">Thống kê</div>
                 </a><a class="sidebar__item js-popup-open" href="#popup-settings" data-effect="mfp-zoom-in">
                   <div class="sidebar__icon"><svg class="icon icon-settings">
                       <use xlink:href="img/sprite.svg#icon-settings"></use>
