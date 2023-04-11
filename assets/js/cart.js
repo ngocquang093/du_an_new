@@ -1,10 +1,10 @@
 
 
-function addCart(id, qtt, ele) {
+function addCart(id, qty, ele) {
 
     var form_data = new FormData();
     form_data.append('id', id);
-    form_data.append('qtt', qtt);
+    form_data.append('qty', qty);
     $.ajax({
         url: "api/main.php?act=addCart", //Server api to receive the file
         type: "POST",
@@ -83,15 +83,15 @@ function loadCart() {
                     var id = pro['id'];
                     var name = pro['name'];
                     var img = pro['img'];
-                    var qtt = Number(pro['qtt']);
-                    var price = Number(pro['price']) * qtt;
+                    var qty = Number(pro['qty']);
+                    var price = Number(pro['price']) * qty;
                     total += price
                     cartHTML += `
                         <li class="mini-cart-item">
                             <a href="#" class="remove" title="Remove this item" onclick="removeCart(${id})"><i class="icon_close"></i></a>
                             <a href="shop-details.html" class="product-image"><img width="600" height="600" src="media/product/${img}" alt=""></a>
                             <a href="shop-details.html" class="product-name">${name}</a>
-                            <div class="quantity">Qty: ${qtt}</div>
+                            <div class="quantity">Qty: ${qty}</div>
                             <div class="price">$${price}</div>
                         </li>
                     `
@@ -129,8 +129,8 @@ loadCart()
 
 function addCartQtt(id, ele) {
     // Event.preventDefault()
-    var qtt = document.querySelector("input[name='quantity']").value
-    addCart(id, Number(qtt), ele)
+    var qty = document.querySelector("input[name='quantity']").value
+    addCart(id, Number(qty), ele)
 }
 var a = document.querySelector('a')
 // a.parentElement
@@ -168,12 +168,12 @@ function loadTableCart() {
                     var id = pro['id'];
                     var name = pro['name'];
                     var img = pro['img'];
-                    var qtt = Number(pro['qtt']);
+                    var qty = Number(pro['qty']);
                     var price = Number(pro['price']);
-                    var subTotal = price * qtt;
+                    var subTotal = price * qty;
                     total += subTotal
                     listCart.innerHTML += `
-                        <tr class="cart-item">
+                        <tr class="cart-item" id=${id}>
                             <td class="product-thumbnail">
                                 <a href="?act=shop-details&id=${id}">
                                     <img width="600" height="600" src="media/product/${img}" class="product-image" alt="">
@@ -188,7 +188,7 @@ function loadTableCart() {
                             <td class="product-quantity">
                                 <div class="quantity">
                                     <button type="button" class="minus" onclick="changeQuantityCartTable(this, event)">-</button>
-                                    <input type="number" class="qty" step="1" min="0" max="" name="quantity" value="${qtt}" title="Qty" size="4" placeholder="" inputmode="numeric" autocomplete="off" onkeyup="changeQuantityCartTable(this, event)">
+                                    <input type="number" class="qty" step="1" min="0" max="" name="quantity" value="${qty}" title="Qty" size="4" placeholder="" inputmode="numeric" autocomplete="off" onkeyup="changeQuantityCartTable(this, event)">
                                     <button type="button" class="plus" onclick="changeQuantityCartTable(this, event)">+</button>
                                 </div>
                             </td>

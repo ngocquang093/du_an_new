@@ -12,6 +12,7 @@ require "view/header.php";
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
+// unset($_SESSION['cart']);
 $user = [];
 if (isset($_GET['act'])) {
 
