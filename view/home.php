@@ -17,7 +17,7 @@
 												<div class="content">
 													<div class="subtitle-slider">SALE UP TO 30% OFF</div>
 													<h2 class="title-slider">Outdoor Chair</h2>
-													<a class="button-slider button-white" href="shop-grid-left.html">SHOP NOW</a>
+													<a class="button-slider button-white" href="?act=shop-grid-left">SHOP NOW</a>
 												</div>
 											</div>
 										</div>
@@ -31,7 +31,7 @@
 												<div class="content">
 													<div class="subtitle-slider">SALE UP TO 30% OFF</div>
 													<h2 class="title-slider">Accessories</h2>
-													<a class="button-slider button-white" href="shop-grid-left.html">SHOP NOW</a>
+													<a class="button-slider button-white" href="?act=shop-grid-left">SHOP NOW</a>
 												</div>
 											</div>
 										</div>
@@ -45,7 +45,7 @@
 												<div class="content">
 													<div class="subtitle-slider">SALE UP TO 30% OFF</div>
 													<h2 class="title-slider">Kitchen Sale</h2>
-													<a class="button-slider button-white" href="shop-grid-left.html">SHOP NOW</a>
+													<a class="button-slider button-white" href="?act=shop-grid-left">SHOP NOW</a>
 												</div>
 											</div>
 										</div>
@@ -67,17 +67,17 @@
 											<div class="bg-banner">
 												<div class="banner-wrapper banners">
 													<div class="banner-image">
-														<a href="shop-grid-left.html">
+														<a href="?act=shop-grid-left">
 															<img width="568" height="607" src="media/banner/banner-3.jpg" alt="Banner Image">
 														</a>
 													</div>
 													<div class="banner-wrapper-infor">
 														<div class="info">
 															<div class="content">
-																<a class="link-title" href="shop-grid-left.html">
+																<a class="link-title" href="?act=shop-grid-left">
 																	<h3 class="title-banner">new arivals.</h3>
 																</a>
-																<a class="button btn-underline" href="shop-grid-left.html">shop now</a>
+																<a class="button btn-underline" href="?act=shop-grid-left">shop now</a>
 															</div>
 														</div>
 													</div>
@@ -90,17 +90,17 @@
 											<div class="bg-banner">
 												<div class="banner-wrapper banners">
 													<div class="banner-image">
-														<a href="shop-grid-left.html">
+														<a href="?act=shop-grid-left">
 															<img width="568" height="607" src="media/banner/banner-4.jpg" alt="Banner Image">
 														</a>
 													</div>
 													<div class="banner-wrapper-infor text-center">
 														<div class="info">
 															<div class="content">
-																<a class="link-title" href="shop-grid-left.html">
+																<a class="link-title" href="?act=shop-grid-left">
 																	<h3 class="title-banner">trending.</h3>
 																</a>
-																<a class="button btn-underline center" href="shop-grid-left.html">shop now</a>
+																<a class="button btn-underline center" href="?act=shop-grid-left">shop now</a>
 															</div>
 														</div>
 													</div>
@@ -113,17 +113,17 @@
 											<div class="bg-banner">
 												<div class="banner-wrapper banners">
 													<div class="banner-image">
-														<a href="shop-grid-left.html">
+														<a href="?act=shop-grid-left">
 															<img width="568" height="607" src="media/banner/banner-5.jpg" alt="Banner Image">
 														</a>
 													</div>
 													<div class="banner-wrapper-infor">
 														<div class="info">
 															<div class="content">
-																<a class="link-title" href="shop-grid-left.html">
+																<a class="link-title" href="?act=shop-grid-left">
 																	<h3 class="title-banner">staffpick.</h3>
 																</a>
-																<a class="button btn-underline" href="shop-grid-left.html">shop now</a>
+																<a class="button btn-underline" href="?act=shop-grid-left">shop now</a>
 															</div>
 														</div>
 													</div>

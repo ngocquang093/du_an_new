@@ -111,7 +111,7 @@ $listImg = explode(", ", $anh_san_pham)
 													<a class="button" tabindex="0" onclick="addCartqty(<?= $ma_san_pham ?>, this)">Add to cart</a>
 												</div>
 											</div>
-											<div class="btn-quick-buy" data-title="Wishlist">
+											<!-- <div class="btn-quick-buy" data-title="Wishlist">
 												<button class="product-btn">Buy It Now</button>
 											</div>
 											<div class="btn-wishlist" data-title="Wishlist">
@@ -119,7 +119,7 @@ $listImg = explode(", ", $anh_san_pham)
 											</div>
 											<div class="btn-compare" data-title="Compare">
 												<button class="product-btn">Compare</button>
-											</div>
+											</div> -->
 										</div>
 										<div class="product-meta">
 											<span class="sku-wrapper">SKU: <span class="sku">D2300-3-2-2</span></span>
@@ -196,36 +196,42 @@ $listImg = explode(", ", $anh_san_pham)
 												</div>
 												<div id="review-form">
 													<div id="respond" class="comment-respond">
-														<span id="reply-title" class="comment-reply-title">Add a review</span>
-														<form action="?act=binhluan" method="post" id="comment-form" class="comment-form" onsubmit="return validateStar()">
-															<input type="hidden" value="<?= $id ?>" name="id">
-															<input type="hidden" value="" name="star">
-															<p class="comment-notes">
-																<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-															</p>
-															<div class="comment-form-rating">
-																<label for="rating">Your rating</label>
-																<p class="stars" value=0>
-																	<span>
-																		<a class="star-1" value=1>1</a><a class="star-2" value=2>2</a><a class="star-3" value=3>3</a><a class="star-4" value=4>4</a><a class="star-5" value=5>5</a>
-																	</span>
+														<?php if (isset($_SESSION['user'])) { ?>
+															<span id="reply-title" class="comment-reply-title">Add a review</span>
+
+															<form action="?act=binhluan" method="post" id="comment-form" class="comment-form" onsubmit="return validateStar()">
+																<input type="hidden" value="<?= $id ?>" name="id">
+																<input type="hidden" value="" name="star">
+																<p class="comment-notes">
+																	<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
 																</p>
-															</div>
-															<p class="comment-form-comment">
-																<textarea id="comment" name="comment" placeholder="Your Reviews *" cols="45" rows="8" aria-required="true" required=""></textarea>
-															</p>
-															<div class="content-info-reviews">
-																<p class="comment-form-author">
-																	<input id="author_cmt" name="author" placeholder="Name *" type="text" value="<?php if (isset($user)) echo $user['name'] ?>" size="30" aria-required="true" required="">
+																<div class="comment-form-rating">
+																	<label for="rating">Your rating</label>
+																	<p class="stars" value=0>
+																		<span>
+																			<a class="star-1" value=1>1</a><a class="star-2" value=2>2</a><a class="star-3" value=3>3</a><a class="star-4" value=4>4</a><a class="star-5" value=5>5</a>
+																		</span>
+																	</p>
+																</div>
+																<p class="comment-form-comment">
+																	<textarea id="comment" name="comment" placeholder="Your Reviews *" cols="45" rows="8" aria-required="true" required=""></textarea>
 																</p>
-																<p class="comment-form-email">
-																	<input id="email_cmt" name="email" placeholder="Email *" type="email" value="<?php if (isset($user)) echo $user['email'] ?>" size="30" aria-required="true" required="" <?php if (isset($user)) echo 'disabled' ?>>
-																</p>
-																<p class="form-submit">
-																	<input name="submit" type="submit" id="submit_cmt" class="submit" value="Submit">
-																</p>
-															</div>
-														</form><!-- #respond -->
+																<div class="content-info-reviews">
+																	<p class="comment-form-author">
+																		<input id="author_cmt" name="author" placeholder="Name *" type="text" value="<?php if (isset($user)) echo $user['name'] ?>" size="30" aria-required="true" required="">
+																	</p>
+																	<p class="comment-form-email">
+																		<input id="email_cmt" name="email" placeholder="Email *" type="email" value="<?php if (isset($user)) echo $user['email'] ?>" size="30" aria-required="true" required="" <?php if (isset($user)) echo 'disabled' ?>>
+																	</p>
+																	<p class="form-submit">
+																		<input name="submit" type="submit" id="submit_cmt" class="submit" value="Submit">
+																	</p>
+																</div>
+															</form>
+														<?php } else { ?>
+															<span id="shop-details-btn-show-login" class="comment-reply-title" style="cursor: pointer;">Đăng nhập để bình luận</span>
+														<?php } ?>
+														<!-- #respond -->
 													</div>
 												</div>
 												<div class="clear"></div>
@@ -236,7 +242,7 @@ $listImg = explode(", ", $anh_san_pham)
 							</div>
 						</div>
 					</div>
-					<div class="product-related">
+					<!-- <div class="product-related">
 						<div class="section-padding">
 							<div class="section-container p-l-r">
 								<div class="block block-products slider">
@@ -461,7 +467,7 @@ $listImg = explode(", ", $anh_san_pham)
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div><!-- #content -->
 		</div><!-- #primary -->
@@ -503,4 +509,8 @@ $listImg = explode(", ", $anh_san_pham)
 
 		return true
 	}
+
+	$('#shop-details-btn-show-login').click(() => {
+		$('.form-login-register').addClass('active')
+	})
 </script>

@@ -972,8 +972,10 @@
 		test()
 		
 		setTimeout(function() {
-			document.body.scrollTop = 410;
-			document.documentElement.scrollTop = 410;
+			if(document.documentElement.scrollTop == 0 && document.body.scrollTop == 0) {
+				document.body.scrollTop = 410;
+				document.documentElement.scrollTop = 410;
+			}
 		}, 1000)
 		
 	});

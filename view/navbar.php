@@ -420,10 +420,10 @@ $listCategories = get_all_loai_sp();
                                         </li> -->
 
                                         <li class="level-0 menu-item">
-                                            <a href="#"><span class="menu-item-text">Home</span></a>
+                                            <a href="index.php"><span class="menu-item-text">Home</span></a>
                                         </li>
                                         <li class="level-0 menu-item menu-item-has-children">
-                                            <a href=""><span class="menu-item-text">Danh mục</span></a>
+                                            <a href="?act=shop-grid-left&cate=0&page=1"><span class="menu-item-text">Danh mục</span></a>
                                             <ul class="sub-menu">
                                                 <?php foreach ($listCategories as $category) : ?>
                                                     <li>

@@ -11,7 +11,7 @@ $index = 0;
 				<div class="section-container">
 					<div class="content-title-heading">
 						<h1 class="text-title-heading">
-							About Us
+							Bill
 						</h1>
 					</div>
 					<div class="breadcrumbs">
@@ -185,4 +185,15 @@ $index = 0;
 			}
 		});
 	})
+</script>
+<script>
+	$(document).ready(function() {
+		setTimeout(function() {
+			if(document.documentElement.scrollTop == 0 && document.body.scrollTop == 0) {
+				document.body.scrollTop = 420;
+				document.documentElement.scrollTop = 420;
+			}
+		}, 1000)
+		
+	});
 </script>
