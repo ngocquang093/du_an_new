@@ -8,7 +8,7 @@ function showProductShop(sort, callback) {
     var cate = getParameterByName('cate')
     var page = getParameterByName('page')
     if (cate == null || cate == "") {
-        cate = 1
+        cate = 0
     }
 
     if (page == null || page == "") {
@@ -212,7 +212,6 @@ function showProduct() {
 function pageNumber(page, cate) {
     var form_data = new FormData();
     form_data.append('ma_loai', cate);
-
     $.ajax({
         url: "api/main.php?act=getCountCate", //Server api to receive the file
         type: "POST",

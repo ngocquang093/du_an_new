@@ -33,7 +33,7 @@
             <table class="table-inform">
                 <thead>
                     <td width="30px">ID</td>
-                    <td width="100px">Tài khoản</td>
+                    <td width="100px">Tên</td>
                     <td width="80px">Mật khẩu</td>
                     <td width="110px">Email</td>
                     <td width="100px">Số điện thoại</td>

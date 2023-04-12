@@ -690,7 +690,7 @@
 												<div class="lookbook-content">
 													<div class="item">
 														<img width="869" height="702" src="media/banner/lookbook-1.jpg" alt="Look Book 1">
-														<div class="item-lookbook" style="height:30px; width:30px; left:78.37%; top:50%">
+														<!-- <div class="item-lookbook" style="height:30px; width:30px; left:78.37%; top:50%">
 															<span class="number-lookbook">1</span>
 															<div class="content-lookbook" style="right:33px; top:10px;">
 																<div class="item-thumb">
@@ -726,7 +726,7 @@
 																	<span class="price">$150.00</span>
 																</div>
 															</div>
-														</div>
+														</div> -->
 													</div>
 												</div>
 											</div>
@@ -737,7 +737,7 @@
 											<div class="lookbook-intro">
 												<h4 class="sub-title">Discover the new Koti Sofa</h4>
 												<h2 class="title">Like lounging on<br> a cloud</h2>
-												<a href="shop-grid-left.html" class="button button-white">SHOP
+												<a href="/?act=shop-grid-left" class="button button-white">SHOP
 													NOW</a>
 											</div>
 										</div>

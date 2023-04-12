@@ -2,6 +2,7 @@
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
 }
+$listCategories = get_all_loai_sp();
 ?>
 <header id="site-header" class="site-header header-v2">
     <div id="header-topbar" class="topbar-v1 hidden-sm hidden-xs">
@@ -22,8 +23,8 @@ if (isset($_SESSION['user'])) {
                         <div class="col-md-6 topbar-right">
                             <ul id="topbar-menu" class="menu">
                                 <li class="menu-item"><a href="#">Gift Cards</a></li>
-                                <li class="menu-item"><a href="page-faq.html">FAQs</a></li>
-                                <li class="menu-item"><a href="page-contact.html">Contact</a></li>
+                                <li class="menu-item"><a href="#">FAQs</a></li>
+                                <li class="menu-item"><a href="#">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -144,7 +145,7 @@ if (isset($_SESSION['user'])) {
                             <div class="site-navigation">
                                 <nav id="main-navigation">
                                     <ul id="menu-main-menu" class="menu">
-                                        <li class="level-0 menu-item menu-item-has-children mega-menu current-menu-item">
+                                        <!-- <li class="level-0 menu-item menu-item-has-children mega-menu current-menu-item">
                                             <a href="index.php"><span class="menu-item-text">Home</span></a>
                                             <div class="sub-menu">
                                                 <div class="row">
@@ -416,6 +417,20 @@ if (isset($_SESSION['user'])) {
                                         </li>
                                         <li class="level-0 menu-item">
                                             <a href="page-contact.html"><span class="menu-item-text">Contact</span></a>
+                                        </li> -->
+
+                                        <li class="level-0 menu-item">
+                                            <a href="#"><span class="menu-item-text">Home</span></a>
+                                        </li>
+                                        <li class="level-0 menu-item menu-item-has-children">
+                                            <a href=""><span class="menu-item-text">Danh mục</span></a>
+                                            <ul class="sub-menu">
+                                                <?php foreach ($listCategories as $category) : ?>
+                                                    <li>
+                                                        <a href="?act=shop-grid-left&cate=<?= $category['ma_loai'] ?>&page=1"><span class="menu-item-text"><?= $category['ten_loai'] ?></span></a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </nav>
@@ -503,15 +518,15 @@ if (isset($_SESSION['user'])) {
                                 <?php } ?>
 
                                 <!-- Search -->
-                                <div class="search-box">
+                                <!-- <div class="search-box">
                                     <div class="search-toggle"><i class="icon-search"></i></div>
-                                </div>
+                                </div> -->
 
                                 <!-- Wishlist -->
-                                <div class="wishlist-box">
+                                <!-- <div class="wishlist-box">
                                     <a href="shop-wishlist.html"><i class="icon-heart"></i></a>
                                     <span class="count-wishlist">1</span>
-                                </div>
+                                </div> -->
 
                                 <!-- Cart -->
                                 <div class="ruper-topcart dropdown light">

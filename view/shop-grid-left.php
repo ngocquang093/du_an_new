@@ -6,19 +6,20 @@
 					<div class="content-title-heading">
 						<h1 class="text-title-heading">
 							<?php
-								$name_cate = "";
-								foreach ($listCate as $cate) {
-									extract($cate);
-									if ($id_cate == $ma_loai) {
-										$name_cate = $ten_loai;
-										echo $name_cate;
-									}
+							$name_cate = "All";
+							foreach ($listCate as $cate) {
+								extract($cate);
+								if ($id_cate == $ma_loai) {
+									$name_cate = $ten_loai;
+									break;
 								}
+							}
+							echo $name_cate;
 							?>
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span><?= $name_cate ?>
+						<a href="index.php">Home</a><span class="delimiter"></span><a href="?act=shop-grid-left">Shop</a><span class="delimiter"></span><?= $name_cate ?>
 					</div>
 				</div>
 			</div>
@@ -36,6 +37,9 @@
 									<div class="block-content">
 										<div class="product-cats-list">
 											<ul>
+												<li <?php if ($id_cate == 0) echo 'class="current"' ?>>
+													<a href="?act=shop-grid-left&page=1">All<span class="count"><?= $countAll ?></span></a>
+												</li>
 												<?php foreach ($listCate as $cate) : ?>
 													<?php extract($cate) ?>
 													<li <?php if ($id_cate == $ma_loai) echo 'class="current"' ?>>
@@ -49,7 +53,7 @@
 								</div>
 
 								<!-- Block Product Filter -->
-								<div class="block block-product-filter">
+								<!-- <div class="block block-product-filter">
 									<div class="block-title">
 										<h2>Price</h2>
 									</div>
@@ -63,10 +67,10 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 
 								<!-- Block Product Filter -->
-								<div class="block block-product-filter clearfix">
+								<!-- <div class="block block-product-filter clearfix">
 									<div class="block-title">
 										<h2>Size</h2>
 									</div>
@@ -77,10 +81,10 @@
 											<li><span>S</span></li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
 
 								<!-- Block Product Filter -->
-								<div class="block block-product-filter clearfix">
+								<!-- <div class="block block-product-filter clearfix">
 									<div class="block-title">
 										<h2>Brands</h2>
 									</div>
@@ -93,10 +97,10 @@
 											<li><span><img src="media/brand/5.jpg" alt="Brand"></span></li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
 
 								<!-- Block Products -->
-								<div class="block block-products">
+								<!-- <div class="block block-products">
 									<div class="block-title">
 										<h2>Feature Product</h2>
 									</div>
@@ -158,7 +162,7 @@
 											</li>
 										</ul>
 									</div>
-								</div>
+								</div> -->
 							</div>
 
 							<div class="col-xl-9 col-lg-9 col-md-12 col-12">
@@ -180,14 +184,14 @@
 												<li value="3"><a>Sort by latest</a></li> -->
 											</ul>
 										</div>
-										<ul class="layout-toggle nav nav-tabs">
+										<!-- <ul class="layout-toggle nav nav-tabs">
 											<li class="nav-item">
 												<a class="layout-grid nav-link active" data-toggle="tab" href="#layout-grid" role="tab"><span class="icon-column"><span class="layer first"><span></span><span></span><span></span></span><span class="layer middle"><span></span><span></span><span></span></span><span class="layer last"><span></span><span></span><span></span></span></span></a>
 											</li>
 											<li class="nav-item">
 												<a class="layout-list nav-link" data-toggle="tab" href="#layout-list" role="tab"><span class="icon-column"><span class="layer first"><span></span><span></span></span><span class="layer middle"><span></span><span></span></span><span class="layer last"><span></span><span></span></span></span></a>
 											</li>
-										</ul>
+										</ul> -->
 									</div>
 								</div>
 
@@ -195,7 +199,7 @@
 									<div class="tab-pane fade show active" id="layout-grid" role="tabpanel">
 										<div class="products-list grid">
 											<div class="row">
-												<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+												<!-- <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
 													<div class="products-entry clearfix product-wapper">
 														<div class="products-thumb">
 															<div class="product-lable">
@@ -522,11 +526,11 @@
 															</div>
 														</div>
 													</div>
-												</div>
+												</div> -->
 											</div>
 										</div>
 									</div>
-									<div class="tab-pane fade" id="layout-list" role="tabpanel">
+									<!-- <div class="tab-pane fade" id="layout-list" role="tabpanel">
 										<div class="products-list list">
 											<div class="products-entry clearfix product-wapper">
 												<div class="row">
@@ -940,7 +944,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 								</div>
 
 								<nav class="pagination">
@@ -966,7 +970,12 @@
 		var sort = getParameterByName('sort')
 		showProductShop(sort)
 		test()
-
+		
+		setTimeout(function() {
+			document.body.scrollTop = 410;
+			document.documentElement.scrollTop = 410;
+		}, 1000)
+		
 	});
 
 	function test() {
@@ -975,23 +984,22 @@
 		var sortList = productsSort.querySelector('.sort-list')
 		var pageNumberE = document.querySelector('.pagination').querySelector('ul')
 		var sort = getParameterByName('sort')
-		if(sort == null) sort = 0
+		if (sort == null) sort = 0
 		var html = sortList.querySelector(`li[value="${sort}"]`).querySelector('a').innerHTML
 		sortToggle.innerHTML = html
 		sortToggle.setAttribute('value', sort)
 		sortList.onclick = function(event) {
 			var eleClick = event.target
-			if(eleClick.querySelector('a') == null) {
+			if (eleClick.querySelector('a') == null) {
 				eleClick = eleClick.parentElement
 			}
 			var value = eleClick.getAttribute('value')
 			var text = eleClick.querySelector('a').innerHTML
-			if(text != sortToggle.innerHTML) {
+			if (text != sortToggle.innerHTML) {
 				sortToggle.innerHTML = text
 				sortToggle.setAttribute('value', value)
 				showProductShop(value)
 			}
 		}
 	}
-
 </script>

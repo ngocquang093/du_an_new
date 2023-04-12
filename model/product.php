@@ -32,7 +32,7 @@ function add_img_san_pham($id, $_img) {
 
 function get_all_san_pham()
 {
-    $sql = "SELECT * FROM san_pham INNER JOIN loai_sp ON san_pham.ma_loai = loai_sp.ma_loai";
+    $sql = "SELECT * FROM san_pham INNER JOIN loai_sp ON san_pham.ma_loai = loai_sp.ma_loai ORDER BY san_pham.ma_san_pham DESC";
     $results = pdo_query($sql);
     return $results;
 }
@@ -69,22 +69,24 @@ function get_list_cate()
 function get_list_pro_shop($ma_loai, $page, $sort)
 {
     $st = 9 * ($page - 1);
+    if($ma_loai == 0) $sqlCate = "";
+    else $sqlCate = "WHERE san_pham.ma_loai = $ma_loai ";
     switch ($sort) {
         case 0:
             $sql = "SELECT * FROM san_pham " .
-                "WHERE san_pham.ma_loai = $ma_loai " .
+                $sqlCate .
                 "ORDER BY san_pham.ma_san_pham DESC LIMIT $st, 9";
             break;
 
         case 1:
             $sql = "SELECT * FROM san_pham " .
-                "WHERE san_pham.ma_loai = $ma_loai " .
+                $sqlCate .
                 "ORDER BY san_pham.don_gia ASC LIMIT $st, 9";
             break;
 
         case 2:
             $sql = "SELECT * FROM san_pham " .
-                "WHERE san_pham.ma_loai = $ma_loai " .
+                $sqlCate .
                 "ORDER BY san_pham.don_gia DESC LIMIT $st, 9";
             break;
     }
@@ -95,10 +97,21 @@ function get_list_pro_shop($ma_loai, $page, $sort)
 
 function get_count_cate($ma_loai)
 {
+    
     $sql = "SELECT san_pham.ma_loai, COUNT(san_pham.ma_loai) as so_luong FROM san_pham WHERE san_pham.ma_loai = $ma_loai GROUP BY san_pham.ma_loai ";
     $so_luong = pdo_query_one($sql);
     return $so_luong['so_luong'];
 }
+
+function get_count_all()
+{
+    
+    $sql = "SELECT COUNT(san_pham.ma_san_pham) as so_luong FROM san_pham";
+    $so_luong = pdo_query_one($sql);
+    return $so_luong['so_luong'];
+}
+
+
 
 function flus_luot_xem($id)
 {

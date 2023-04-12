@@ -5,6 +5,7 @@ require "model/product.php";
 require "model/user.php";
 require "model/bill.php";
 require "model/comment.php";
+require "model/category.php";
 require "global.php";
 ob_start();
 
@@ -50,8 +51,7 @@ if (isset($_GET['act'])) {
                 binh_luan_insert($ma_khach_hang, $ngay_binh_luan, $noi_dung, $ma_san_pham, $rate);
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 ob_end_flush();
-                
-            } 
+            }
             break;
 
         case "shop-cart":
@@ -59,12 +59,15 @@ if (isset($_GET['act'])) {
             break;
 
         case "shop-grid-left":
-            if(isset($_GET['cate'])) $id_cate = $_GET['cate'];  
-            else $id_cate = 1;
-            if(isset($_GET['page'])) $page = $_GET['page'];
+            $countAll = get_count_all();
+            if (isset($_GET['cate'])) $id_cate = $_GET['cate'];
+            else $id_cate = 0;
+            if($id_cate == 0) $count = $countAll;
+            else $count = get_count_cate($id_cate);
+            
+            if (isset($_GET['page'])) $page = $_GET['page'];
             else $page = 1;
             $listCate = get_list_cate();
-            $count = get_count_cate($id_cate);
             require "view/shop-grid-left.php";
             break;
 
@@ -74,8 +77,7 @@ if (isset($_GET['act'])) {
                 $ma_khach_hang = $_SESSION['user']['id'];
                 $listBill = get_list_bill_user($ma_khach_hang);
                 require "view/page-my-account.php";
-            }
-            else require "view/page-404.php";
+            } else require "view/page-404.php";
             break;
 
         case "shop-checkout":

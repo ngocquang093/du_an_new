@@ -31406,6 +31406,10 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
   opacity: 0.8;
 }
 
+.page-numbers li {
+  cursor: pointer;
+}
+
 
 
 

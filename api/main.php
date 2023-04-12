@@ -106,7 +106,8 @@ if (isset($_GET['act'])) {
 
         case "getCountCate":
             $ma_loai = $_POST['ma_loai'];
-            $so_luong = get_count_cate($ma_loai);
+            if($ma_loai == 0) $so_luong = get_count_all();
+            else $so_luong = get_count_cate($ma_loai);
             echo_json($so_luong);
             break;
 
