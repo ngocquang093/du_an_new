@@ -31,25 +31,17 @@ function loadCart() {
 
             </ul>
             <div class="total-cart">
-                <div class="title-total">Total: </div>
+                <div class="title-total">Tổng tiền: </div>
                 <div class="total-price"><span>$100.00</span></div>
             </div>
-            <div class="free-ship">
-                <div class="title-ship">Buy <strong>$400</strong> more to
-                    enjoy <strong>FREE Shipping</strong></div>
-                <div class="total-percent">
-                    <div class="percent" style="width:20%"></div>
-                </div>
-            </div>
             <div class="buttons">
-                <a href="?act=shop-cart" class="button btn view-cart btn-primary">View cart</a>
-                <a href="shop-checkout.html" class="button btn checkout btn-default">Check out</a>
+                <a href="?act=shop-cart" class="button btn view-cart btn-primary">Xem giỏ hàng</a>
             </div>
         </div>
     `
     var totalCart = headerDesktop.querySelector('.total-cart')
     var totalPrice = totalCart.querySelector('.total-price').querySelector('span')
-    var freeShip = headerDesktop.querySelector('.free-ship')
+    // var freeShip = headerDesktop.querySelector('.free-ship')
     var cart = headerDesktop.querySelector(".cart-list")
 
     $.ajax({
@@ -66,9 +58,8 @@ function loadCart() {
                 <div class="cart-list-wrap">
                     <ul class="cart-list">
                         <li class="empty">
-                            <span>No products in the cart.</span>
-                            <a class="go-shop" href="?act=shop-grid-left">GO TO
-                                SHOP<i aria-hidden="true" class="arrow_right"></i></a>
+                            <span>Không có sản phẩm trong giỏ hàng</span>
+                            <a class="go-shop" href="?act=shop-grid-left">Đến shop<i aria-hidden="true" class="arrow_right"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -91,7 +82,7 @@ function loadCart() {
                             <a href="#" class="remove" title="Remove this item" onclick="removeCart(${id})"><i class="icon_close"></i></a>
                             <a href="shop-details.html" class="product-image"><img width="600" height="600" src="media/product/${img}" alt=""></a>
                             <a href="shop-details.html" class="product-name">${name}</a>
-                            <div class="quantity">Qty: ${qty}</div>
+                            <div class="quantity">Số lượng: ${qty}</div>
                             <div class="price">$${price}</div>
                         </li>
                     `

@@ -25150,7 +25150,7 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
 }
 
 .products-topbar .products-sort .sort-list {
-  min-width: 210px;
+  min-width: 220px;
   z-index: 9999;
   right: 0;
   left: auto !important;

@@ -54,14 +54,16 @@
                       <use xlink:href="img/sprite.svg#icon-document"></use>
                     </svg></div>
                   <div class="sidebar__text">Thống kê</div>
-                </a><a class="sidebar__item js-popup-open" href="#popup-settings" data-effect="mfp-zoom-in">
+                </a>
+                <!-- <a class="sidebar__item js-popup-open" href="#popup-settings" data-effect="mfp-zoom-in">
                   <div class="sidebar__icon"><svg class="icon icon-settings">
                       <use xlink:href="img/sprite.svg#icon-settings"></use>
                     </svg></div>
                   <div class="sidebar__text">Settings </div>
-                </a></div>
+                </a> -->
+              </div>
             </div>
-            <div class="sidebar__group">
+            <!-- <div class="sidebar__group">
               <div class="sidebar__caption caption-sm">Insights</div>
               <div class="sidebar__menu"><a class="sidebar__item" href="inbox.html">
                   <div class="sidebar__icon"><svg class="icon icon-message">
@@ -82,15 +84,10 @@
                   <div class="sidebar__text">Comments</div>
                   <div class="sidebar__counter">20</div>
                 </a></div>
-            </div>
+            </div> -->
           </div>
           <div class="sidebar__profile">
-            <div class="sidebar__details"><a class="sidebar__link" href="#">
-                <div class="sidebar__icon"><svg class="icon icon-profile">
-                    <use xlink:href="img/sprite.svg#icon-profile"></use>
-                  </svg></div>
-                <div class="sidebar__text">Profile</div>
-              </a><a class="sidebar__link" href="?act=logout_admin">
+            <div class="sidebar__details"><a class="sidebar__link" href="?act=logout_admin">
                 <div class="sidebar__icon"><svg class="icon icon-logout">
                     <use xlink:href="img/sprite.svg#icon-logout"></use>
                   </svg></div>

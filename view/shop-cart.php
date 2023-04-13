@@ -5,11 +5,11 @@
 				<div class="section-container">
 					<div class="content-title-heading">
 						<h1 class="text-title-heading">
-							Shopping Cart
+							Giỏ hàng
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span>Shopping Cart
+						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span>Giỏ hàng
 					</div>
 				</div>
 			</div>
@@ -25,10 +25,10 @@
 											<table class="cart-items table" cellspacing="0">
 												<thead>
 													<tr>
-														<th class="product-thumbnail">Product</th>
-														<th class="product-price">Price</th>
-														<th class="product-quantity">Quantity</th>
-														<th class="product-subtotal">Subtotal</th>
+														<th class="product-thumbnail">Sản phẩm</th>
+														<th class="product-price">Giá</th>
+														<th class="product-quantity">Số lượng</th>
+														<th class="product-subtotal">Thành tiền</th>
 														<th class="product-remove">&nbsp;</th>
 													</tr>
 												</thead>
@@ -40,11 +40,11 @@
 														<td colspan="6" class="actions">
 															<div class="bottom-cart">
 																<div class="coupon">
-																	<input type="text" name="coupon_code" class="input-text" id="coupon-code" value="" placeholder="Coupon code">
-																	<button type="submit" name="apply_coupon" class="button" value="Apply coupon">Apply coupon</button>
+																	<input type="text" name="coupon_code" class="input-text" id="coupon-code" value="" placeholder="Mã giảm giá">
+																	<button type="submit" name="apply_coupon" class="button" value="Apply coupon">Dùng mã</button>
 																</div>
-																<h2><a href="shop-grid-left.html">Continue Shopping</a></h2>
-																<div class="button" value="Update cart" onclick="updateCart(this)">Update cart</div>
+																<h2><a href="?act=shop-grid-left">Tiếp tục mua hàng</a></h2>
+																<div class="button" value="Update cart" onclick="updateCart(this)">Cập nhật giỏ hàng</div>
 															</div>
 														</td>
 													</tr>
@@ -55,14 +55,14 @@
 								</div>
 								<div class="col-xl-4 col-lg-12 col-md-12 col-12">
 									<div class="cart-totals">
-										<h2>Cart totals</h2>
+										<h2>Thông tin giỏ hàng</h2>
 										<div>
 											<div class="cart-subtotal">
-												<div class="title">Subtotal</div>
+												<div class="title">Thành tiền</div>
 												<div><span>$480.00</span></div>
 											</div>
 											<div class="shipping-totals">
-												<div class="title">Shipping</div>
+												<div class="title">Hình thức vận chuyển</div>
 												<div>
 													<ul class="shipping-methods custom-radio">
 														<li>
@@ -73,18 +73,18 @@
 														</li>
 													</ul>
 													<p class="shipping-desc">
-														Shipping options will be updated during checkout.
+														Hình thưc vận chuyển sẽ hiện lần nữa trong thanh toán
 													</p>
 												</div>
 											</div>
 											<div class="order-total">
-												<div class="title">Total</div>
+												<div class="title">Tổng tiền</div>
 												<div><span>$480.00</span></div>
 											</div>
 										</div>
 										<div class="proceed-to-checkout">
 											<a class="checkout-button button" value="checkout" onclick="updateCart(this)">
-												Proceed to checkout
+												Thanh toán
 											</a>
 										</div>
 									</div>

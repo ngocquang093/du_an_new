@@ -1,5 +1,5 @@
 function showProductShop(sort, callback) {
-    if(!sort) var sort = 0
+    if (!sort) var sort = 0
     sort = Number(sort);
     var tabContent = document.querySelector('.tab-content')
     var productsList = tabContent.querySelector(".products-list")
@@ -60,19 +60,19 @@ function showProductShop(sort, callback) {
                                         </a>
                                     </div>
                                     <div class="product-button">
-                                        <div class="btn-add-to-cart_ct" data-title="Add to cart">
+                                        <div class="btn-add-to-cart_ct" data-title="Thêm vào giỏ hàng">
                                             <a rel="nofollow" class="product-btn button" onclick="addCart(${id},1, this)">Add to
                                                 cart</a>
                                         </div>
-                                        <div class="btn-wishlist" data-title="Wishlist">
-                                            <button class="product-btn">Add to
+                                        <div class="btn-wishlist" data-title="Thêm vào yêu thích">
+                                            <button class="product-btn" onclick="mess()">Add to
                                                 wishlist</button>
                                         </div>
-                                        <div class="btn-compare" data-title="Compare">
-                                            <button class="product-btn">Compare</button>
+                                        <div class="btn-compare" data-title="So sánh">
+                                            <button class="product-btn" onclick="mess()">Compare</button>
                                         </div>
-                                        <span class="product-quickview" data-title="Quick View">
-                                            <a href="?id=${id}" class="quickview quickview-button" onclick="quickView(${id})">Quick
+                                        <span class="product-quickview" data-title="Xem nhanh">
+                                            <a href="" class="quickview quickview-button" onclick="mess()">Quick
                                                 View <i class="icon-search"></i></a>
                                         </span>
                                     </div>
@@ -89,7 +89,7 @@ function showProductShop(sort, callback) {
             });
 
             row.innerHTML = listProHTML
-            if(callback) callback()
+            if (callback) callback()
         }
     });
 
@@ -145,19 +145,19 @@ function showProduct() {
                                         </a>
                                     </div>
                                     <div class="product-button">
-                                        <div class="btn-add-to-cart_ct" data-title="Add to cart">
+                                        <div class="btn-add-to-cart_ct" data-title="Thêm vào giỏ hàng">
                                             <a rel="nofollow" class="product-btn button" onclick="addCart(${id},1, this)">Add to
                                                 cart</a>
                                         </div>
-                                        <div class="btn-wishlist" data-title="Wishlist">
-                                            <button class="product-btn">Add to
+                                        <div class="btn-wishlist" data-title="Thêm vào yêu thích">
+                                            <button class="product-btn" onclick="mess()">Add to
                                                 wishlist</button>
                                         </div>
-                                        <div class="btn-compare" data-title="Compare">
-                                            <button class="product-btn">Compare</button>
+                                        <div class="btn-compare" data-title="So sánh">
+                                            <button class="product-btn" onclick="mess()">Compare</button>
                                         </div>
-                                        <span class="product-quickview" data-title="Quick View">
-                                            <a href="?id=${id}" class="quickview quickview-button" onclick="quickView(${id})">Quick
+                                        <span class="product-quickview" data-title="Xem nhanh">
+                                            <a href="" class="quickview quickview-button" onclick="mess()">Quick
                                                 View <i class="icon-search"></i></a>
                                         </span>
                                     </div>
@@ -226,32 +226,32 @@ function pageNumber(page, cate) {
             // console.log(maxPage)
             // var sort = getParameterByName('sort');
             var pageNumberE = document.querySelector('.pagination').querySelector('ul')
-            var prev = `<li><a class="prev page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${(page -1) == 0 ? 1 : page -1}">Previous</a></li>`
-            var next = `<li><a class="next page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${(page +1) > maxPage ? page : page +1 }">Next</a></li>`
+            var prev = `<li><a class="prev page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${(page - 1) == 0 ? 1 : page - 1}">Previous</a></li>`
+            var next = `<li><a class="next page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${(page + 1) > maxPage ? page : page + 1}">Next</a></li>`
             var current = `<li><span aria-current="page" class="page-numbers current">${page}</span></li>`
-            var before = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page -1}">${page -1}</a></li>`
-            var after = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page +1}">${page +1}</a></li>`
-            var after_after = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page +2}">${page +2}</a></li>`
-            var before_before = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page -2}">${page -2}</a></li>`
-            if(maxPage == 1) {
+            var before = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page - 1}">${page - 1}</a></li>`
+            var after = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page + 1}">${page + 1}</a></li>`
+            var after_after = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page + 2}">${page + 2}</a></li>`
+            var before_before = `<li><a class="page-numbers" link="?act=shop-grid-left&cate=${cate}&page=${page - 2}">${page - 2}</a></li>`
+            if (maxPage == 1) {
                 var pageNumberHTML = prev + current + next
-            } else if(page == 1 && maxPage == 2){
+            } else if (page == 1 && maxPage == 2) {
                 var pageNumberHTML = prev + current + after + next
-            } else if(page == 2 && maxPage == 2) {
-                var pageNumberHTML = prev + before +  current + next
-            } else if(page + 2 == maxPage) {
-                var pageNumberHTML = prev + current + after +after_after + next
-            } else if(page == 1 && page + 2 <= maxPage) {
-                var pageNumberHTML = prev +  current+ after + after_after + next
-            } else if(page == maxPage) {
-                var pageNumberHTML = prev +  before_before +before + current + next
+            } else if (page == 2 && maxPage == 2) {
+                var pageNumberHTML = prev + before + current + next
+            } else if (page + 2 == maxPage) {
+                var pageNumberHTML = prev + current + after + after_after + next
+            } else if (page == 1 && page + 2 <= maxPage) {
+                var pageNumberHTML = prev + current + after + after_after + next
+            } else if (page == maxPage) {
+                var pageNumberHTML = prev + before_before + before + current + next
             } else {
                 var pageNumberHTML = prev + before + current + after + next
             }
-            
+
             pageNumberE.innerHTML = pageNumberHTML
 
-            
+
         }
     });
 }
@@ -264,5 +264,5 @@ $('.page-numbers').click((e) => {
     var link = ele.getAttribute('link')
     var sort = $('.sort-toggle').attr('value');
     window.location = link + '&sort=' + sort
-    
+
 })

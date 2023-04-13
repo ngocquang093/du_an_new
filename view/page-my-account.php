@@ -5,11 +5,11 @@
 				<div class="section-container">
 					<div class="content-title-heading">
 						<h1 class="text-title-heading">
-							My Account
+							Tài khoản
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span>My Account
+						<a href="index.php">Home</a><span class="delimiter"></span>Tài khoản
 					</div>
 				</div>
 			</div>
@@ -22,19 +22,19 @@
 								<nav class="my-account-navigation">
 									<ul class="nav nav-tabs">
 										<li class="nav-item">
-											<a class="nav-link active" data-toggle="tab" href="#dashboard" role="tab">Dashboard</a>
+											<a class="nav-link active" data-toggle="tab" href="#dashboard" role="tab">Thông báo</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" data-toggle="tab" href="#orders" role="tab">Orders</a>
+											<a class="nav-link" data-toggle="tab" href="#orders" role="tab">Đơn hàng</a>
 										</li>
-										<li class="nav-item">
+										<!-- <li class="nav-item">
 											<a class="nav-link" data-toggle="tab" href="#addresses" role="tab">Addresses</a>
+										</li> -->
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#account-details" role="tab">Thông tin tài khoản</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" data-toggle="tab" href="#account-details" role="tab">Account details</a>
-										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="page-login.html">Logout</a>
+											<a class="nav-link" href="" id="logout-account">Logout</a>
 										</li>
 									</ul>
 								</nav>
@@ -169,6 +169,16 @@
 		</div><!-- #primary -->
 	</div><!-- #main-content -->
 </div>
+<script>
+	$('#logout-account').click(() => {
+        $.get("api/main.php?act=logout",
+            function() {
+                window.location = "?act=page-login"
+            }
+        );
+    })
+</script>
 <script src="assets/js/account.js">
 	
 </script>
+

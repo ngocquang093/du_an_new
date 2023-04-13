@@ -93,6 +93,7 @@ if (isset($_GET['act'])) {
         case "page-login":
             if (isset($_SESSION['user'])) {
                 unset($_SESSION['user']);
+                echo header("refresh: 0");
             }
             require "view/page-login.php";
             break;

@@ -449,14 +449,14 @@ $listCategories = get_all_loai_sp();
                                 <!-- Login -->
                                 <?php if ($user == []) { ?>
                                     <div class="login-header">
-                                        <a class="active-login" href="#">Login</a>
+                                        <a class="active-login" href="#">Đăng nhập</a>
                                         <div class="form-login-register">
                                             <div class="box-form-login">
                                                 <div class="active-login"></div>
                                                 <div class="box-content">
                                                     <div class="form-login active">
                                                         <form id="login_ajax" method="post" class="login">
-                                                            <h2>Sign in</h2>
+                                                            <h2>Đăng nhập</h2>
                                                             <p class="status"></p>
                                                             <div class="content">
                                                                 <div class="username">
@@ -466,24 +466,22 @@ $listCategories = get_all_loai_sp();
                                                                     <input class="input-text" required="required" type="password" name="password" id="password" placeholder="Password" />
                                                                 </div>
                                                                 <div class="rememberme-lost">
-                                                                    <div class="rememberme">
+                                                                    <!-- <div class="rememberme">
                                                                         <input name="rememberme" type="checkbox" id="rememberme" value="forever" />
                                                                         <label for="rememberme" class="inline">Remember me</label>
-                                                                    </div>
+                                                                    </div> -->
                                                                     <div class="lost_password">
-                                                                        <a href="forgot-password.html">Lost your
-                                                                            password?</a>
+                                                                        <a href="forgot-password.html">Quên mật khẩu?</a>
                                                                     </div>
                                                                 </div>
-                                                                <div class="button-next-login button-form" style="background-color: black !important;" id="login">Login</div>
-                                                                <div class="button-next-reregister">Create An
-                                                                    Account</div>
+                                                                <div class="button-next-login button-form" style="background-color: black !important;" id="login">Đăng nhập</div>
+                                                                <div class="button-next-reregister">Đăng ký tài khoản</div>
                                                             </div>
                                                         </form>
                                                     </div>
                                                     <div class="form-register">
                                                         <form method="post" class="register">
-                                                            <h2>REGISTER</h2>
+                                                            <h2>Đăng ký</h2>
                                                             <div class="content">
                                                                 <div class="email">
                                                                     <input type="email" class="input-text" placeholder="Email" name="email" id="reg_email" value="" />
@@ -491,9 +489,8 @@ $listCategories = get_all_loai_sp();
                                                                 <div class="password">
                                                                     <input type="password" class="input-text" placeholder="Password" name="password" id="reg_password" />
                                                                 </div>
-                                                                <div class="button-next-reregister button-form" style="background-color: black !important;" id="register">Register</div>
-                                                                <div class="button-next-login">Already has an
-                                                                    account</div>
+                                                                <div class="button-next-reregister button-form" style="background-color: black !important;" id="register">Đăng ký</div>
+                                                                <div class="button-next-login">Đã có tài khoản</div>
                                                             </div>
                                                         </form>
                                                     </div>

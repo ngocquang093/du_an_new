@@ -32,7 +32,7 @@
 								<!-- Block Product Categories -->
 								<div class="block block-product-cats">
 									<div class="block-title">
-										<h2>Categories</h2>
+										<h2>Danh mục</h2>
 									</div>
 									<div class="block-content">
 										<div class="product-cats-list">
@@ -169,16 +169,16 @@
 								<div class="products-topbar clearfix">
 									<div class="products-topbar-left">
 										<div class="products-count">
-											Showing all <?= $count ?> results
+											Có <?= $count ?> sản phẩm
 										</div>
 									</div>
 									<div class="products-topbar-right">
 										<div class="products-sort dropdown">
 											<span class="sort-toggle dropdown-toggle" data-toggle="dropdown" aria-expanded="true" value=0>Default sorting</span>
 											<ul class="sort-list dropdown-menu" x-placement="bottom-start">
-												<li value="0"><a>Default sorting</a></li>
-												<li value="1"><a>Sort by price: low to high</a></li>
-												<li value="2"><a>Sort by price: high to low</a></li>
+												<li value="0"><a>Sắp xếp mặc đinh</a></li>
+												<li value="1"><a>Sắp xem theo giá: thấp -> cao</a></li>
+												<li value="2"><a>Sắp xem theo giá: cao -> thấp</a></li>
 												<!-- <li value="1"><a>Sort by popularity</a></li> -->
 												<!-- <li value="2"><a>Sort by average rating</a></li>
 												<li value="3"><a>Sort by latest</a></li> -->

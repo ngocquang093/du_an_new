@@ -25,7 +25,7 @@ function loadCartBill() {
                             </div>
                             <div class="product-name">
                                 ${name}
-                                <strong class="product-quantity">QTY : ${qty}</strong>
+                                <strong class="product-quantity">Số lượng : ${qty}</strong>
                             </div>
                         </div>
                         <div class="product-total">

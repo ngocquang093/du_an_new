@@ -7,3 +7,12 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+
+function mess() {
+    toast({
+        title: "Thông báo!",
+        message: "Chức năng đang được hoàn thành xin thông cảm",
+        type: "warning",
+        duration: 5000
+    });
+}

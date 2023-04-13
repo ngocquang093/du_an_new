@@ -5,11 +5,11 @@
 				<div class="section-container">
 					<div class="content-title-heading">
 						<h1 class="text-title-heading">
-							Checkout
+							Thanh toán
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span>Shopping Cart
+						<a href="index.html">Home</a><span class="delimiter"></span><a href="?act=shop-grid-left">Shop</a><span class="delimiter"></span>Thanh toán
 					</div>
 				</div>
 			</div>
@@ -23,7 +23,7 @@
 									<div class="col-xl-8 col-lg-7 col-md-12 col-12">
 										<div class="customer-details">
 											<div class="billing-fields">
-												<h3>Billing details</h3>
+												<h3>Thông tin khách hàng</h3>
 												<div class="billing-fields-wrapper">
 													<p class="form-row form-row-first validate-required">
 														<label>Họ và tên <span class="required" title="required">*</span></label>
@@ -172,9 +172,9 @@
 										</div> -->
 										<div class="additional-fields">
 											<p class="form-row notes">
-												<label>Order notes <span class="optional">(optional)</span></label>
+												<label>Chú tích <span class="optional">(Không bắt buộc)</span></label>
 												<span class="input-wrapper">
-													<textarea name="order_comments" class="input-text" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
+													<textarea name="order_comments" class="input-text" placeholder="Những điều cần lưu ý" rows="2" cols="5"></textarea>
 												</span>
 											</p>
 										</div>
@@ -182,7 +182,7 @@
 									<div class="col-xl-4 col-lg-5 col-md-12 col-12">
 										<div class="checkout-review-order">
 											<div class="checkout-review-order-table">
-												<div class="review-order-title">Product</div>
+												<div class="review-order-title">Sản phẩm</div>
 												<div class="cart-items" id="cart-items">
 													<div class="cart-item">
 														<div class="info-product">
@@ -214,13 +214,13 @@
 													</div>
 												</div>
 												<div class="cart-subtotal">
-													<h2>Subtotal</h2>
+													<h2>Thành tiền</h2>
 													<div class="subtotal-price">
 														<span>$480.00</span>
 													</div>
 												</div>
 												<div class="shipping-totals shipping">
-													<h2>Shipping</h2>
+													<h2>Hình thức vận chuyển</h2>
 													<div data-title="Shipping">
 														<ul class="shipping-methods custom-radio">
 															<li>
@@ -233,7 +233,7 @@
 													</div>
 												</div>
 												<div class="order-total">
-													<h2>Total</h2>
+													<h2>Tổng tiền</h2>
 													<div class="total-price">
 														<strong>
 															<span>$480.00</span>
@@ -276,7 +276,7 @@
 													<div class="terms-and-conditions-wrapper">
 														<div class="privacy-policy-text"></div>
 													</div>
-													<div class="btn-custom full-width" id="checkout_place_order">Place order</div>
+													<div class="btn-custom full-width" id="checkout_place_order">Thanh toán</div>
 												</div>
 											</div>
 										</div>
