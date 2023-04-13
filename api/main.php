@@ -248,6 +248,13 @@ if (isset($_GET['act'])) {
             $ma_don_hang = $_POST['ma_don_hang'];
             $trang_thai = $_POST['trang_thai'];
             update_trang_thai($ma_don_hang, $trang_thai);
+            if($trang_thai > 4) {
+                $bill = get_don_hang_chi_tiet($ma_don_hang);
+                foreach($bill as $item) {
+                    extract($item);
+                    plus_qty($ma_san_pham, $so_luong);
+                }
+            }
             break;
 
         case "updateBill":
@@ -255,10 +262,18 @@ if (isset($_GET['act'])) {
             $dia_chi = $_POST['dia_chi'];
             $so_dien_thoai = $_POST['so_dien_thoai'];
             $ngay_dat_hang = $_POST['ngay_dat_hang'];
-            $ma_trang_thai = $_POST['ma_trang_thai'];
             $pt_ship = $_POST['pt_ship'];
             $ma_don_hang = $_POST['ma_don_hang'];
-            update_bill($ma_don_hang, $ten_nguoi_nhan, $dia_chi, $so_dien_thoai, $ngay_dat_hang, $ma_trang_thai, $pt_ship);
+            $ma_trang_thai = $_POST['ma_trang_thai'];
+            update_bill($ma_don_hang, $ten_nguoi_nhan, $dia_chi, $so_dien_thoai, $ngay_dat_hang, $pt_ship);
+            update_trang_thai($ma_don_hang, $ma_trang_thai);
+            if($ma_trang_thai > 4) {
+                $bill = get_don_hang_chi_tiet($ma_don_hang);
+                foreach($bill as $item) {
+                    extract($item);
+                    plus_qty($ma_san_pham, $so_luong);
+                }
+            }
             break;
 
         case "getTrangThai":

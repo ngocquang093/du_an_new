@@ -175,7 +175,7 @@
 									<div class="products-topbar-right">
 										<div class="products-sort dropdown">
 											<span class="sort-toggle dropdown-toggle" data-toggle="dropdown" aria-expanded="true" value=0>Default sorting</span>
-											<ul class="sort-list dropdown-menu" x-placement="bottom-start">
+											<ul class="sort-list dropdown-menu" x-placement="bottom-start" style="transform: translate3d(0px, 36px, 0px) !important ;;">
 												<li value="0"><a>Sắp xếp mặc đinh</a></li>
 												<li value="1"><a>Sắp xem theo giá: thấp -> cao</a></li>
 												<li value="2"><a>Sắp xem theo giá: cao -> thấp</a></li>

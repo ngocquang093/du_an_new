@@ -25127,6 +25127,7 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
   display: inline-block;
   line-height: 34px;
   padding: 0 20px;
+  right: 40px;
 }
 
 .products-topbar .products-sort .sort-toggle:after {

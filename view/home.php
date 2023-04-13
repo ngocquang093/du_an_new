@@ -659,7 +659,7 @@
 											</div> -->
 										</div>
 									</div>
-									<div class="products-loadmore">
+									<!-- <div class="products-loadmore">
 										<div class="btn button-outline loadmore">
 											<div class="lds-ellipsis">
 												<div></div>
@@ -670,7 +670,7 @@
 											<span>Load more</span>
 											<i class="icon-arrow-down" aria-hidden="true"></i>
 										</div>
-									</div>
+									</div> -->
 								</div>
 							</div>
 						</div>

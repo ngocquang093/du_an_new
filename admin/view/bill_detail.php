@@ -138,7 +138,7 @@ $index = 0;
             <form>
                 <div class="form-label">
                     <span class="text-red">Trạng thái đơn hàng</span>
-                    <select name="trang_thai">
+                    <select name="trang_thai" <?php if($ma_trang_thai > 3) echo "disabled"; ?> >
                         <?php foreach ($list_trang_thai as $i) : ?>
                             <option value="<?= $i['ma_trang_thai'] ?>" <?php if ($i['ma_trang_thai'] == $ma_trang_thai) echo 'selected' ?>><?= $i['ten_trang_thai'] ?></option>
                         <?php endforeach; ?>

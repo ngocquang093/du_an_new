@@ -97,10 +97,10 @@ function get_list_pttt() {
     return $list;
 }
 
-function update_bill($ma_don_hang, $ten_nguoi_nhan, $dia_chi, $so_dien_thoai, $ngay_dat_hang, $trang_thai, $pt_ship) {
+function update_bill($ma_don_hang, $ten_nguoi_nhan, $dia_chi, $so_dien_thoai, $ngay_dat_hang, $pt_ship) {
     $sql = "UPDATE `duan`.`don_hang` ".
     "SET `ten_nguoi_nhan` = '$ten_nguoi_nhan', `dia_chi` = '$dia_chi', `so_dien_thoai` = '$so_dien_thoai', ".
-    "`ngay_dat_hang` = '$ngay_dat_hang', `trang_thai` = $trang_thai, `pt_ship` = $pt_ship ".
+    "`ngay_dat_hang` = '$ngay_dat_hang', `pt_ship` = $pt_ship ".
     "WHERE `ma_don_hang` = $ma_don_hang;";
 
     pdo_execute($sql);
@@ -126,4 +126,11 @@ function get_trang_thai_bill($ma_don_hang) {
     $trang_thai = pdo_query_one($sql);
 
     return $trang_thai;
+}
+
+function get_don_hang_chi_tiet($id) {
+    $sql = "SELECT * FROM don_hang_chi_tiet WHERE ma_don_hang = $id";
+    $bill = pdo_query($sql);
+
+    return $bill;
 }

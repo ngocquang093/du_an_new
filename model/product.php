@@ -140,3 +140,11 @@ function minus_qty($id, $qty)
     $sql = "UPDATE `duan`.`san_pham` SET `so_luong_san_pham` = `so_luong_san_pham` - $qty WHERE `ma_san_pham` = $id;";
     pdo_execute($sql);
 }
+
+function plus_qty($id, $qty)
+{
+    $sql = "UPDATE `duan`.`san_pham` SET `so_luong_san_pham` = `so_luong_san_pham` + $qty WHERE `ma_san_pham` = $id;";
+    pdo_execute($sql);
+}
+
+
