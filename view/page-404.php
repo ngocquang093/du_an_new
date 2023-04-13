@@ -15,7 +15,7 @@
 								<div class="sub-error">
 									We're really sorry but we can't seem to find the page you were looking for.
 								</div>
-								<a class="button" href="index.html">
+								<a class="button" href="index.php">
 									Back The Homepage
 								</a>
 							</div>

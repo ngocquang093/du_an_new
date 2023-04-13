@@ -15,7 +15,7 @@ $index = 0;
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span>Bill
+						<a href="index.php">Home</a><span class="delimiter"></span>Bill
 					</div>
 				</div>
 			</div>

@@ -14,7 +14,7 @@ $listImg = explode(", ", $anh_san_pham)
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span><?= $ten_san_pham ?>
+						<a href="index.php">Home</a><span class="delimiter"></span><a href="shop-grid-left.html">Shop</a><span class="delimiter"></span><?= $ten_san_pham ?>
 					</div>
 				</div>
 			</div>
@@ -72,7 +72,7 @@ $listImg = explode(", ", $anh_san_pham)
 											</div>
 										</div>
 										<div class="description">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+											<p><?= $mo_ta_tom_tat ?></p>
 										</div>
 										<!-- <div class="variations">
 											<table cellspacing="0">
@@ -108,7 +108,7 @@ $listImg = explode(", ", $anh_san_pham)
 													<button type="button" class="minus">-</button>
 												</div>
 												<div class="btn-add-to-cart_ct">
-													<a class="button" tabindex="0" onclick="addCartqty(<?= $ma_san_pham ?>, this)">Add to cart</a>
+													<a class="button" tabindex="0" onclick="addCartqty(<?= $ma_san_pham ?>, this)">Thêm vào giỏ hàng</a>
 												</div>
 											</div>
 											<!-- <div class="btn-quick-buy" data-title="Wishlist">
@@ -124,7 +124,7 @@ $listImg = explode(", ", $anh_san_pham)
 										<div class="product-meta">
 											<span class="sku-wrapper">SKU: <span class="sku">D2300-3-2-2</span></span>
 											<span class="posted-in">Category: <a href="?act=shop-grid-left&cate=<?= $ma_loai ?>" rel="tag"><?= $ten_loai ?></a></span>
-											<span class="tagged-as">Tags: <a href="shop-grid-left.html" rel="tag">Hot</a>, <a href="shop-grid-left.html" rel="tag">Trend</a></span>
+											<span class="tagged-as">Tags: <a href="?act=shop-grid-left&cate=<?= $ma_loai ?>" rel="tag">Hot</a>, <a href="?act=shop-grid-left&cate=<?= $ma_loai ?>" rel="tag">Trend</a></span>
 										</div>
 										<div class="social-share">
 											<a href="#" title="Facebook" class="share-facebook" target="_blank"><i class="fa fa-facebook"></i>Facebook</a>
@@ -141,22 +141,22 @@ $listImg = explode(", ", $anh_san_pham)
 							<div class="section-container p-l-r">
 								<div class="product-tabs-wrap">
 									<ul class="nav nav-tabs" role="tablist">
-										<li class="nav-item">
+										<!-- <li class="nav-item">
 											<a class="nav-link active" data-toggle="tab" href="#description" role="tab">Description</a>
-										</li>
-										<li class="nav-item">
+										</li> -->
+										<!-- <li class="nav-item">
 											<a class="nav-link" data-toggle="tab" href="#additional-information" role="tab">Additional information</a>
-										</li>
+										</li> -->
 										<li class="nav-item">
-											<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Reviews (<?= $so_luong_binh_luan ?>)</a>
+											<a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Đánh giá (<?= $so_luong_binh_luan ?>)</a>
 										</li>
 									</ul>
 									<div class="tab-content">
-										<div class="tab-pane fade show active" id="description" role="tabpanel">
+										<!-- <div class="tab-pane fade show active" id="description" role="tabpanel">
 											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 											<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-										</div>
-										<div class="tab-pane fade" id="additional-information" role="tabpanel">
+										</div> -->
+										<!-- <div class="tab-pane fade" id="additional-information" role="tabpanel">
 											<table class="product-attributes">
 												<tbody>
 													<tr class="attribute-item">
@@ -165,11 +165,11 @@ $listImg = explode(", ", $anh_san_pham)
 													</tr>
 												</tbody>
 											</table>
-										</div>
+										</div> -->
 										<div class="tab-pane fade" id="reviews" role="tabpanel">
 											<div id="reviews" class="product-reviews">
 												<div id="comments">
-													<h2 class="reviews-title"><?= $so_luong_binh_luan ?> review for <span><?= $ten_san_pham ?></span></h2>
+													<h2 class="reviews-title"><?= $so_luong_binh_luan ?> cho <span><?= $ten_san_pham ?></span></h2>
 													<ol class="comment-list">
 														<li class="review">
 															<?php foreach ($listBinhLuan as $item) : ?>
@@ -202,11 +202,11 @@ $listImg = explode(", ", $anh_san_pham)
 															<form action="?act=binhluan" method="post" id="comment-form" class="comment-form" onsubmit="return validateStar()">
 																<input type="hidden" value="<?= $id ?>" name="id">
 																<input type="hidden" value="" name="star">
-																<p class="comment-notes">
+																<!-- <p class="comment-notes">
 																	<span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-																</p>
+																</p> -->
 																<div class="comment-form-rating">
-																	<label for="rating">Your rating</label>
+																	<label for="rating">Đánh giá của bản về sản phẩm</label>
 																	<p class="stars" value=0>
 																		<span>
 																			<a class="star-1" value=1>1</a><a class="star-2" value=2>2</a><a class="star-3" value=3>3</a><a class="star-4" value=4>4</a><a class="star-5" value=5>5</a>
@@ -214,7 +214,7 @@ $listImg = explode(", ", $anh_san_pham)
 																	</p>
 																</div>
 																<p class="comment-form-comment">
-																	<textarea id="comment" name="comment" placeholder="Your Reviews *" cols="45" rows="8" aria-required="true" required=""></textarea>
+																	<textarea id="comment" name="comment" placeholder="Đánh giá của bạn *" cols="45" rows="8" aria-required="true" required=""></textarea>
 																</p>
 																<div class="content-info-reviews">
 																	<p class="comment-form-author">
@@ -224,7 +224,7 @@ $listImg = explode(", ", $anh_san_pham)
 																		<input id="email_cmt" name="email" placeholder="Email *" type="email" value="<?php if (isset($user)) echo $user['email'] ?>" size="30" aria-required="true" required="" <?php if (isset($user)) echo 'disabled' ?>>
 																	</p>
 																	<p class="form-submit">
-																		<input name="submit" type="submit" id="submit_cmt" class="submit" value="Submit">
+																		<input name="submit" type="submit" id="submit_cmt" class="submit" value="Gửi">
 																	</p>
 																</div>
 															</form>

@@ -9,7 +9,7 @@
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span>Forgot Password
+						<a href="index.php">Home</a><span class="delimiter"></span>Forgot Password
 					</div>
 				</div>
 			</div>

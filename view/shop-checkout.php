@@ -9,7 +9,7 @@
 						</h1>
 					</div>
 					<div class="breadcrumbs">
-						<a href="index.html">Home</a><span class="delimiter"></span><a href="?act=shop-grid-left">Shop</a><span class="delimiter"></span>Thanh toán
+						<a href="index.php">Home</a><span class="delimiter"></span><a href="?act=shop-grid-left">Shop</a><span class="delimiter"></span>Thanh toán
 					</div>
 				</div>
 			</div>
