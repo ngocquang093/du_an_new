@@ -27,7 +27,7 @@ if(is_array($user)){
                             echo '<option value="1" selected>djsjadhsjdhsd</option>';
 
                             echo '<option value="2">Khách hàng</option>';
-                        }else if($chuc_nang == 2){
+                        }else if($chuc_nang == 0){
                             echo '<option value="1">Nhân viên</option>';
                             echo '<option value="2" selected>Khách hàng</option>';
                         }
