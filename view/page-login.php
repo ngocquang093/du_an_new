@@ -35,7 +35,7 @@
 														<input class="input-text" required="required" type="password" name="password" id="page_password" placeholder="Password" />
 
 													</div>
-													<div class="rememberme-lost">
+													<!-- <div class="rememberme-lost">
 														<div class="remember-me">
 															<input name="rememberme" type="checkbox" value="forever">
 															<label class="inline">Remember me</label>
@@ -43,7 +43,7 @@
 														<div class="lost-password">
 															<a href="page-forgot-password.html">Lost your password?</a>
 														</div>
-													</div>
+													</div> -->
 													<div class="button-login">
 														<div class="button-form" style="background-color: black !important; color: white !important;line-height: 55px;" id="page_login">Login</div>
 

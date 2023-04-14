@@ -116,6 +116,10 @@ if (isset($_GET['act'])) {
             }
             break;
 
+        case "forgot-password":
+            require "view/page-forgot-password.php";
+            break;
+
         case "bill-user":
             if ($_GET['madonhang']) {
                 $ma_don_hang = $_GET['madonhang'];
