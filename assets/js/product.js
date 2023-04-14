@@ -75,7 +75,7 @@ function showProductShop(sort, callback) {
                                             <button class="product-btn" onclick="mess()">Compare</button>
                                         </div>
                                         <span class="product-quickview" data-title="Xem nhanh">
-                                            <a href="" class="quickview quickview-button" onclick="mess()">Quick
+                                            <a class="quickview quickview-button" onclick="mess()">Quick
                                                 View <i class="icon-search"></i></a>
                                         </span>
                                     </div>
@@ -162,7 +162,7 @@ function showProduct() {
                                             <button class="product-btn" onclick="mess()">Compare</button>
                                         </div>
                                         <span class="product-quickview" data-title="Xem nhanh">
-                                            <a href="" class="quickview quickview-button" onclick="mess()">Quick
+                                            <a class="quickview quickview-button" onclick="mess()">Quick
                                                 View <i class="icon-search"></i></a>
                                         </span>
                                     </div>
