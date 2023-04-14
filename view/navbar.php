@@ -470,9 +470,9 @@ $listCategories = get_all_loai_sp();
                                                                         <input name="rememberme" type="checkbox" id="rememberme" value="forever" />
                                                                         <label for="rememberme" class="inline">Remember me</label>
                                                                     </div> -->
-                                                                    <div class="lost_password">
+                                                                    <!-- <div class="lost_password">
                                                                         <a href="forgot-password.html">Quên mật khẩu?</a>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                                 <div class="button-next-login button-form" style="background-color: black !important;" id="login">Đăng nhập</div>
                                                                 <div class="button-next-reregister">Đăng ký tài khoản</div>
