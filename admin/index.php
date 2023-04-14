@@ -42,7 +42,7 @@ if (!isset($_SESSION['user_admin'])) {
                     $so_dt = $_POST['so_dt'];
                     $email = $_POST['email'];
                     $chuc_nang = $_POST['chuc_nang'];
-                    $mat_khau = $_POST['mat_Khau'];
+                    $mat_khau = $_POST['mat_khau'];
                     $dia_chi = $_POST['dia_chi'];
 
                     insert_user($ten_khach_hang, $so_dt, $email, $chuc_nang, $mat_khau, $dia_chi);
@@ -65,7 +65,7 @@ if (!isset($_SESSION['user_admin'])) {
                     $so_dt = $_POST['so_dt'];
                     $email = $_POST['email'];
                     $chuc_nang = $_POST['chuc_nang'];
-                    $mat_khau = $_POST['mat_Khau'];
+                    $mat_khau = $_POST['mat_khau'];
                     $dia_chi = $_POST['dia_chi'];
 
                     $update = update_user($id, $ten_khach_hang, $so_dt, $email, $chuc_nang, $mat_khau, $dia_chi);
