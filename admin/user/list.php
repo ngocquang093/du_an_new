@@ -14,7 +14,7 @@
                     <div class="dropdown-content add">
                     <?php
                         echo '<a href="index.php?act=list_user&id=1">Nhân viên</a>';
-                        echo '<a href="index.php?act=list_user&id=2">Khách hàng</a>';
+                        echo '<a href="index.php?act=list_user&id=0">Khách hàng</a>';
                     ?>
                     </div>
                 </div>
