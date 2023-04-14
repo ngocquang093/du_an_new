@@ -51,6 +51,7 @@ if (isset($_POST["them_product"])) {
             };
             $_img = implode(", ",$_img);
             add_img_san_pham($id, $_img);
+            
         }
     }
 }

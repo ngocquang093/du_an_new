@@ -33,6 +33,9 @@ function showProductShop(sort, callback) {
             var listProHTML = ``
             listPro.forEach(e => {
                 var listImg = e["anh_san_pham"].split(", ")
+                if(listImg.length == 1) {
+                    listImg.push(listImg[0])
+                }
                 var id = e['ma_san_pham']
                 var name = e['ten_san_pham']
                 var price = e['don_gia']
@@ -117,12 +120,14 @@ function showProduct() {
             var listProHTML = ``
             listPro.forEach(e => {
                 var listImg = e["anh_san_pham"].split(", ")
+                if(listImg.length == 1) {
+                    listImg.push(listImg[0])
+                }
                 var id = e['ma_san_pham']
                 var name = e['ten_san_pham']
                 var price = e['don_gia']
                 var priceSale = e['gia_khuyen_mai']
                 var sale = (priceSale == -1) ? 0 : ((price - priceSale) / price * 100).toFixed(0)
-                // console.log(price, priceSale, sale)
                 var saleHTML = (sale == 0) ? `` : `<div class="onsale">-${sale}%</div>`
 
                 var priceHTML = (priceSale == -1) ? `<span class="price">$${price}</span>` : `<span class="price">

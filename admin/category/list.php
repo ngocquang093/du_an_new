@@ -5,7 +5,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">STT</th>
             <th scope="col">Mã loại</th>
             <th scope="col">Tên loại</th>
             <th scope="col">Action</th>
@@ -14,8 +13,6 @@
     <tbody class="table-group-divider">
         <?php foreach ($results as $key => $value) { ?>
             <tr>
-                <th scope="row"><input type="checkbox"></th>
-                <!-- <td><?php echo $value[''] ?></td> -->
                 <td><?php echo $value['ma_loai'] ?></td>
                 <td><?php echo $value['ten_loai'] ?></td>
                 <td>

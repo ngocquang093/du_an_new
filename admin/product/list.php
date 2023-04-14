@@ -10,7 +10,6 @@ $results = get_all_san_pham();
     <table class="table">
         <thead>
         <tr>
-            <th scope="col"></th>
             <th scope="col">STT</th>
             <th scope="col">Tên Sản Phẩm</th>
             <th scope="col">Đơn Giá</th>
@@ -29,7 +28,6 @@ $results = get_all_san_pham();
         <?php foreach ($results as $key => $value){ ?>
             <?php $img = explode(", ", $value['anh_san_pham'])[0] ?>
             <tr>
-                <th scope="row"><input type="checkbox"></th>
                 <td><?php echo $value['ma_san_pham'] ?></td>
                 <td style="width: 200px;"><?php echo $value['ten_san_pham'] ?></td>
                 <td><?php echo $value['don_gia'] ?></td>

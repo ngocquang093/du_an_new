@@ -10448,9 +10448,11 @@ ul {
   cursor: pointer;
 }
 
-td {
-  text-align: center;
+td, th {
+  text-align: center !important;
   vertical-align: middle;
 }
+
+
 
 
