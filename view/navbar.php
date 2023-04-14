@@ -69,7 +69,7 @@ $listCategories = get_all_loai_sp();
                                         <ul class="cart-list ">
                                             <li class="mini-cart-item">
                                                 <a href="#" class="remove" title="Remove this item"><i class="icon_close"></i></a>
-                                                <a href="shop-details.html" class="product-image"><img width="600" height="600" src="media/product/3.jpg" alt=""></a>
+                                                <a href="shop-details.html" class="product-image"><img width="600" height="600" src="" alt=""></a>
                                                 <a href="shop-details.html" class="product-name">Chair Oak Matt
                                                     Lacquered</a>
                                                 <div class="quantity">Qty: 1</div>
@@ -77,7 +77,7 @@ $listCategories = get_all_loai_sp();
                                             </li>
                                             <li class="mini-cart-item">
                                                 <a href="#" class="remove" title="Remove this item"><i class="icon_close"></i></a>
-                                                <a href="shop-details.html" class="product-image"><img width="600" height="600" src="media/product/1.jpg" alt=""></a>
+                                                <a href="shop-details.html" class="product-image"><img width="600" height="600" src="" alt=""></a>
                                                 <a href="shop-details.html" class="product-name">Zunkel
                                                     Schwarz</a>
                                                 <div class="quantity">Qty: 1</div>

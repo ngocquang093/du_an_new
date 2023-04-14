@@ -108,7 +108,7 @@ $listImg = explode(", ", $anh_san_pham)
 													<button type="button" class="minus">-</button>
 												</div>
 												<div class="btn-add-to-cart_ct">
-													<a class="button" tabindex="0" onclick="addCartqty(<?= $ma_san_pham ?>, this)">Thêm vào giỏ hàng</a>
+													<a class="button" tabindex="0" onclick="addCartQtt(<?= $ma_san_pham ?>, this)">Thêm vào giỏ hàng</a>
 												</div>
 											</div>
 											<!-- <div class="btn-quick-buy" data-title="Wishlist">

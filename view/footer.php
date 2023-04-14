@@ -178,7 +178,7 @@
 				<span class="wishlist-popup-close"></span>
 			</div>
 			<div class="wishlist-popup-content-mid">
-				<table class="wishlist-items">
+				<!-- <table class="wishlist-items">
 					<tbody>
 						<tr class="wishlist-item">
 							<td class="wishlist-item-remove"><span></span></td>
@@ -236,7 +236,7 @@
 							</td>
 						</tr>
 					</tbody>
-				</table>
+				</table> -->
 			</div>
 			<div class="wishlist-popup-content-bot">
 				<div class="wishlist-popup-content-bot-inner">
@@ -279,7 +279,7 @@
 								</th>
 							</tr>
 						</thead>
-						<tbody>
+						<!-- <tbody>
 							<tr class="tr-image">
 								<td class="td-label">Image</td>
 								<td>
@@ -406,7 +406,7 @@
 								<td>N/A</td>
 								<td>N/A</td>
 							</tr>
-						</tbody>
+						</tbody> -->
 					</table>
 				</div>
 			</div> 
@@ -415,7 +415,7 @@
 </div>
 
 <!-- Quickview -->
-<div class="quickview-load">
+<!-- <div class="quickview-load">
 	<div class="quickview-popup">
 		<div id="quickview-container">
 			<div class="quickview-container">
@@ -490,7 +490,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <!-- Page Loader -->
 <div class="page-preloader">
