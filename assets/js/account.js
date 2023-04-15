@@ -4,6 +4,7 @@ $('#save-changes').click(() => {
     var password_1 = $("input[name='password_1']").val()
     var password_2 = $("input[name='password_2']").val()
     var email = $("input[name='account_email']").val()
+    console.log(name)
 
     if(name == "" || passCur == "" || password_1 == 0 || password_2 == 0) {
         toast({

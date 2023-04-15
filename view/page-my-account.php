@@ -30,9 +30,9 @@
 										<!-- <li class="nav-item">
 											<a class="nav-link" data-toggle="tab" href="#addresses" role="tab">Addresses</a>
 										</li> -->
-										<li class="nav-item">
+										<!-- <li class="nav-item">
 											<a class="nav-link" data-toggle="tab" href="#account-details" role="tab">Thông tin tài khoản</a>
-										</li>
+										</li> -->
 										<li class="nav-item">
 											<a class="nav-link" href="" id="logout-account">Logout</a>
 										</li>
@@ -42,7 +42,7 @@
 									<div class="tab-pane fade show active" id="dashboard" role="tabpanel">
 										<div class="my-account-dashboard">
 											<p>
-												Hello <strong>Rosie</strong> (not <strong>Rosie</strong>? <a href="page-login.html">Log out</a>)
+												Hello <strong>Rosie</strong> (not <strong>Rosie</strong>? <a href="" id="logout-text">Log out</a>)
 											</p>
 											<p>
 												From your account dashboard you can view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a>, and <a href="#">edit your password and account details</a>.
@@ -171,6 +171,13 @@
 </div>
 <script>
 	$('#logout-account').click(() => {
+        $.get("api/main.php?act=logout",
+            function() {
+                window.location = "?act=page-login"
+            }
+        );
+    })
+	$('#logout-text').click(() => {
         $.get("api/main.php?act=logout",
             function() {
                 window.location = "?act=page-login"

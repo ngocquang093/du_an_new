@@ -202,6 +202,7 @@ if (isset($_GET['act'])) {
             $password = $_POST['password'];
             $passwordNew = $_POST['passwordNew'];
             $id = $_SESSION['user']['id'];
+            $name = $_POST('name');
             update_name_password_user($id, $name, $passwordNew);
             break;
 
